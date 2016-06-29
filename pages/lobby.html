@@ -13,7 +13,7 @@
 				<div style="padding:20px; margin:20px; background-image: url(images/panel.png)">
 					<button>Slots Club</button>
 					<button onclick="window.location.href='FBConnect.html'">FB Connect</button>
-					<button onclick="window.location.href='buycoins.html'" style = "position:absolute; left:400px">Buy</button>
+					<button onclick="toggle_visibility('popup_buycoins')" style = "position:absolute; left:400px">Buy</button>
 					<button onclick="toggle_visibility('popup')" style = "position:absolute; left:700px">Options</button>
 				</div>
 			</td>
@@ -55,6 +55,104 @@
 				</div>
 				<div style="margin:20px">
 					<button onclick="toggle_visibility('popup')">Close</button>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="b-popup" id = "popup_buycoins" style = "display:none">
+			<div class="b-popup-content">
+				<div style="margin:20px">
+					<table border = "1">
+						<tr>
+							<td>
+								Price
+							</td>
+							<td>
+								Free
+							</td>
+							<td>
+								Count
+							</td>
+							<td>
+								Count + Free
+							</td>
+							<td>
+								Buy
+							</td>
+						</tr>
+						<tr>
+							<td>
+								0.99$
+							</td>
+							<td>
+								10%
+							</td>
+							<td>
+								1000
+							</td>
+							<td>
+								1100
+							</td>
+							<td>
+								<button>Buy</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								1.99$
+							</td>
+							<td>
+								15%
+							</td>
+							<td>
+								2000
+							</td>
+							<td>
+								2300
+							</td>
+							<td>
+								<button>Buy</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								4.99$
+							</td>
+							<td>
+								20%
+							</td>
+							<td>
+								5000
+							</td>
+							<td>
+								6000
+							</td>
+							<td>
+								<button>Buy</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								9.99$
+							</td>
+							<td>
+								30%
+							</td>
+							<td>
+								10000
+							</td>
+							<td>
+								13000
+							</td>
+							<td>
+								<button>Buy</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div style="margin:20px">
+					<button onclick="toggle_visibility('popup_buycoins')">Close</button>
 				</div>
 			</div>
 		</div>
