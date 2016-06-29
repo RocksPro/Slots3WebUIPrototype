@@ -1,3 +1,3 @@
 # Slots3WebUIPrototype
 
-http://slots3webui-20160629.bitballoon.com/
+Build 201606291742 http://slots3.bitballoon.com/
