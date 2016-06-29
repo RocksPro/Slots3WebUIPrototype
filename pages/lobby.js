@@ -6,4 +6,8 @@ function lobbyLoaded()
 	{
 		toggle_visibility('popup');
 	}
+	else if (opened_popup == "buy")
+	{
+		toggle_visibility('popup_buycoins');
+	}
 }
