@@ -2,8 +2,8 @@
     font-family: Areal;
 }
 .b-container{
-    width:200px;
-    height:150px;
+    width:800px;
+    height:800px;
     background-color: #ccc;
     margin:0px auto;
     padding:10px;
@@ -20,8 +20,8 @@
 }
 .b-popup .b-popup-content{
     margin:40px auto 0px auto;
-    width:100px;
-    height: 40px;
+    width:800px;
+    height: 400px;
     padding:10px;
     background-color: #c5c5c5;
     border-radius:5px;
