@@ -3,5 +3,3 @@ function $_GET(key) {
 	s = s.match(new RegExp(key + '=([^&=]+)'));
 	return s ? s[1] : false;
 }
-
-alert( $_GET('test') );
