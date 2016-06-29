@@ -10,4 +10,12 @@ function lobbyLoaded()
 	{
 		toggle_visibility('popup_buycoins');
 	}
+	else if (opened_popup == "receivegifts")
+	{
+		toggle_visibility('popup_receivegifts');
+	}
+	else if (opened_popup == "friends")
+	{
+		toggle_visibility('popup_friends');
+	}
 }
