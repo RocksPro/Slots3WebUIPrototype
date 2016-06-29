@@ -4,10 +4,10 @@ Build 201606291742 http://slots3.bitballoon.com/
 
 Для открытия попапов можно использовать параметры в URL
 
-?popup=options
+http://slots3.bitballoon.com/pages/lobby.html?popup=options
 
-?popup=buy
+http://slots3.bitballoon.com/pages/lobby.html?popup=buy
 
->popup=receivegifts
+http://slots3.bitballoon.com/pages/lobby.html?popup=receivegifts
 
-?popup=friends
+http://slots3.bitballoon.com/pages/lobby.html?popup=friends
