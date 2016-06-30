@@ -16,7 +16,7 @@
 			<script>document.getElementById("bars").innerHTML =  themeLoaded();</script>
 		</div>
 		<div style="padding:20px; margin:20px; background-image: url(images/panel.png); width:900px">
-			<button>Pay Table</button>
+			<button onclick="toggle_visibility('popup_paytable')">Pay Table</button>
 			<button>Lines</button>
 			<button>Bet</button>
 			<b>[ TotalBet ]</b>
@@ -42,6 +42,19 @@
 				</div>
 				<div style="margin:20px">
 					<button onclick="toggle_visibility('popup')">Close</button>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<div class="b-popup" id = "popup_paytable" style = "display:none">
+			<div class="b-popup-content">
+				<div style="margin:20px; color: #ffffff">
+					<h1>PAYTABLE</h1>
+				</div>
+				<div style="margin:20px">
+					<button onclick="toggle_visibility('popup_paytable')">Close</button>
 				</div>
 			</div>
 		</div>
