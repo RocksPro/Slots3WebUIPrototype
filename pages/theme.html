@@ -3,6 +3,7 @@
 	<head>
 		<script src="popupOpen.js"></script>
 		<script src="theme.js"></script>
+		<script src="urlparameters.js"></script>
 		<link rel="stylesheet" type="text/css" href="styles.css">
 	</head>
 	<body>
@@ -11,8 +12,8 @@
 			<button onclick="window.location.href='lobby.html'">Lobby</button>
 			<button onclick="toggle_visibility('popup')">Options</button>
 		</div>
-		<div style="margin:20px">
-			<img src = "images/bars.png"></img>
+		<div style="margin:20px" id = "bars">
+			<script>document.getElementById("bars").innerHTML =  themeLoaded();</script>
 		</div>
 		<div style="margin:20px">
 			<button>Pay Table</button>

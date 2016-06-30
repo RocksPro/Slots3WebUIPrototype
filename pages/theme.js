@@ -1,30 +1,33 @@
 function themeLoaded()
 {
-	var opened_popup = $_GET('t');
+	var theme = $_GET('t');
 	
-	if (opened_popup == "farm")
+	if (theme == "farm")
 	{
-		
+		return "<img src = 'images/bars_farm.png'></img>";
 	}
-	else if (opened_popup == "rome")
+	else if (theme == "rome")
 	{
-		
+		return "<img src = 'images/bars_rome.png'></img>";
 	}
-	else if (opened_popup == "aztec")
+	else if (theme == "aztec")
 	{
-		
+		return "<img src = 'images/bars_aztec.png'></img>";
 	}
-	else if (opened_popup == "classic")
+	else if (theme == "classic")
 	{
-		
+		return "<img src = 'images/bars_classic.png'></img>";
 	}
-	else if (opened_popup == "billionaire")
+	else if (theme == "billionaire")
 	{
-
+		return "<img src = 'images/bars_billionaire.png'></img>";
 	}
-	else if (opened_popup == "africa")
+	else if (theme == "africa")
 	{
-		
+		return "<img src = 'images/bars_africa.png'></img>";
+	}
+	else
+	{
+		return "<img src = 'images/bars_farm.png'></img>";
 	}
 }
-
