@@ -45,7 +45,7 @@
 				</div>
 			</button>
 			
-			<button onclick="toggle_visibility('popup_paytable')" style = "position:absolute; top: 710px; left:310px; background:Transparent; border:0">
+			<button onclick="toggle_visibility('popup_bets')" style = "position:absolute; top: 710px; left:310px; background:Transparent; border:0">
 				<div style = "background-image: url(images/btn.png); width:100px; height:40px; background-size: 100% 100%; color: #ffffff">
 					<font size = "5">Bet</font>
 				</div>
@@ -136,6 +136,40 @@
 					</tr>
 					<tr>
 						<button onclick="toggle_visibility('popup_lines')">9</button>
+					</tr>
+				</td>
+			</table>
+		</div>
+		
+		<div class="b-popup" id = "popup_bets" style = "display:none">
+			<table id = "linestable">
+				<td>
+					<tr>
+						<button onclick="toggle_visibility('popup_bets')">0.25</button>
+					</tr>
+					<tr>
+						<button onclick="toggle_visibility('popup_bets')">0.5</button>
+					</tr>
+					<tr>
+						<button onclick="toggle_visibility('popup_bets')">1</button>
+					</tr>
+					<tr>
+						<button onclick="toggle_visibility('popup_bets')">1.5</button>
+					</tr>
+					<tr>
+						<button onclick="toggle_visibility('popup_bets')">2</button>
+					</tr>
+					<tr>
+						<button onclick="toggle_visibility('popup_bets')">5</button>
+					</tr>
+					<tr>
+						<button onclick="toggle_visibility('popup_bets')">10</button>
+					</tr>
+					<tr>
+						<button onclick="toggle_visibility('popup_bets')">50</button>
+					</tr>
+					<tr>
+						<button onclick="toggle_visibility('popup_bets')">100</button>
 					</tr>
 				</td>
 			</table>
