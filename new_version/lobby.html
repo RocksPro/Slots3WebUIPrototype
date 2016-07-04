@@ -1,15 +1,32 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+		
 		<script>
-			function loaded()
+			var w;
+			var h;
+			function getBrowserSize()
 			{
-				var wid = window.innerWidth;
-				var hi = window.innerHeight;
-				document.getElementById("body").innerHTML = wid + " " + hi;
+				w = window.innerWidth;
+				h = window.innerHeight;
+			}
+			function redrawUI()
+			{
+				getBrowserSize();
+				
+				var divstyle = "style = \"border: 2px; background-color: #0ffff0; width:"+(w)+"px; height: "+(h)+"px\"";
+				
+				document.getElementById("body").innerHTML =  
+				'	\
+					<div ' + divstyle + ' > 	\
+						Size of Div is ' + w + ' ' + h + '  \
+					</div> 	\
+				';				
 			}
 		</script>
+		
 	</head>
-	<body id = "body" onresize = "loaded()">
+	<body id = "body" onload = "redrawUI()" onresize = "redrawUI()">
+		
 	</body>
 </html>
