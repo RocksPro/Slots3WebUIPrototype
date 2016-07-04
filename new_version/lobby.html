@@ -60,6 +60,21 @@
 				var themesPanelL = 0;
 				var themesPanelT = topPanelH;
 				
+				var ThemeIconW = themesPanelH * 0.35;
+				var ThemeIconH = ThemeIconW;
+				
+				var ThemeIconL = [];
+				var ThemeIconT = [];
+				
+				var themesHtmlString = "";
+				
+				for (var i = 0; i < 6; i++)
+				{
+					ThemeIconL[i] = (ThemeIconW + 0.2*themesPanelH) + (i%3)*(ThemeIconW + 0.1*themesPanelH);
+					ThemeIconT[i] = 0.1*themesPanelH + (Math.floor(i/3))*(ThemeIconH + 0.1*themesPanelH);
+					
+					themesHtmlString += '<button style = \" position: absolute; left: '+ThemeIconL[i]+'px; top: '+ThemeIconT[i]+'px; width: '+ThemeIconW+'px; height: '+ThemeIconH+'px; \">Theme'+(i+1)+'</button>';
+				}
 				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
 				document.getElementById("body").innerHTML =  
@@ -73,7 +88,7 @@
 							<button style = \"position: absolute; width: ' + FbBtnW + 'px; height: ' + FbBtnH + 'px; left: ' + FbBtnL + 'px; top: ' + FbBtnT + 'px \"> FbConnect </button>\
 							<button style = \"position: absolute; width: ' + OptionsBtnW + 'px; height: ' + OptionsBtnH + 'px; left: ' + OptionsBtnL + 'px; top: ' + OptionsBtnT + 'px \"> Options </button>\
 						</div>  \
-						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + themesPanelW + 'px; height: ' + themesPanelH + 'px; left: ' + themesPanelL + 'px; top: ' + themesPanelT + 'px \"></div>\
+						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + themesPanelW + 'px; height: ' + themesPanelH + 'px; left: ' + themesPanelL + 'px; top: ' + themesPanelT + 'px \">'+themesHtmlString+'</div>\
 					</div> 	\
 				';				
 			}
