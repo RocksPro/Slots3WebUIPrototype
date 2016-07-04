@@ -22,12 +22,18 @@
 				var OptionsBtnW = topPanelW * 0.1;
 				var OptionsBtnH = topPanelH * 0.8;
 				var OptionsBtnL = topPanelW - OptionsBtnW;
-				var OptionsBtnT = (topPanelH - OptionsBtnH)/2;
+				var OptionsBtnT = (topPanelH - OptionsBtnH)/2 + 10;
+				
+				var SlotsClbBtnW = topPanelH * 0.8;
+				var SlotsClbBtnH = topPanelH * 0.8;
+				var SlotsClbBtnL = 10;
+				var SlotsClbBtnT = (topPanelH - SlotsClbBtnH)/2 + 10;
 				
 				document.getElementById("body").innerHTML =  
 				'	\
 					<div ' + divstyle + ' > 	\
 						<div style = \" background-color: #e6f3ff; width:' + topPanelW + 'px; height: ' + topPanelH + 'px \">  \
+							<button style = \"position: absolute; width: ' + SlotsClbBtnW + 'px; height: ' + SlotsClbBtnH + 'px; left: ' + SlotsClbBtnL + 'px; top: ' + SlotsClbBtnT + 'px \"> SlotsClub  </button>\
 							<button style = \"position: absolute; width: ' + OptionsBtnW + 'px; height: ' + OptionsBtnH + 'px; left: ' + OptionsBtnL + 'px; top: ' + OptionsBtnT + 'px \"> Options  </button>\
 						</div>  \
 					</div> 	\
