@@ -44,6 +44,11 @@
 				var OptionsBtnL = topPanelW - OptionsBtnW;
 				var OptionsBtnT = (topPanelH - OptionsBtnH)/2 + 10;
 				
+				var FbBtnW = topPanelW * 0.1;
+				var FbBtnH = topPanelH * 0.8;
+				var FbBtnL = OptionsBtnL - FbBtnW - topPanelW*0.01;
+				var FbBtnT = (topPanelH - FbBtnH)/2 + 10;
+				
 				document.getElementById("body").innerHTML =  
 				'	\
 					<div ' + divstyle + ' > 	\
@@ -52,6 +57,7 @@
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + MoneyPnlW + 'px; height: ' + MoneyPnlH + 'px; left: ' + MoneyPnlL + 'px; top: ' + MoneyPnlT + 'px \">1000 $</div>\
 							<button style = \"position: absolute; width: ' + BuyBtnW + 'px; height: ' + BuyBtnH + 'px; left: ' + BuyBtnL + 'px; top: ' + BuyBtnT + 'px \"> Buy </button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + ExpPnlW + 'px; height: ' + ExpPnlH + 'px; left: ' + ExpPnlL + 'px; top: ' + ExpPnlT + 'px \">1000 / 10000</div>\
+							<button style = \"position: absolute; width: ' + FbBtnW + 'px; height: ' + FbBtnH + 'px; left: ' + FbBtnL + 'px; top: ' + FbBtnT + 'px \"> FbConnect </button>\
 							<button style = \"position: absolute; width: ' + OptionsBtnW + 'px; height: ' + OptionsBtnH + 'px; left: ' + OptionsBtnL + 'px; top: ' + OptionsBtnT + 'px \"> Options </button>\
 						</div>  \
 					</div> 	\
