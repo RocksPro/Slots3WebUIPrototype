@@ -14,24 +14,22 @@
 			{
 				getBrowserSize();
 				
-				var divstyle = "style = \"border: 2px; background-color: #0ffff0; width:"+(w)+"px; height: "+(h)+"px\"";
+				var divstyle = "style = \"border: 2px; background-color: #b3daff; width:"+(w)+"px; height: "+(h)+"px\"";
 				
 				var topPanelW = w;
-				var topPabelH = (h * 0.1);
+				var topPanelH = (h * 0.1);
 				
 				var OptionsBtnW = topPanelW * 0.1;
-				var OptionsBtnH = topPabelH * 0.8;
+				var OptionsBtnH = topPanelH * 0.8;
 				var OptionsBtnL = topPanelW - OptionsBtnW;
-				var OptionsBtnT = (topPabelH - OptionsBtnH)/2;
+				var OptionsBtnT = (topPanelH - OptionsBtnH)/2;
 				
 				document.getElementById("body").innerHTML =  
 				'	\
 					<div ' + divstyle + ' > 	\
-						<div style = \" background-color: #ffffff; width:' + topPanelW + 'px; height: ' + topPabelH + 'px \">  \
-							Top Panel Size is ' + topPanelW + ' ' + topPabelH + '  \
+						<div style = \" background-color: #e6f3ff; width:' + topPanelW + 'px; height: ' + topPanelH + 'px \">  \
 							<button style = \"position: absolute; width: ' + OptionsBtnW + 'px; height: ' + OptionsBtnH + 'px; left: ' + OptionsBtnL + 'px; top: ' + OptionsBtnT + 'px \"> Options  </button>\
 						</div>  \
-						Bidy Size is ' + w + ' ' + h + '  \
 					</div> 	\
 				';				
 			}
