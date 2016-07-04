@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script>
+			function loaded()
+			{
+				var wid = window.innerWidth;
+				var hi = window.innerHeight;
+				document.getElementById("body").innerHTML = wid + " " + hi;
+			}
+		</script>
+	</head>
+	<body id = "body" onresize = "loaded()">
+	</body>
+</html>
