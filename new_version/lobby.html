@@ -14,40 +14,53 @@
 			{
 				getBrowserSize();
 				
-				var divstyle = "style = \"border: 2px; background-color: #b3daff; width:"+(w)+"px; height: "+(h)+"px\"";
+				var divstyle = "style = \"position:absolute; left: 0px; top: 0px; border: 2px; background-color: #b3daff; width:"+(w)+"px; height: "+(h)+"px\"";
+				
+				//Top Panel Elements~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
 				var topPanelW = w;
 				var topPanelH = (h * 0.1);
 				
 				var SlotsClbBtnW = topPanelH * 0.8;
 				var SlotsClbBtnH = topPanelH * 0.8;
-				var SlotsClbBtnL = 10;
-				var SlotsClbBtnT = (topPanelH - SlotsClbBtnH)/2 + 10;
+				var SlotsClbBtnL = 0;
+				var SlotsClbBtnT = (topPanelH - SlotsClbBtnH)/2;
 				
 				var MoneyPnlW = topPanelW * 0.1;
 				var MoneyPnlH = topPanelH * 0.8;
 				var MoneyPnlL = SlotsClbBtnL + SlotsClbBtnW + topPanelW*0.01;
-				var MoneyPnlT = (topPanelH - MoneyPnlH)/2 + 10;
+				var MoneyPnlT = (topPanelH - MoneyPnlH)/2;
 				
 				var BuyBtnW = topPanelW * 0.1;
 				var BuyBtnH = topPanelH * 0.8;
 				var BuyBtnL = MoneyPnlL + MoneyPnlW + topPanelW*0.01;
-				var BuyBtnT = (topPanelH - BuyBtnH)/2 + 10;
+				var BuyBtnT = (topPanelH - BuyBtnH)/2;
 				
 				var ExpPnlW = topPanelW * 0.2;
 				var ExpPnlH = topPanelH * 0.8;
 				var ExpPnlL = BuyBtnL + BuyBtnW + topPanelW*0.01;
-				var ExpPnlT = (topPanelH - ExpPnlH)/2 + 10;
+				var ExpPnlT = (topPanelH - ExpPnlH)/2;
 				
 				var OptionsBtnW = topPanelW * 0.1;
 				var OptionsBtnH = topPanelH * 0.8;
 				var OptionsBtnL = topPanelW - OptionsBtnW;
-				var OptionsBtnT = (topPanelH - OptionsBtnH)/2 + 10;
+				var OptionsBtnT = (topPanelH - OptionsBtnH)/2;
 				
 				var FbBtnW = topPanelW * 0.1;
 				var FbBtnH = topPanelH * 0.8;
 				var FbBtnL = OptionsBtnL - FbBtnW - topPanelW*0.01;
-				var FbBtnT = (topPanelH - FbBtnH)/2 + 10;
+				var FbBtnT = (topPanelH - FbBtnH)/2;
+				
+				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				
+				//Themes Page Elements~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				
+				var themesPanelW = w;
+				var themesPanelH = h * 0.7;
+				var themesPanelL = 0;
+				var themesPanelT = topPanelH;
+				
+				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
 				document.getElementById("body").innerHTML =  
 				'	\
@@ -60,6 +73,7 @@
 							<button style = \"position: absolute; width: ' + FbBtnW + 'px; height: ' + FbBtnH + 'px; left: ' + FbBtnL + 'px; top: ' + FbBtnT + 'px \"> FbConnect </button>\
 							<button style = \"position: absolute; width: ' + OptionsBtnW + 'px; height: ' + OptionsBtnH + 'px; left: ' + OptionsBtnL + 'px; top: ' + OptionsBtnT + 'px \"> Options </button>\
 						</div>  \
+						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + themesPanelW + 'px; height: ' + themesPanelH + 'px; left: ' + themesPanelL + 'px; top: ' + themesPanelT + 'px \"></div>\
 					</div> 	\
 				';				
 			}
