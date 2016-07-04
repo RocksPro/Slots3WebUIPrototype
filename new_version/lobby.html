@@ -4,6 +4,7 @@
 		<script>
 			var w;
 			var h;
+			var popupToShow = "";
 			function getBrowserSize()
 			{
 				w = document.body.clientWidth;
@@ -110,6 +111,34 @@
 				var MegaBonusBtnT = MegaBonusBtnH/2;
 				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
+				var popupHtmlString = "";
+				
+				var PopupW = w / 2;
+				var PopupH = h / 2;
+				var PopupL = w/2 - PopupW/2;
+				var PopupT = h/2 - PopupH/2;
+				
+				var PopupCloseBtnW = PopupW * 0.05;
+				var PopupCloseBtnH = PopupCloseBtnW;
+				var PopupCloseBtnL = PopupW - PopupCloseBtnW;
+				var PopupCloseBtnT = 0;
+				
+				switch (popupToShow)
+				{
+					case 'Options':
+					{
+						popupHtmlString = '<div style = \"position: absolute; left: 0px; top : 0px; width: '+w+'px; height: '+h+'px; opacity:0.3; background-color:#000080\"></div>';
+						popupHtmlString += '<div style = \"text-align: center; background-color: #e6e6ff; opcaity: 1.0; position: absolute; width: ' + PopupW + 'px; height: ' + PopupH + 'px; left: ' + PopupL + 'px; top: ' + PopupT + 'px \">Options Popup';
+						popupHtmlString += '<button onclick = \"hidePopups()\" style = \"position: absolute; width: ' + PopupCloseBtnW + 'px; height: ' + PopupCloseBtnH + 'px; left: ' + PopupCloseBtnL + 'px; top: ' + PopupCloseBtnT + 'px \"> X </button>';
+						popupHtmlString += '</div>';
+						break;
+					}
+					default:
+					{
+						popupHtmlString = "";
+					}
+				}
+				
 				document.getElementById("body").innerHTML =  
 				'	\
 					<div ' + divstyle + ' > 	\
@@ -119,7 +148,7 @@
 							<button style = \"position: absolute; width: ' + BuyBtnW + 'px; height: ' + BuyBtnH + 'px; left: ' + BuyBtnL + 'px; top: ' + BuyBtnT + 'px \"> Buy </button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + ExpPnlW + 'px; height: ' + ExpPnlH + 'px; left: ' + ExpPnlL + 'px; top: ' + ExpPnlT + 'px \">1000 / 10000</div>\
 							<button style = \"position: absolute; width: ' + FbBtnW + 'px; height: ' + FbBtnH + 'px; left: ' + FbBtnL + 'px; top: ' + FbBtnT + 'px \"> FbConnect </button>\
-							<button style = \"position: absolute; width: ' + OptionsBtnW + 'px; height: ' + OptionsBtnH + 'px; left: ' + OptionsBtnL + 'px; top: ' + OptionsBtnT + 'px \"> Options </button>\
+							<button onclick = \"showOptions()\" style = \"position: absolute; width: ' + OptionsBtnW + 'px; height: ' + OptionsBtnH + 'px; left: ' + OptionsBtnL + 'px; top: ' + OptionsBtnT + 'px \"> Options </button>\
 						</div>  \
 						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + themesPanelW + 'px; height: ' + themesPanelH + 'px; left: ' + themesPanelL + 'px; top: ' + themesPanelT + 'px \">'+themesHtmlString+'</div>\
 						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; position: absolute; width: ' + bottomPanelW + 'px; height: ' + bottomPanelH + 'px; left: ' + bottomPanelL + 'px; top: ' + bottomPanelT + 'px \">   \
@@ -129,7 +158,18 @@
 							<button style = \"position: absolute; width: ' + MegaBonusBtnW + 'px; height: ' + MegaBonusBtnH + 'px; left: ' + MegaBonusBtnL + 'px; top: ' + MegaBonusBtnT + 'px \"> Collect Now </button>\
 						</div>  \
 					</div> 	\
+					'+popupHtmlString+'  \
 				';				
+			}
+			function showOptions()
+			{
+				popupToShow = "Options";
+				redrawUI();
+			}
+			function hidePopups()
+			{
+				popupToShow = "";
+				redrawUI();
 			}
 		</script>	
 	</head>
