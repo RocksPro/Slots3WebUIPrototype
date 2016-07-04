@@ -19,26 +19,32 @@
 				var topPanelW = w;
 				var topPanelH = (h * 0.1);
 				
-				var OptionsBtnW = topPanelW * 0.1;
-				var OptionsBtnH = topPanelH * 0.8;
-				var OptionsBtnL = topPanelW - OptionsBtnW;
-				var OptionsBtnT = (topPanelH - OptionsBtnH)/2 + 10;
-				
 				var SlotsClbBtnW = topPanelH * 0.8;
 				var SlotsClbBtnH = topPanelH * 0.8;
 				var SlotsClbBtnL = 10;
 				var SlotsClbBtnT = (topPanelH - SlotsClbBtnH)/2 + 10;
 				
+				var MoneyPnlW = topPanelW * 0.1;
+				var MoneyPnlH = topPanelH * 0.8;
+				var MoneyPnlL = SlotsClbBtnL + SlotsClbBtnW + topPanelW*0.01;
+				var MoneyPnlT = (topPanelH - MoneyPnlH)/2 + 10;
+				
 				var BuyBtnW = topPanelW * 0.1;
 				var BuyBtnH = topPanelH * 0.8;
-				var BuyBtnL = SlotsClbBtnL + SlotsClbBtnW + topPanelW*0.01;
+				var BuyBtnL = MoneyPnlL + MoneyPnlW + topPanelW*0.01;
 				var BuyBtnT = (topPanelH - BuyBtnH)/2 + 10;
+				
+				var OptionsBtnW = topPanelW * 0.1;
+				var OptionsBtnH = topPanelH * 0.8;
+				var OptionsBtnL = topPanelW - OptionsBtnW;
+				var OptionsBtnT = (topPanelH - OptionsBtnH)/2 + 10;
 				
 				document.getElementById("body").innerHTML =  
 				'	\
 					<div ' + divstyle + ' > 	\
 						<div style = \" background-color: #e6f3ff; width:' + topPanelW + 'px; height: ' + topPanelH + 'px \">  \
 							<button style = \"position: absolute; width: ' + SlotsClbBtnW + 'px; height: ' + SlotsClbBtnH + 'px; left: ' + SlotsClbBtnL + 'px; top: ' + SlotsClbBtnT + 'px \"> SlotsClub </button>\
+							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + MoneyPnlW + 'px; height: ' + MoneyPnlH + 'px; left: ' + MoneyPnlL + 'px; top: ' + MoneyPnlT + 'px \">1000 $</div>\
 							<button style = \"position: absolute; width: ' + BuyBtnW + 'px; height: ' + BuyBtnH + 'px; left: ' + BuyBtnL + 'px; top: ' + BuyBtnT + 'px \"> Buy </button>\
 							<button style = \"position: absolute; width: ' + OptionsBtnW + 'px; height: ' + OptionsBtnH + 'px; left: ' + OptionsBtnL + 'px; top: ' + OptionsBtnT + 'px \"> Options </button>\
 						</div>  \
