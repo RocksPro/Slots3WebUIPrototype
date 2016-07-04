@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		
+	<head>	
 		<script>
 			var w;
 			var h;
@@ -76,7 +75,7 @@
 				
 				for (var i = 0; i < 6; i++)
 				{
-					ThemeIconL[i] = (ThemeIconW + 0.2*themesPanelH) + (i%3)*(ThemeIconW + 0.1*themesPanelH);
+					ThemeIconL[i] = ((themesPanelW - (ThemeIconW*3 + 0.2*themesPanelH))/2) + (i%3)*(ThemeIconW + 0.1*themesPanelH);
 					ThemeIconT[i] = 0.1*themesPanelH + (Math.floor(i/3))*(ThemeIconH + 0.1*themesPanelH);
 					
 					themesHtmlString += '<button style = \" position: absolute; left: '+ThemeIconL[i]+'px; top: '+ThemeIconT[i]+'px; width: '+ThemeIconW+'px; height: '+ThemeIconH+'px; \">Theme'+(i+1)+'</button>';
@@ -99,6 +98,11 @@
 				var FriendsBtnH = FriendsBtnW;
 				var FriendsBtnL = bottomPanelW - FriendsBtnW;
 				var FriendsBtnT = (bottomPanelH - FriendsBtnH)/2;
+				
+				var MegaBonusPanelW = bottomPanelW * 0.3;
+				var MegaBonusPanelH = bottomPanelH + bottomPanelH * 0.3;
+				var MegaBonusPanelL = bottomPanelW/2 - MegaBonusPanelW/2;
+				var MegaBonusPanelT = -bottomPanelH * 0.3;
 				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
 				document.getElementById("body").innerHTML =  
@@ -116,14 +120,13 @@
 						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; position: absolute; width: ' + bottomPanelW + 'px; height: ' + bottomPanelH + 'px; left: ' + bottomPanelL + 'px; top: ' + bottomPanelT + 'px \">   \
 							<button style = \"position: absolute; width: ' + GiftsBtnW + 'px; height: ' + GiftsBtnH + 'px; left: ' + GiftsBtnL + 'px; top: ' + GiftsBtnT + 'px \"> Gifts </button>\
 							<button style = \"position: absolute; width: ' + FriendsBtnW + 'px; height: ' + FriendsBtnH + 'px; left: ' + FriendsBtnL + 'px; top: ' + FriendsBtnT + 'px \"> Friends </button>\
+							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + MegaBonusPanelW + 'px; height: ' + MegaBonusPanelH + 'px; left: ' + MegaBonusPanelL + 'px; top: ' + MegaBonusPanelT + 'px \">MEGA BONUS</div>\
 						</div>  \
 					</div> 	\
 				';				
 			}
-		</script>
-		
+		</script>	
 	</head>
-	<body id = "body" onload = "redrawUI()" onresize = "redrawUI()">
-		
+	<body id = "body" onload = "redrawUI()" onresize = "redrawUI()">	
 	</body>
 </html>
