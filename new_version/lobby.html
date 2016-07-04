@@ -77,6 +77,19 @@
 				}
 				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
+				//Bottom Panel~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				
+				var bottomPanelW = w;
+				var bottomPanelH = h * 0.2;
+				var bottomPanelL = 0;
+				var bottomPanelT = topPanelH + themesPanelH;
+				
+				var GiftsBtnW = bottomPanelH * 0.8;
+				var GiftsBtnH = GiftsBtnW;
+				var GiftsBtnL = 0;
+				var GiftsBtnT = (bottomPanelH - GiftsBtnH)/2;
+				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				
 				document.getElementById("body").innerHTML =  
 				'	\
 					<div ' + divstyle + ' > 	\
@@ -89,6 +102,9 @@
 							<button style = \"position: absolute; width: ' + OptionsBtnW + 'px; height: ' + OptionsBtnH + 'px; left: ' + OptionsBtnL + 'px; top: ' + OptionsBtnT + 'px \"> Options </button>\
 						</div>  \
 						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + themesPanelW + 'px; height: ' + themesPanelH + 'px; left: ' + themesPanelL + 'px; top: ' + themesPanelT + 'px \">'+themesHtmlString+'</div>\
+						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; position: absolute; width: ' + bottomPanelW + 'px; height: ' + bottomPanelH + 'px; left: ' + bottomPanelL + 'px; top: ' + bottomPanelT + 'px \">   \
+							<button style = \"position: absolute; width: ' + GiftsBtnW + 'px; height: ' + GiftsBtnH + 'px; left: ' + GiftsBtnL + 'px; top: ' + GiftsBtnT + 'px \"> Gifts </button>\
+						</div>  \
 					</div> 	\
 				';				
 			}
