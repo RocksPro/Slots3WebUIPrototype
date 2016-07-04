@@ -88,6 +88,11 @@
 				var GiftsBtnH = GiftsBtnW;
 				var GiftsBtnL = 0;
 				var GiftsBtnT = (bottomPanelH - GiftsBtnH)/2;
+				
+				var FriendsBtnW = bottomPanelH * 0.8;
+				var FriendsBtnH = FriendsBtnW;
+				var FriendsBtnL = bottomPanelW - FriendsBtnW;
+				var FriendsBtnT = (bottomPanelH - FriendsBtnH)/2;
 				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
 				document.getElementById("body").innerHTML =  
@@ -104,6 +109,7 @@
 						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + themesPanelW + 'px; height: ' + themesPanelH + 'px; left: ' + themesPanelL + 'px; top: ' + themesPanelT + 'px \">'+themesHtmlString+'</div>\
 						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; position: absolute; width: ' + bottomPanelW + 'px; height: ' + bottomPanelH + 'px; left: ' + bottomPanelL + 'px; top: ' + bottomPanelT + 'px \">   \
 							<button style = \"position: absolute; width: ' + GiftsBtnW + 'px; height: ' + GiftsBtnH + 'px; left: ' + GiftsBtnL + 'px; top: ' + GiftsBtnT + 'px \"> Gifts </button>\
+							<button style = \"position: absolute; width: ' + FriendsBtnW + 'px; height: ' + FriendsBtnH + 'px; left: ' + FriendsBtnL + 'px; top: ' + FriendsBtnT + 'px \"> Friends </button>\
 						</div>  \
 					</div> 	\
 				';				
