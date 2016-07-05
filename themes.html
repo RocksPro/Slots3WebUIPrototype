@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html>
+	<head>	
+		<script>
+			
+			var uiViewportWidth;
+			var uiViewportHeight;
+			
+			var uiGameWidth;
+			var uiGameHeight;
+			var uiGameLeft;
+			var uiGameTop;
+			
+			var uiViewportAspectRatio;
+			var uiGameAspectRatio = 1.6;
+			
+			var uiGamePopupToShow = "";
+			
+			var uiGameFontSizeScale = 0.017;
+			var uiGameFontSize;
+			
+			function getUiGameSize()
+			{
+				uiViewportWidth = document.documentElement.clientWidth;
+				uiViewportHeight = document.documentElement.clientHeight;
+				
+				uiViewportAspectRatio = uiViewportWidth/uiViewportHeight;
+				
+				if (uiViewportAspectRatio < uiGameAspectRatio)
+				{
+					uiGameWidth = uiViewportWidth;
+					uiGameHeight = uiGameWidth / uiGameAspectRatio;
+					uiGameLeft = 0;
+					uiGameTop = uiViewportHeight/2 - uiGameHeight/2;
+				}
+				else
+				{
+					uiGameHeight = uiViewportHeight;
+					uiGameWidth = uiGameHeight * uiGameAspectRatio;
+					uiGameLeft = uiViewportWidth/2 - uiGameWidth/2;
+					uiGameTop = 0;
+				}
+				
+				uiGameFontSize = uiGameHeight * uiGameFontSizeScale;
+			}
+			function redrawUI()
+			{
+				getUiGameSize();
+								
+				//Top Panel Elements~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				
+				const uiGameTopPanelIntervalScale = 0.01;
+				const uiGameTopPanelHeightScale = 0.1;
+				var uiGameTopPanelWidth = uiGameWidth;
+				var uiGameTopPanelHeight = uiGameHeight * uiGameTopPanelHeightScale;
+				
+				const uiGameSlotsClubButtonWidthScale = 0.8;
+				var uiGameSlotsClubButtonWidth = uiGameTopPanelHeight * uiGameSlotsClubButtonWidthScale;
+				var uiGameSlotsClubButtonHeight = uiGameSlotsClubButtonWidth;
+				var uiGameSlotsClubButtonLeft = 0;
+				var uiGameSlotsClubButtonTop = (uiGameTopPanelHeight - uiGameSlotsClubButtonHeight)/2;
+				
+				const uiGameSlotsMoneyPanelWidthScale = 0.1;
+				const uiGameSlotsMoneyPanelHeightScale = 0.8;
+				var uiGameSlotsMoneyPanelWidth = uiGameTopPanelWidth * uiGameSlotsMoneyPanelWidthScale;
+				var uiGameSlotsMoneyPanelHeight = uiGameTopPanelHeight * uiGameSlotsMoneyPanelHeightScale;
+				var uiGameSlotsMoneyPanelLeft = uiGameSlotsClubButtonLeft + uiGameSlotsClubButtonWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale;
+				var uiGameSlotsMoneyPanelTop = (uiGameTopPanelHeight - uiGameSlotsMoneyPanelHeight)/2;
+				
+				const uiGameBuyButtonWidthScale = 0.1;
+				const uiGameBuyButtonHeightScale = 0.8;
+				var uiGameBuyButtonWidth = uiGameTopPanelWidth * uiGameBuyButtonWidthScale;
+				var uiGameBuyButtonHeight = uiGameTopPanelHeight * uiGameBuyButtonHeightScale;
+				var uiGameBuyButtonLeft = uiGameSlotsMoneyPanelLeft + uiGameSlotsMoneyPanelWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale;
+				var uiGameBuyButtonTop = (uiGameTopPanelHeight - uiGameBuyButtonHeight)/2;
+				
+				const uiGameExperiencePanelWidthScale = 0.2;
+				const uiGameExperiencePanelHeightScale = 0.8;
+				var uiGameExperiencePanelWidth = uiGameTopPanelWidth * uiGameExperiencePanelWidthScale;
+				var uiGameExperiencePanelHeight = uiGameTopPanelHeight * uiGameExperiencePanelHeightScale;
+				var uiGameExperiencePanelLeft = uiGameBuyButtonLeft + uiGameBuyButtonWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale;
+				var uiGameExperiencePanelTop = (uiGameTopPanelHeight - uiGameExperiencePanelHeight)/2;
+				
+				const uiGameOptionsButtonWidthScale = 0.1;
+				const uiGameOptionsButtonHeightScale = 0.8;
+				var uiGameOptionsButtonWidth = uiGameTopPanelWidth * uiGameOptionsButtonWidthScale;
+				var uiGameOptionsButtonHeight = uiGameTopPanelHeight * uiGameOptionsButtonHeightScale;
+				var uiGameOptionsButtonLeft = uiGameTopPanelWidth - uiGameOptionsButtonWidth;
+				var uiGameOptionsButtonTop = (uiGameTopPanelHeight - uiGameOptionsButtonHeight)/2;
+				
+				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				
+				//Themes Page Elements~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				
+				const uiGameThemesPanelHeightScale = 0.7;
+				var uiGameThemesPanelWidth = uiGameWidth;
+				var uiGameThemesPanelHeight = uiGameHeight * uiGameThemesPanelHeightScale;
+				var uiGameThemesPanelLeft = 0;
+				var uiGameThemesPanelTop = uiGameTopPanelHeight;
+				
+				const uiGameThemeIconWidthScale = 0.35;
+				var uiGameThemeIconWidth = uiGameThemesPanelHeight * uiGameThemeIconWidthScale;
+				var uiGameThemeIconHeight = uiGameThemeIconWidth;
+				
+				const uiGameThemesIconsInterval = 0.1;
+				var uiGameThemesIconsLeftArray = [];
+				var uiGameThemesIconsTopArray = [];
+				
+				var themesHtmlString = "";
+				
+				const uiGameThemesIconsCount = 6;
+				
+				for (var i = 0; i < uiGameThemesIconsCount; i++)
+				{
+					uiGameThemesIconsLeftArray[i] = ((uiGameThemesPanelWidth - (uiGameThemeIconWidth*(uiGameThemesIconsCount/2) + (uiGameThemesIconsInterval*2)*uiGameThemesPanelHeight))/2) + (i%(uiGameThemesIconsCount/2))*(uiGameThemeIconWidth + uiGameThemesIconsInterval*uiGameThemesPanelHeight);
+					uiGameThemesIconsTopArray[i] = uiGameThemesIconsInterval*uiGameThemesPanelHeight + (Math.floor(i/(uiGameThemesIconsCount/2)))*(uiGameThemeIconHeight + uiGameThemesIconsInterval*uiGameThemesPanelHeight);
+					
+					themesHtmlString += '<button style = \"font-size:'+uiGameFontSize+'px; position: absolute; left: '+uiGameThemesIconsLeftArray[i]+'px; top: '+uiGameThemesIconsTopArray[i]+'px; width: '+uiGameThemeIconWidth+'px; height: '+uiGameThemeIconHeight+'px; \">Theme'+(i+1)+'</button>';
+				}
+				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				
+				//Bottom Panel~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				
+				const uiGameBottomPanelHeightScale = 0.2;
+				var uiGameBottomPanelWidth = uiGameWidth;
+				var uiGameBottomPanelHeight = uiGameHeight * uiGameBottomPanelHeightScale;
+				var uiGameBottomPanelLeft = 0;
+				var uiGameBottomPanelTop = uiGameTopPanelHeight + uiGameThemesPanelHeight;
+				
+				const uiGamePayTableButtonWidthScale = 0.8;
+				var uiGamePayTableButtonWidth = uiGameBottomPanelHeight * uiGamePayTableButtonWidthScale;
+				var uiGamePayTableButtonHeight = uiGamePayTableButtonWidth;
+				var uiGamePayTableButtonLeft = 0;
+				var uiGamePayTableButtonTop = (uiGameBottomPanelHeight - uiGamePayTableButtonHeight)/2;
+				
+				const uiGameSpinButtonWidthScale = 0.8;
+				var uiGameSpinButtonWidth = uiGameBottomPanelHeight * uiGameSpinButtonWidthScale;
+				var uiGameSpinButtonHeight = uiGameSpinButtonWidth;
+				var uiGameSpinButtonLeft = uiGameBottomPanelWidth - uiGameSpinButtonWidth;
+				var uiGameSpinButtonTop = (uiGameBottomPanelHeight - uiGameSpinButtonHeight)/2;
+				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				
+				var uiGamePopupHeighttmlString = "";
+				
+				var uiGamePopupWidth = uiGameWidth / 2;
+				var uiGamePopupHeight = uiGameHeight / 2;
+				var uiGamePopupLeft = uiGameWidth/2 - uiGamePopupWidth/2;
+				var uiGamePopupTop = uiGameHeight/2 - uiGamePopupHeight/2;
+				
+				const uiGamePopupCloseButtonWidthScale = 0.05;
+				var uiGamePopupCloseButtonWidth = uiGamePopupWidth * uiGamePopupCloseButtonWidthScale;
+				var uiGamePopupCloseButtonHeight = uiGamePopupCloseButtonWidth;
+				var uiGamePopupCloseButtonLeft = uiGamePopupWidth - uiGamePopupCloseButtonWidth;
+				var uiGamePopupCloseButtonTop = 0;
+				
+				switch (uiGamePopupToShow)
+				{
+					case 'Popup':
+					{
+						uiGamePopupHeighttmlString = '<div style = \"position: absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; width: '+uiGameWidth+'px; height: '+uiGameHeight+'px; opacity:0.3; background-color:#000080\"></div>';
+						uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize+'px; text-align: center; background-color: #e6e6ff; opcaity: 1.0; position: absolute; width: ' + uiGamePopupWidth + 'px; height: ' + uiGamePopupHeight + 'px; left: ' + uiGamePopupLeft + 'px; top: ' + uiGamePopupTop + 'px \">Popup';
+						uiGamePopupHeighttmlString += '<button onclick = \"hidePopups()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePopupCloseButtonWidth + 'px; height: ' + uiGamePopupCloseButtonHeight + 'px; left: ' + uiGamePopupCloseButtonLeft + 'px; top: ' + uiGamePopupCloseButtonTop + 'px \"> X </button>';
+						uiGamePopupHeighttmlString += '</div>';
+						break;
+					}
+					default:
+					{
+						uiGamePopupHeighttmlString = "";
+					}
+				}
+				
+				document.getElementById("body").innerHTML =  
+				'	\
+					<div style = \"font-size:'+uiGameFontSize+'px; position:absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; border: 2px; background-color: #b3daff; width:'+uiGameWidth+'px; height: '+uiGameHeight+'px\"> \
+						<div style = \" background-color: #e6f3ff; width:' + uiGameTopPanelWidth + 'px; height: ' + uiGameTopPanelHeight + 'px \">  \
+							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: ' + uiGameSlotsClubButtonLeft + 'px; top: ' + uiGameSlotsClubButtonTop + 'px \">SlotsClub</button>\
+							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px \">1000 $</div>\
+							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameBuyButtonWidth + 'px; height: ' + uiGameBuyButtonHeight + 'px; left: ' + uiGameBuyButtonLeft + 'px; top: ' + uiGameBuyButtonTop + 'px \"> Buy </button>\
+							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \">1000 / 10000</div>\
+							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameOptionsButtonWidth + 'px; height: ' + uiGameOptionsButtonHeight + 'px; left: ' + uiGameOptionsButtonLeft + 'px; top: ' + uiGameOptionsButtonTop + 'px \"> Options </button>\
+						</div>  \
+						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + uiGameThemesPanelWidth + 'px; height: ' + uiGameThemesPanelHeight + 'px; left: ' + uiGameThemesPanelLeft + 'px; top: ' + uiGameThemesPanelTop + 'px \">BARABANS</div>\
+						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; position: absolute; width: ' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px; top: ' + uiGameBottomPanelTop + 'px \">   \
+							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePayTableButtonWidth + 'px; height: ' + uiGamePayTableButtonHeight + 'px; left: ' + uiGamePayTableButtonLeft + 'px; top: ' + uiGamePayTableButtonTop + 'px \"> PayTable </button>\
+							<button style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameSpinButtonWidth + 'px; height: ' + uiGameSpinButtonHeight + 'px; left: ' + uiGameSpinButtonLeft + 'px; top: ' + uiGameSpinButtonTop + 'px \"> Spin </button>\
+						</div>  \
+					</div> 	\
+					'+uiGamePopupHeighttmlString+'  \
+				';				
+			}
+			function showPopup()
+			{
+				uiGamePopupToShow = "Popup";
+				redrawUI();
+			}
+			function hidePopups()
+			{
+				uiGamePopupToShow = "";
+				redrawUI();
+			}
+			
+			function onLoad()
+			{
+				redrawUI();
+			}
+			function onResize()
+			{
+				redrawUI();
+			}
+		</script>	
+	</head>
+	<body id = "body" onload = "onLoad()" onresize = "onResize()">	
+	</body>
+</html>
