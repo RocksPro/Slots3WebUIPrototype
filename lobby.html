@@ -8,6 +8,7 @@
 			
 			var uiGameWidth;
 			var uiGameHeight;
+			var uiGameLeft;
 			
 			var uiViewportAspectRatio;
 			var uiGameAspectRatio = 1.6;
@@ -25,11 +26,13 @@
 				{
 					uiGameWidth = uiViewportWidth;
 					uiGameHeight = uiGameWidth / uiGameAspectRatio;
+					uiGameLeft = 0;
 				}
 				else
 				{
 					uiGameHeight = uiViewportHeight;
 					uiGameWidth = uiGameHeight * uiGameAspectRatio;
+					uiGameLeft = uiViewportWidth/2 - uiGameWidth/2;
 				}
 			}
 			function redrawUI()
@@ -155,7 +158,7 @@
 				
 				document.getElementById("body").innerHTML =  
 				'	\
-					<div style = \"position:absolute; left: 0px; top: 0px; border: 2px; background-color: #b3daff; width:"+(uiGameWidth)+"px; height: "+(uiGameHeight)+"px\"> \
+					<div style = \"position:absolute; left: '+uiGameLeft+'px; top: 0px; border: 2px; background-color: #b3daff; width:'+uiGameWidth+'px; height: '+uiGameHeight+'px\"> \
 						<div style = \" background-color: #e6f3ff; width:' + uiGameTopPanelWidth + 'px; height: ' + uiGameTopPanelHeight + 'px \">  \
 							<button onclick = \"showPopup()\" style = \"position: absolute; width: ' + uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: ' + uiGameSlotsClubButtonLeft + 'px; top: ' + uiGameSlotsClubButtonTop + 'px \"> SlotsClub </button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px \">1000 $</div>\
