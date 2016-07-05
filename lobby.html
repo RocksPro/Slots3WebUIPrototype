@@ -41,60 +41,78 @@
 								
 				//Top Panel Elements~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
+				const uiGameTopPanelIntervalScale = 0.01;
+				const uiGameTopPanelHeightScale = 0.1;
 				var uiGameTopPanelWidth = uiGameWidth;
-				var uiGameTopPanelHeight = (uiGameHeight * 0.1);
+				var uiGameTopPanelHeight = uiGameHeight * uiGameTopPanelHeightScale;
 				
-				var uiGameSlotsClubButtonWidth = uiGameTopPanelHeight * 0.8;
-				var uiGameSlotsClubButtonHeight = uiGameTopPanelHeight * 0.8;
+				const uiGameSlotsClubButtonWidthScale = 0.8;
+				var uiGameSlotsClubButtonWidth = uiGameTopPanelHeight * uiGameSlotsClubButtonWidthScale;
+				var uiGameSlotsClubButtonHeight = uiGameSlotsClubButtonWidth;
 				var uiGameSlotsClubButtonLeft = 0;
 				var uiGameSlotsClubButtonTop = (uiGameTopPanelHeight - uiGameSlotsClubButtonHeight)/2;
 				
-				var uiGameSlotsMoneyPanelWidth = uiGameTopPanelWidth * 0.1;
-				var uiGameSlotsMoneyPanelHeight = uiGameTopPanelHeight * 0.8;
-				var uiGameSlotsMoneyPanelLeft = uiGameSlotsClubButtonLeft + uiGameSlotsClubButtonWidth + uiGameTopPanelWidth*0.01;
+				const uiGameSlotsMoneyPanelWidthScale = 0.1;
+				const uiGameSlotsMoneyPanelHeightScale = 0.8;
+				var uiGameSlotsMoneyPanelWidth = uiGameTopPanelWidth * uiGameSlotsMoneyPanelWidthScale;
+				var uiGameSlotsMoneyPanelHeight = uiGameTopPanelHeight * uiGameSlotsMoneyPanelHeightScale;
+				var uiGameSlotsMoneyPanelLeft = uiGameSlotsClubButtonLeft + uiGameSlotsClubButtonWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale;
 				var uiGameSlotsMoneyPanelTop = (uiGameTopPanelHeight - uiGameSlotsMoneyPanelHeight)/2;
 				
-				var uiGameBuyButtonWidth = uiGameTopPanelWidth * 0.1;
-				var uiGameBuyButtonHeight = uiGameTopPanelHeight * 0.8;
-				var uiGameBuyButtonLeft = uiGameSlotsMoneyPanelLeft + uiGameSlotsMoneyPanelWidth + uiGameTopPanelWidth*0.01;
+				const uiGameBuyButtonWidthScale = 0.1;
+				const uiGameBuyButtonHeightScale = 0.8;
+				var uiGameBuyButtonWidth = uiGameTopPanelWidth * uiGameBuyButtonWidthScale;
+				var uiGameBuyButtonHeight = uiGameTopPanelHeight * uiGameBuyButtonHeightScale;
+				var uiGameBuyButtonLeft = uiGameSlotsMoneyPanelLeft + uiGameSlotsMoneyPanelWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale;
 				var uiGameBuyButtonTop = (uiGameTopPanelHeight - uiGameBuyButtonHeight)/2;
 				
-				var uiGameExperiencePanelWidth = uiGameTopPanelWidth * 0.2;
-				var uiGameExperiencePanelHeight = uiGameTopPanelHeight * 0.8;
-				var uiGameExperiencePanelLeft = uiGameBuyButtonLeft + uiGameBuyButtonWidth + uiGameTopPanelWidth*0.01;
+				const uiGameExperiencePanelWidthScale = 0.2;
+				const uiGameExperiencePanelHeightScale = 0.8;
+				var uiGameExperiencePanelWidth = uiGameTopPanelWidth * uiGameExperiencePanelWidthScale;
+				var uiGameExperiencePanelHeight = uiGameTopPanelHeight * uiGameExperiencePanelHeightScale;
+				var uiGameExperiencePanelLeft = uiGameBuyButtonLeft + uiGameBuyButtonWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale;
 				var uiGameExperiencePanelTop = (uiGameTopPanelHeight - uiGameExperiencePanelHeight)/2;
 				
-				var uiGameOptionsButtonWidth = uiGameTopPanelWidth * 0.1;
-				var uiGameOptionsButtonHeight = uiGameTopPanelHeight * 0.8;
+				const uiGameOptionsButtonWidthScale = 0.1;
+				const uiGameOptionsButtonHeightScale = 0.8;
+				var uiGameOptionsButtonWidth = uiGameTopPanelWidth * uiGameOptionsButtonWidthScale;
+				var uiGameOptionsButtonHeight = uiGameTopPanelHeight * uiGameOptionsButtonHeightScale;
 				var uiGameOptionsButtonLeft = uiGameTopPanelWidth - uiGameOptionsButtonWidth;
 				var uiGameOptionsButtonTop = (uiGameTopPanelHeight - uiGameOptionsButtonHeight)/2;
 				
-				var uiGameFacebookButtonWidth = uiGameTopPanelWidth * 0.1;
-				var uiGameFacebookButtonHeight = uiGameTopPanelHeight * 0.8;
-				var uiGameFacebookButtonLeft = uiGameOptionsButtonLeft - uiGameFacebookButtonWidth - uiGameTopPanelWidth*0.01;
+				const uiGameFacebookButtonWidthScale = 0.1;
+				const uiGameFacebookButtonHeightScale = 0.8;
+				var uiGameFacebookButtonWidth = uiGameTopPanelWidth * uiGameFacebookButtonWidthScale;
+				var uiGameFacebookButtonHeight = uiGameTopPanelHeight * uiGameFacebookButtonHeightScale;
+				var uiGameFacebookButtonLeft = uiGameOptionsButtonLeft - uiGameFacebookButtonWidth - uiGameTopPanelWidth*uiGameTopPanelIntervalScale;
 				var uiGameFacebookButtonTop = (uiGameTopPanelHeight - uiGameFacebookButtonHeight)/2;
 				
 				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
 				//Themes Page Elements~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
+				const uiGameThemesPanelHeightScale = 0.7;
 				var uiGameThemesPanelWidth = uiGameWidth;
-				var uiGameThemesPanelHeight = uiGameHeight * 0.7;
+				var uiGameThemesPanelHeight = uiGameHeight * uiGameThemesPanelHeightScale;
 				var uiGameThemesPanelLeft = 0;
 				var uiGameThemesPanelTop = uiGameTopPanelHeight;
 				
-				var uiGameThemeIconWidth = uiGameThemesPanelHeight * 0.35;
+				const uiGameThemeIconWidthScale = 0.35;
+				var uiGameThemeIconWidth = uiGameThemesPanelHeight * uiGameThemeIconWidthScale;
 				var uiGameThemeIconHeight = uiGameThemeIconWidth;
 				
+				const uiGameThemesIconsInterval = 0.1;
 				var uiGameThemesIconsLeftArray = [];
 				var uiGameThemesIconsTopArray = [];
 				
 				var themesHtmlString = "";
 				
-				for (var i = 0; i < 6; i++)
+				const uiGameThemesIconsCount = 6;
+				
+				for (var i = 0; i < uiGameThemesIconsCount; i++)
 				{
-					uiGameThemesIconsLeftArray[i] = ((uiGameThemesPanelWidth - (uiGameThemeIconWidth*3 + 0.2*uiGameThemesPanelHeight))/2) + (i%3)*(uiGameThemeIconWidth + 0.1*uiGameThemesPanelHeight);
-					uiGameThemesIconsTopArray[i] = 0.1*uiGameThemesPanelHeight + (Math.floor(i/3))*(uiGameThemeIconHeight + 0.1*uiGameThemesPanelHeight);
+					uiGameThemesIconsLeftArray[i] = ((uiGameThemesPanelWidth - (uiGameThemeIconWidth*(uiGameThemesIconsCount/2) + (uiGameThemesIconsInterval*2)*uiGameThemesPanelHeight))/2) + (i%(uiGameThemesIconsCount/2))*(uiGameThemeIconWidth + uiGameThemesIconsInterval*uiGameThemesPanelHeight);
+					uiGameThemesIconsTopArray[i] = uiGameThemesIconsInterval*uiGameThemesPanelHeight + (Math.floor(i/(uiGameThemesIconsCount/2)))*(uiGameThemeIconHeight + uiGameThemesIconsInterval*uiGameThemesPanelHeight);
 					
 					themesHtmlString += '<button style = \" position: absolute; left: '+uiGameThemesIconsLeftArray[i]+'px; top: '+uiGameThemesIconsTopArray[i]+'px; width: '+uiGameThemeIconWidth+'px; height: '+uiGameThemeIconHeight+'px; \">Theme'+(i+1)+'</button>';
 				}
@@ -102,25 +120,29 @@
 				
 				//Bottom Panel~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
+				const uiGameBottomPanelHeightScale = 0.2;
 				var uiGameBottomPanelWidth = uiGameWidth;
-				var uiGameBottomPanelHeight = uiGameHeight * 0.2;
+				var uiGameBottomPanelHeight = uiGameHeight * uiGameBottomPanelHeightScale;
 				var uiGameBottomPanelLeft = 0;
 				var uiGameBottomPanelTop = uiGameTopPanelHeight + uiGameThemesPanelHeight;
 				
-				var uiGameGiftsButtonWidth = uiGameBottomPanelHeight * 0.8;
+				const uiGameGiftsButtonWidthScale = 0.8;
+				var uiGameGiftsButtonWidth = uiGameBottomPanelHeight * uiGameGiftsButtonWidthScale;
 				var uiGameGiftsButtonHeight = uiGameGiftsButtonWidth;
 				var uiGameGiftsButtonLeft = 0;
 				var uiGameGiftsButtonTop = (uiGameBottomPanelHeight - uiGameGiftsButtonHeight)/2;
 				
-				var uiGameFriendsButtonWidth = uiGameBottomPanelHeight * 0.8;
+				const uiGameFriendsButtonWidthScale = 0.8;
+				var uiGameFriendsButtonWidth = uiGameBottomPanelHeight * uiGameFriendsButtonWidthScale;
 				var uiGameFriendsButtonHeight = uiGameFriendsButtonWidth;
 				var uiGameFriendsButtonLeft = uiGameBottomPanelWidth - uiGameFriendsButtonWidth;
 				var uiGameFriendsButtonTop = (uiGameBottomPanelHeight - uiGameFriendsButtonHeight)/2;
 				
-				var uiGameMegaBonusPanelWidth = uiGameBottomPanelWidth * 0.3;
-				var uiGameMegaBonusPanelHeight = uiGameBottomPanelHeight + uiGameBottomPanelHeight * 0.3;
+				const uiGameMegaBonusPanelWidthScale = 0.3;
+				var uiGameMegaBonusPanelWidth = uiGameBottomPanelWidth * uiGameMegaBonusPanelWidthScale;
+				var uiGameMegaBonusPanelHeight = uiGameBottomPanelHeight + uiGameBottomPanelHeight * uiGameMegaBonusPanelWidthScale;
 				var uiGameMegaBonusPanelLeft = uiGameBottomPanelWidth/2 - uiGameMegaBonusPanelWidth/2;
-				var uiGameMegaBonusPanelTop = -uiGameBottomPanelHeight * 0.3;
+				var uiGameMegaBonusPanelTop = -uiGameBottomPanelHeight * uiGameMegaBonusPanelWidthScale;
 				
 				var uiGameMegaBonusButtonWidth = uiGameMegaBonusPanelWidth / 2;
 				var uiGameMegaBonusButtonHeight = uiGameBottomPanelHeight / 2;
@@ -135,7 +157,8 @@
 				var uiGamePopupLeft = uiGameWidth/2 - uiGamePopupWidth/2;
 				var uiGamePopupTop = uiGameHeight/2 - uiGamePopupHeight/2;
 				
-				var uiGamePopupCloseButtonWidth = uiGamePopupWidth * 0.05;
+				const uiGamePopupCloseButtonWidthScale = 0.05;
+				var uiGamePopupCloseButtonWidth = uiGamePopupWidth * uiGamePopupCloseButtonWidthScale;
 				var uiGamePopupCloseButtonHeight = uiGamePopupCloseButtonWidth;
 				var uiGamePopupCloseButtonLeft = uiGamePopupWidth - uiGamePopupCloseButtonWidth;
 				var uiGamePopupCloseButtonTop = 0;
