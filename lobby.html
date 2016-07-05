@@ -12,9 +12,9 @@
 			var uiViewportAspectRatio;
 			var uiGameAspectRatio = 1.6;
 			
-			var popupToShow = "";
+			var uiGamePopupToShow = "";
 			
-			function getBrowserSize()
+			function getUiGameSize()
 			{
 				uiViewportWidth = document.documentElement.clientWidth;
 				uiViewportHeight = document.documentElement.clientHeight;
@@ -34,157 +34,155 @@
 			}
 			function redrawUI()
 			{
-				getBrowserSize();
-				
-				var divstyle = "style = \"position:absolute; left: 0px; top: 0px; border: 2px; background-color: #b3daff; width:"+(uiGameWidth)+"px; height: "+(uiGameHeight)+"px\"";
-				
+				getUiGameSize();
+								
 				//Top Panel Elements~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
-				var topPanelW = uiGameWidth;
-				var topPanelH = (uiGameHeight * 0.1);
+				var uiGameTopPanelWidth = uiGameWidth;
+				var uiGameTopPanelHeight = (uiGameHeight * 0.1);
 				
-				var SlotsClbBtnW = topPanelH * 0.8;
-				var SlotsClbBtnH = topPanelH * 0.8;
-				var SlotsClbBtnL = 0;
-				var SlotsClbBtnT = (topPanelH - SlotsClbBtnH)/2;
+				var uiGameSlotsClubButtonWidth = uiGameTopPanelHeight * 0.8;
+				var uiGameSlotsClubButtonHeight = uiGameTopPanelHeight * 0.8;
+				var uiGameSlotsClubButtonLeft = 0;
+				var uiGameSlotsClubButtonTop = (uiGameTopPanelHeight - uiGameSlotsClubButtonHeight)/2;
 				
-				var MoneyPnlW = topPanelW * 0.1;
-				var MoneyPnlH = topPanelH * 0.8;
-				var MoneyPnlL = SlotsClbBtnL + SlotsClbBtnW + topPanelW*0.01;
-				var MoneyPnlT = (topPanelH - MoneyPnlH)/2;
+				var uiGameSlotsMoneyPanelWidth = uiGameTopPanelWidth * 0.1;
+				var uiGameSlotsMoneyPanelHeight = uiGameTopPanelHeight * 0.8;
+				var uiGameSlotsMoneyPanelLeft = uiGameSlotsClubButtonLeft + uiGameSlotsClubButtonWidth + uiGameTopPanelWidth*0.01;
+				var uiGameSlotsMoneyPanelTop = (uiGameTopPanelHeight - uiGameSlotsMoneyPanelHeight)/2;
 				
-				var BuyBtnW = topPanelW * 0.1;
-				var BuyBtnH = topPanelH * 0.8;
-				var BuyBtnL = MoneyPnlL + MoneyPnlW + topPanelW*0.01;
-				var BuyBtnT = (topPanelH - BuyBtnH)/2;
+				var uiGameBuyButtonWidth = uiGameTopPanelWidth * 0.1;
+				var uiGameBuyButtonHeight = uiGameTopPanelHeight * 0.8;
+				var uiGameBuyButtonLeft = uiGameSlotsMoneyPanelLeft + uiGameSlotsMoneyPanelWidth + uiGameTopPanelWidth*0.01;
+				var uiGameBuyButtonTop = (uiGameTopPanelHeight - uiGameBuyButtonHeight)/2;
 				
-				var ExpPnlW = topPanelW * 0.2;
-				var ExpPnlH = topPanelH * 0.8;
-				var ExpPnlL = BuyBtnL + BuyBtnW + topPanelW*0.01;
-				var ExpPnlT = (topPanelH - ExpPnlH)/2;
+				var uiGameExperiencePanelWidth = uiGameTopPanelWidth * 0.2;
+				var uiGameExperiencePanelHeight = uiGameTopPanelHeight * 0.8;
+				var uiGameExperiencePanelLeft = uiGameBuyButtonLeft + uiGameBuyButtonWidth + uiGameTopPanelWidth*0.01;
+				var uiGameExperiencePanelTop = (uiGameTopPanelHeight - uiGameExperiencePanelHeight)/2;
 				
-				var OptionsBtnW = topPanelW * 0.1;
-				var OptionsBtnH = topPanelH * 0.8;
-				var OptionsBtnL = topPanelW - OptionsBtnW;
-				var OptionsBtnT = (topPanelH - OptionsBtnH)/2;
+				var uiGameOptionsButtonWidth = uiGameTopPanelWidth * 0.1;
+				var uiGameOptionsButtonHeight = uiGameTopPanelHeight * 0.8;
+				var uiGameOptionsButtonLeft = uiGameTopPanelWidth - uiGameOptionsButtonWidth;
+				var uiGameOptionsButtonTop = (uiGameTopPanelHeight - uiGameOptionsButtonHeight)/2;
 				
-				var FbBtnW = topPanelW * 0.1;
-				var FbBtnH = topPanelH * 0.8;
-				var FbBtnL = OptionsBtnL - FbBtnW - topPanelW*0.01;
-				var FbBtnT = (topPanelH - FbBtnH)/2;
+				var uiGameFacebookButtonWidth = uiGameTopPanelWidth * 0.1;
+				var uiGameFacebookButtonHeight = uiGameTopPanelHeight * 0.8;
+				var uiGameFacebookButtonLeft = uiGameOptionsButtonLeft - uiGameFacebookButtonWidth - uiGameTopPanelWidth*0.01;
+				var uiGameFacebookButtonTop = (uiGameTopPanelHeight - uiGameFacebookButtonHeight)/2;
 				
 				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
 				//Themes Page Elements~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
-				var themesPanelW = uiGameWidth;
-				var themesPanelH = uiGameHeight * 0.7;
-				var themesPanelL = 0;
-				var themesPanelT = topPanelH;
+				var uiGameThemesPanelWidth = uiGameWidth;
+				var uiGameThemesPanelHeight = uiGameHeight * 0.7;
+				var uiGameThemesPanelLeft = 0;
+				var uiGameThemesPanelTop = uiGameTopPanelHeight;
 				
-				var ThemeIconW = themesPanelH * 0.35;
-				var ThemeIconH = ThemeIconW;
+				var uiGameThemeIconWidth = uiGameThemesPanelHeight * 0.35;
+				var uiGameThemeIconHeight = uiGameThemeIconWidth;
 				
-				var ThemeIconL = [];
-				var ThemeIconT = [];
+				var uiGameThemesIconsLeftArray = [];
+				var uiGameThemesIconsTopArray = [];
 				
 				var themesHtmlString = "";
 				
 				for (var i = 0; i < 6; i++)
 				{
-					ThemeIconL[i] = ((themesPanelW - (ThemeIconW*3 + 0.2*themesPanelH))/2) + (i%3)*(ThemeIconW + 0.1*themesPanelH);
-					ThemeIconT[i] = 0.1*themesPanelH + (Math.floor(i/3))*(ThemeIconH + 0.1*themesPanelH);
+					uiGameThemesIconsLeftArray[i] = ((uiGameThemesPanelWidth - (uiGameThemeIconWidth*3 + 0.2*uiGameThemesPanelHeight))/2) + (i%3)*(uiGameThemeIconWidth + 0.1*uiGameThemesPanelHeight);
+					uiGameThemesIconsTopArray[i] = 0.1*uiGameThemesPanelHeight + (Math.floor(i/3))*(uiGameThemeIconHeight + 0.1*uiGameThemesPanelHeight);
 					
-					themesHtmlString += '<button style = \" position: absolute; left: '+ThemeIconL[i]+'px; top: '+ThemeIconT[i]+'px; width: '+ThemeIconW+'px; height: '+ThemeIconH+'px; \">Theme'+(i+1)+'</button>';
+					themesHtmlString += '<button style = \" position: absolute; left: '+uiGameThemesIconsLeftArray[i]+'px; top: '+uiGameThemesIconsTopArray[i]+'px; width: '+uiGameThemeIconWidth+'px; height: '+uiGameThemeIconHeight+'px; \">Theme'+(i+1)+'</button>';
 				}
 				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
 				//Bottom Panel~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
-				var bottomPanelW = uiGameWidth;
-				var bottomPanelH = uiGameHeight * 0.2;
-				var bottomPanelL = 0;
-				var bottomPanelT = topPanelH + themesPanelH;
+				var uiGameBottomPanelWidth = uiGameWidth;
+				var uiGameBottomPanelHeight = uiGameHeight * 0.2;
+				var uiGameBottomPanelLeft = 0;
+				var uiGameBottomPanelTop = uiGameTopPanelHeight + uiGameThemesPanelHeight;
 				
-				var GiftsBtnW = bottomPanelH * 0.8;
-				var GiftsBtnH = GiftsBtnW;
-				var GiftsBtnL = 0;
-				var GiftsBtnT = (bottomPanelH - GiftsBtnH)/2;
+				var uiGameGiftsButtonWidth = uiGameBottomPanelHeight * 0.8;
+				var uiGameGiftsButtonHeight = uiGameGiftsButtonWidth;
+				var uiGameGiftsButtonLeft = 0;
+				var uiGameGiftsButtonTop = (uiGameBottomPanelHeight - uiGameGiftsButtonHeight)/2;
 				
-				var FriendsBtnW = bottomPanelH * 0.8;
-				var FriendsBtnH = FriendsBtnW;
-				var FriendsBtnL = bottomPanelW - FriendsBtnW;
-				var FriendsBtnT = (bottomPanelH - FriendsBtnH)/2;
+				var uiGameFriendsButtonWidth = uiGameBottomPanelHeight * 0.8;
+				var uiGameFriendsButtonHeight = uiGameFriendsButtonWidth;
+				var uiGameFriendsButtonLeft = uiGameBottomPanelWidth - uiGameFriendsButtonWidth;
+				var uiGameFriendsButtonTop = (uiGameBottomPanelHeight - uiGameFriendsButtonHeight)/2;
 				
-				var MegaBonusPanelW = bottomPanelW * 0.3;
-				var MegaBonusPanelH = bottomPanelH + bottomPanelH * 0.3;
-				var MegaBonusPanelL = bottomPanelW/2 - MegaBonusPanelW/2;
-				var MegaBonusPanelT = -bottomPanelH * 0.3;
+				var uiGameMegaBonusPanelWidth = uiGameBottomPanelWidth * 0.3;
+				var uiGameMegaBonusPanelHeight = uiGameBottomPanelHeight + uiGameBottomPanelHeight * 0.3;
+				var uiGameMegaBonusPanelLeft = uiGameBottomPanelWidth/2 - uiGameMegaBonusPanelWidth/2;
+				var uiGameMegaBonusPanelTop = -uiGameBottomPanelHeight * 0.3;
 				
-				var MegaBonusBtnW = MegaBonusPanelW / 2;
-				var MegaBonusBtnH = bottomPanelH / 2;
-				var MegaBonusBtnL = bottomPanelW/2 - MegaBonusBtnW/2;
-				var MegaBonusBtnT = MegaBonusBtnH/2;
+				var uiGameMegaBonusButtonWidth = uiGameMegaBonusPanelWidth / 2;
+				var uiGameMegaBonusButtonHeight = uiGameBottomPanelHeight / 2;
+				var uiGameMegaBonusButtonLeft = uiGameBottomPanelWidth/2 - uiGameMegaBonusButtonWidth/2;
+				var uiGameMegaBonusButtonTop = uiGameMegaBonusButtonHeight/2;
 				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
-				var popupHtmlString = "";
+				var uiGamePopupHeighttmlString = "";
 				
-				var PopupW = uiGameWidth / 2;
-				var PopupH = uiGameHeight / 2;
-				var PopupL = uiGameWidth/2 - PopupW/2;
-				var PopupT = uiGameHeight/2 - PopupH/2;
+				var uiGamePopupWidth = uiGameWidth / 2;
+				var uiGamePopupHeight = uiGameHeight / 2;
+				var uiGamePopupLeft = uiGameWidth/2 - uiGamePopupWidth/2;
+				var uiGamePopupTop = uiGameHeight/2 - uiGamePopupHeight/2;
 				
-				var PopupCloseBtnW = PopupW * 0.05;
-				var PopupCloseBtnH = PopupCloseBtnW;
-				var PopupCloseBtnL = PopupW - PopupCloseBtnW;
-				var PopupCloseBtnT = 0;
+				var uiGamePopupCloseButtonWidth = uiGamePopupWidth * 0.05;
+				var uiGamePopupCloseButtonHeight = uiGamePopupCloseButtonWidth;
+				var uiGamePopupCloseButtonLeft = uiGamePopupWidth - uiGamePopupCloseButtonWidth;
+				var uiGamePopupCloseButtonTop = 0;
 				
-				switch (popupToShow)
+				switch (uiGamePopupToShow)
 				{
 					case 'Popup':
 					{
-						popupHtmlString = '<div style = \"position: absolute; left: 0px; top : 0px; width: '+w+'px; height: '+h+'px; opacity:0.3; background-color:#000080\"></div>';
-						popupHtmlString += '<div style = \"text-align: center; background-color: #e6e6ff; opcaity: 1.0; position: absolute; width: ' + PopupW + 'px; height: ' + PopupH + 'px; left: ' + PopupL + 'px; top: ' + PopupT + 'px \">Popup';
-						popupHtmlString += '<button onclick = \"hidePopups()\" style = \"position: absolute; width: ' + PopupCloseBtnW + 'px; height: ' + PopupCloseBtnH + 'px; left: ' + PopupCloseBtnL + 'px; top: ' + PopupCloseBtnT + 'px \"> X </button>';
-						popupHtmlString += '</div>';
+						uiGamePopupHeighttmlString = '<div style = \"position: absolute; left: 0px; top : 0px; width: '+w+'px; height: '+h+'px; opacity:0.3; background-color:#000080\"></div>';
+						uiGamePopupHeighttmlString += '<div style = \"text-align: center; background-color: #e6e6ff; opcaity: 1.0; position: absolute; width: ' + uiGamePopupWidth + 'px; height: ' + uiGamePopupHeight + 'px; left: ' + uiGamePopupLeft + 'px; top: ' + uiGamePopupTop + 'px \">Popup';
+						uiGamePopupHeighttmlString += '<button onclick = \"hidePopups()\" style = \"position: absolute; width: ' + uiGamePopupCloseButtonWidth + 'px; height: ' + uiGamePopupCloseButtonHeight + 'px; left: ' + uiGamePopupCloseButtonLeft + 'px; top: ' + uiGamePopupCloseButtonTop + 'px \"> X </button>';
+						uiGamePopupHeighttmlString += '</div>';
 						break;
 					}
 					default:
 					{
-						popupHtmlString = "";
+						uiGamePopupHeighttmlString = "";
 					}
 				}
 				
 				document.getElementById("body").innerHTML =  
 				'	\
-					<div ' + divstyle + ' > 	\
-						<div style = \" background-color: #e6f3ff; width:' + topPanelW + 'px; height: ' + topPanelH + 'px \">  \
-							<button onclick = \"showPopup()\" style = \"position: absolute; width: ' + SlotsClbBtnW + 'px; height: ' + SlotsClbBtnH + 'px; left: ' + SlotsClbBtnL + 'px; top: ' + SlotsClbBtnT + 'px \"> SlotsClub </button>\
-							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + MoneyPnlW + 'px; height: ' + MoneyPnlH + 'px; left: ' + MoneyPnlL + 'px; top: ' + MoneyPnlT + 'px \">1000 $</div>\
-							<button onclick = \"showPopup()\" style = \"position: absolute; width: ' + BuyBtnW + 'px; height: ' + BuyBtnH + 'px; left: ' + BuyBtnL + 'px; top: ' + BuyBtnT + 'px \"> Buy </button>\
-							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + ExpPnlW + 'px; height: ' + ExpPnlH + 'px; left: ' + ExpPnlL + 'px; top: ' + ExpPnlT + 'px \">1000 / 10000</div>\
-							<button onclick = \"showPopup()\" style = \"position: absolute; width: ' + FbBtnW + 'px; height: ' + FbBtnH + 'px; left: ' + FbBtnL + 'px; top: ' + FbBtnT + 'px \"> FbConnect </button>\
-							<button onclick = \"showPopup()\" style = \"position: absolute; width: ' + OptionsBtnW + 'px; height: ' + OptionsBtnH + 'px; left: ' + OptionsBtnL + 'px; top: ' + OptionsBtnT + 'px \"> Options </button>\
+					<div style = \"position:absolute; left: 0px; top: 0px; border: 2px; background-color: #b3daff; width:"+(uiGameWidth)+"px; height: "+(uiGameHeight)+"px\"> \
+						<div style = \" background-color: #e6f3ff; width:' + uiGameTopPanelWidth + 'px; height: ' + uiGameTopPanelHeight + 'px \">  \
+							<button onclick = \"showPopup()\" style = \"position: absolute; width: ' + uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: ' + uiGameSlotsClubButtonLeft + 'px; top: ' + uiGameSlotsClubButtonTop + 'px \"> SlotsClub </button>\
+							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px \">1000 $</div>\
+							<button onclick = \"showPopup()\" style = \"position: absolute; width: ' + uiGameBuyButtonWidth + 'px; height: ' + uiGameBuyButtonHeight + 'px; left: ' + uiGameBuyButtonLeft + 'px; top: ' + uiGameBuyButtonTop + 'px \"> Buy </button>\
+							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \">1000 / 10000</div>\
+							<button onclick = \"showPopup()\" style = \"position: absolute; width: ' + uiGameFacebookButtonWidth + 'px; height: ' + uiGameFacebookButtonHeight + 'px; left: ' + uiGameFacebookButtonLeft + 'px; top: ' + uiGameFacebookButtonTop + 'px \"> FbConnect </button>\
+							<button onclick = \"showPopup()\" style = \"position: absolute; width: ' + uiGameOptionsButtonWidth + 'px; height: ' + uiGameOptionsButtonHeight + 'px; left: ' + uiGameOptionsButtonLeft + 'px; top: ' + uiGameOptionsButtonTop + 'px \"> Options </button>\
 						</div>  \
-						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + themesPanelW + 'px; height: ' + themesPanelH + 'px; left: ' + themesPanelL + 'px; top: ' + themesPanelT + 'px \">'+themesHtmlString+'</div>\
-						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; position: absolute; width: ' + bottomPanelW + 'px; height: ' + bottomPanelH + 'px; left: ' + bottomPanelL + 'px; top: ' + bottomPanelT + 'px \">   \
-							<button onclick = \"showPopup()\" style = \"position: absolute; width: ' + GiftsBtnW + 'px; height: ' + GiftsBtnH + 'px; left: ' + GiftsBtnL + 'px; top: ' + GiftsBtnT + 'px \"> Gifts </button>\
-							<button onclick = \"showPopup()\" style = \"position: absolute; width: ' + FriendsBtnW + 'px; height: ' + FriendsBtnH + 'px; left: ' + FriendsBtnL + 'px; top: ' + FriendsBtnT + 'px \"> Friends </button>\
-							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + MegaBonusPanelW + 'px; height: ' + MegaBonusPanelH + 'px; left: ' + MegaBonusPanelL + 'px; top: ' + MegaBonusPanelT + 'px \">MEGA BONUS</div>\
-							<button onclick = \"showPopup()\" style = \"position: absolute; width: ' + MegaBonusBtnW + 'px; height: ' + MegaBonusBtnH + 'px; left: ' + MegaBonusBtnL + 'px; top: ' + MegaBonusBtnT + 'px \"> Collect Now </button>\
+						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + uiGameThemesPanelWidth + 'px; height: ' + uiGameThemesPanelHeight + 'px; left: ' + uiGameThemesPanelLeft + 'px; top: ' + uiGameThemesPanelTop + 'px \">'+themesHtmlString+'</div>\
+						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; position: absolute; width: ' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px; top: ' + uiGameBottomPanelTop + 'px \">   \
+							<button onclick = \"showPopup()\" style = \"position: absolute; width: ' + uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: ' + uiGameGiftsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \"> Gifts </button>\
+							<button onclick = \"showPopup()\" style = \"position: absolute; width: ' + uiGameFriendsButtonWidth + 'px; height: ' + uiGameFriendsButtonHeight + 'px; left: ' + uiGameFriendsButtonLeft + 'px; top: ' + uiGameFriendsButtonTop + 'px \"> Friends </button>\
+							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight + 'px; left: ' + uiGameMegaBonusPanelLeft + 'px; top: ' + uiGameMegaBonusPanelTop + 'px \">MEGA BONUS</div>\
+							<button onclick = \"showPopup()\" style = \"position: absolute; width: ' + uiGameMegaBonusButtonWidth + 'px; height: ' + uiGameMegaBonusButtonHeight + 'px; left: ' + uiGameMegaBonusButtonLeft + 'px; top: ' + uiGameMegaBonusButtonTop + 'px \"> Collect Now </button>\
 						</div>  \
 					</div> 	\
-					'+popupHtmlString+'  \
+					'+uiGamePopupHeighttmlString+'  \
 				';				
 			}
 			function showPopup()
 			{
-				popupToShow = "Popup";
+				uiGamePopupToShow = "Popup";
 				redrawUI();
 			}
 			function hidePopups()
 			{
-				popupToShow = "";
+				uiGamePopupToShow = "";
 				redrawUI();
 			}
 			
