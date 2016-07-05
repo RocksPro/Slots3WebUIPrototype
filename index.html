@@ -1,8 +1,31 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+		<script>
+			function splashScreenSet()
+			{
+				var uiViewportWidth = document.documentElement.clientWidth;
+				var uiViewportHeight = document.documentElement.clientHeight;
+				
+				var splashScreenHeight = uiViewportHeight;
+				var splashScreenWidth = splashScreenHeight;
+				var splashScreenLeft = uiViewportWidth/2 - splashScreenWidth/2;
+				var splashScreenTop = uiViewportHeight/2 - splashScreenHeight/2;
+				
+				document.getElementById("splashscreen").innerHTML = '<a href = \"lobby.html\"><img style = \"position:absolute; width: '+splashScreenWidth+'px; height: '+splashScreenHeight+'px; left:'+splashScreenLeft+'px; top:'+splashScreenTop+'px\" src = \"splash.png\"></img></a>';
+			}
+			function onLoad()
+			{
+				splashScreenSet();
+			}
+			function onResize()
+			{
+				splashScreenSet();
+			}
+		</script>
 	</head>
-	<body>
-		<a href = "lobby.html"><img src = "splash.png" width = "800" height = "800"></img></a>
+	<body onload = "onLoad()" onresize = "onResize()">
+		<div id = "splashscreen">	
+		</div>		
 	</body>
 </html>
