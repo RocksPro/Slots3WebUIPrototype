@@ -2,18 +2,34 @@
 <html>
 	<head>	
 		<script>
-			var w;
-			var h;
+			
+			var uiViewportWidth;
+			var uiViewportHeight;
+			
+			var uiGameWidth;
+			var uiGameHeight;
+			
+			var uiViewportAspectRatio;
+			var uiGameAspectRatio = 1.6;
+			
 			var popupToShow = "";
+			
 			function getBrowserSize()
 			{
-				w = document.body.clientWidth;
-				h = w/1.6;
+				uiViewportWidth = document.documentElement.clientWidth;
+				uiViewportHeight = document.documentElement.clientHeight;
 				
-				if ( h > document.documentElement.clientHeight)
+				uiViewportAspectRatio = uiViewportWidth/uiViewportHeight;
+				
+				if (uiViewportAspectRatio < uiGameAspectRatio)
 				{
-					h = document.documentElement.clientHeight;
-					w = h * 1.6;
+					uiGameWidth = uiViewportWidth;
+					uiGameHeight = uiGameWidth / uiGameAspectRatio;
+				}
+				else
+				{
+					uiGameHeight = uiViewportHeight;
+					uiGameWidth = uiGameHeight * uiGameAspectRatio;
 				}
 			}
 			function redrawUI()
@@ -24,8 +40,8 @@
 				
 				//Top Panel Elements~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
-				var topPanelW = w;
-				var topPanelH = (h * 0.1);
+				var topPanelW = uiGameWidth;
+				var topPanelH = (uiGameHeight * 0.1);
 				
 				var SlotsClbBtnW = topPanelH * 0.8;
 				var SlotsClbBtnH = topPanelH * 0.8;
@@ -61,8 +77,8 @@
 				
 				//Themes Page Elements~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
-				var themesPanelW = w;
-				var themesPanelH = h * 0.7;
+				var themesPanelW = uiGameWidth;
+				var themesPanelH = uiGameHeight * 0.7;
 				var themesPanelL = 0;
 				var themesPanelT = topPanelH;
 				
@@ -85,8 +101,8 @@
 				
 				//Bottom Panel~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
-				var bottomPanelW = w;
-				var bottomPanelH = h * 0.2;
+				var bottomPanelW = uiGameWidth;
+				var bottomPanelH = uiGameHeight * 0.2;
 				var bottomPanelL = 0;
 				var bottomPanelT = topPanelH + themesPanelH;
 				
@@ -113,10 +129,10 @@
 				
 				var popupHtmlString = "";
 				
-				var PopupW = w / 2;
-				var PopupH = h / 2;
-				var PopupL = w/2 - PopupW/2;
-				var PopupT = h/2 - PopupH/2;
+				var PopupW = uiGameWidth / 2;
+				var PopupH = uiGameHeight / 2;
+				var PopupL = uiGameWidth/2 - PopupW/2;
+				var PopupT = uiGameHeight/2 - PopupH/2;
 				
 				var PopupCloseBtnW = PopupW * 0.05;
 				var PopupCloseBtnH = PopupCloseBtnW;
