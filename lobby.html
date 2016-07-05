@@ -36,7 +36,7 @@
 			{
 				getBrowserSize();
 				
-				var divstyle = "style = \"position:absolute; left: 0px; top: 0px; border: 2px; background-color: #b3daff; width:"+(w)+"px; height: "+(h)+"px\"";
+				var divstyle = "style = \"position:absolute; left: 0px; top: 0px; border: 2px; background-color: #b3daff; width:"+(uiGameWidth)+"px; height: "+(uiGameHeight)+"px\"";
 				
 				//Top Panel Elements~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
@@ -187,8 +187,17 @@
 				popupToShow = "";
 				redrawUI();
 			}
+			
+			function onLoad()
+			{
+				redrawUI();
+			}
+			function onResize()
+			{
+				redrawUI();
+			}
 		</script>	
 	</head>
-	<body id = "body" onload = "redrawUI()" onresize = "redrawUI()">	
+	<body id = "body" onload = "onLoad()" onresize = "onResize()">	
 	</body>
 </html>
