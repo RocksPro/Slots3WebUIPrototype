@@ -16,7 +16,7 @@
 			
 			var uiGamePopupToShow = "";
 			
-			var uiGameFontSizeScale = 0.017;
+			var uiGameFontSizeScale = 0.028;
 			var uiGameFontSize;
 			
 			function getUiGameSize()
@@ -219,9 +219,9 @@
 				
 				document.getElementById("body").innerHTML =  
 				'	\
-					<div style = \"font-size:'+uiGameFontSize+'px; position:absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; border: 2px; background-color: #b3daff; width:'+uiGameWidth+'px; height: '+uiGameHeight+'px\"> \
+					<div style = \"font-size:'+uiGameFontSize+'px; position:absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; border: 3px; border-style: solid; background-color: #b3daff; width:'+uiGameWidth+'px; height: '+uiGameHeight+'px\"> \
 						<div style = \" background-color: #e6f3ff; width:' + uiGameTopPanelWidth + 'px; height: ' + uiGameTopPanelHeight + 'px \">  \
-							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: ' + uiGameSlotsClubButtonLeft + 'px; top: ' + uiGameSlotsClubButtonTop + 'px \">SlotsClub</button>\
+							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: ' + uiGameSlotsClubButtonLeft + 'px; top: ' + uiGameSlotsClubButtonTop + 'px \">SC</button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px \">1000 $</div>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameBuyButtonWidth + 'px; height: ' + uiGameBuyButtonHeight + 'px; left: ' + uiGameBuyButtonLeft + 'px; top: ' + uiGameBuyButtonTop + 'px \"> Buy </button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \">1000 / 10000</div>\
