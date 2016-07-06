@@ -6,9 +6,32 @@
 			{
 				var uiViewportWidth = document.documentElement.clientWidth;
 				var uiViewportHeight = document.documentElement.clientHeight;
+				var uiGameAspectRatio = 1.6;
 				
-				var splashScreenHeight = uiViewportHeight;
-				var splashScreenWidth = splashScreenHeight;
+				var uiGameWidth;
+				var uiGameHeight;
+				var uiGameLeft;
+				var uiGameTop;
+				
+				var uiViewportAspectRatio = uiViewportWidth/uiViewportHeight;
+				
+				if (uiViewportAspectRatio < uiGameAspectRatio)
+				{
+					uiGameWidth = uiViewportWidth;
+					uiGameHeight = uiGameWidth / uiGameAspectRatio;
+					uiGameLeft = 0;
+					uiGameTop = uiViewportHeight/2 - uiGameHeight/2;
+				}
+				else
+				{
+					uiGameHeight = uiViewportHeight;
+					uiGameWidth = uiGameHeight * uiGameAspectRatio;
+					uiGameLeft = uiViewportWidth/2 - uiGameWidth/2;
+					uiGameTop = 0;
+				}
+				
+				var splashScreenHeight = uiGameHeight;
+				var splashScreenWidth = uiGameWidth;
 				var splashScreenLeft = uiViewportWidth/2 - splashScreenWidth/2;
 				var splashScreenTop = uiViewportHeight/2 - splashScreenHeight/2;
 				
