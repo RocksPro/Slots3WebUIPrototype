@@ -183,9 +183,21 @@
 					}
 					case 'Options':
 					{
+						var uiOptionsSoundButtonWidthScale = 0.2;
+						var uiOptionsSoundButtonHeightScale = 0.2;
+						var uiOptionsPopupButtonLeftInterval = 0.1;
+						var uiOptionsPopupButtonTopInterval = 0.1;
+						var uiOptionsSoundButtonWidth = uiGamePopupWidth * uiOptionsSoundButtonWidthScale;
+						var uiOptionsSoundButtonHeight = uiGamePopupHeight * uiOptionsSoundButtonHeightScale;
+						var uiOptionsSoundButtonLeft = uiGamePopupWidth * uiOptionsPopupButtonLeftInterval;
+						var uiOptionsSoundButtonTop = uiGamePopupHeight * uiOptionsPopupButtonTopInterval;
+						
 						uiGamePopupHeighttmlString = '<div style = \"position: absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; width: '+uiGameWidth+'px; height: '+uiGameHeight+'px; opacity:0.3; background-color:#000080\"></div>';
 						uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize+'px; text-align: center; background-color: #e6e6ff; opcaity: 1.0; position: absolute; width: ' + uiGamePopupWidth + 'px; height: ' + uiGamePopupHeight + 'px; left: ' + uiGamePopupLeft + 'px; top: ' + uiGamePopupTop + 'px \">Options';
 						uiGamePopupHeighttmlString += '<button onclick = \"hidePopups()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePopupCloseButtonWidth + 'px; height: ' + uiGamePopupCloseButtonHeight + 'px; left: ' + uiGamePopupCloseButtonLeft + 'px; top: ' + uiGamePopupCloseButtonTop + 'px \"> X </button>';
+						
+						uiGamePopupHeighttmlString += '<button style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiOptionsSoundButtonWidth + 'px; height: ' + uiOptionsSoundButtonHeight + 'px; left: ' + uiOptionsSoundButtonLeft + 'px; top: ' + uiOptionsSoundButtonTop + 'px \">Sound</button>';
+						
 						uiGamePopupHeighttmlString += '</div>';
 						break;
 					}
