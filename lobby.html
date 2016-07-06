@@ -20,6 +20,7 @@
 			var uiGameFontSize;
 			
 			const bordersWidth = 4;
+			const bordersInterval = 1.5;
 			
 			function getUiGameSize()
 			{
@@ -43,8 +44,8 @@
 					uiGameTop = 0;
 				}
 				
-				uiGameHeight -= bordersWidth*2;
-				uiGameWidth -= bordersWidth*2;
+				uiGameHeight -= bordersWidth*bordersInterval;
+				uiGameWidth -= bordersWidth*1.5;
 				
 				uiGameFontSize = uiGameHeight * uiGameFontSizeScale;
 			}

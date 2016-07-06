@@ -16,8 +16,16 @@
 			
 			var uiGamePopupToShow = "";
 			
-			var uiGameFontSizeScale = 0.017;
+			var uiGameFontSizeScale = 0.028;
 			var uiGameFontSize;
+			
+			const bordersWidth = 4;
+			const bordersInterval = 1.5;
+			
+			function startSpinning()
+			{
+				SendMessage("BarSpinning","StartSpinning");
+			}
 			
 			function getUiGameSize()
 			{
@@ -40,6 +48,9 @@
 					uiGameLeft = uiViewportWidth/2 - uiGameWidth/2;
 					uiGameTop = 0;
 				}
+				
+				uiGameHeight -= bordersWidth*bordersInterval;
+				uiGameWidth -= bordersWidth*bordersInterval;
 				
 				uiGameFontSize = uiGameHeight * uiGameFontSizeScale;
 			}
@@ -153,11 +164,18 @@
 				var uiGamePopupCloseButtonLeft = uiGamePopupWidth - uiGamePopupCloseButtonWidth;
 				var uiGamePopupCloseButtonTop = 0;
 				
+				const uiGameWebGlCanvasHeightScale = 0.7;
+				const uiGameWebGlCanvasAspectRatio = 1.6;
+				var uiGameWebGlCanvasHeight = uiGameHeight * uiGameWebGlCanvasHeightScale;
+				var uiGameWebGlCanvasWidth = uiGameWebGlCanvasHeight * uiGameWebGlCanvasAspectRatio;
+				var uiGameWebGlCanvasLeft = uiViewportWidth / 2 - uiGameWebGlCanvasWidth / 2;
+				var uiGameWebGlCanvasTop = uiGameTop + uiGameTopPanelHeight;
+				
 				switch (uiGamePopupToShow)
 				{
 					case 'Popup':
 					{
-						uiGamePopupHeighttmlString = '<div style = \"position: absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; width: '+uiGameWidth+'px; height: '+uiGameHeight+'px; opacity:0.3; background-color:#000080\"></div>';
+						uiGamePopupHeighttmlString = '<div style = \"border-color: #f5deb3; border-size: \"bordersWidth+\px; border-style: solid; position: absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; width: '+uiGameWidth+'px; height: '+uiGameHeight+'px; opacity:0.3; background-color:#000080\"></div>';
 						uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize+'px; text-align: center; background-color: #e6e6ff; opcaity: 1.0; position: absolute; width: ' + uiGamePopupWidth + 'px; height: ' + uiGamePopupHeight + 'px; left: ' + uiGamePopupLeft + 'px; top: ' + uiGamePopupTop + 'px \">Popup';
 						uiGamePopupHeighttmlString += '<button onclick = \"hidePopups()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePopupCloseButtonWidth + 'px; height: ' + uiGamePopupCloseButtonHeight + 'px; left: ' + uiGamePopupCloseButtonLeft + 'px; top: ' + uiGamePopupCloseButtonTop + 'px \"> X </button>';
 						uiGamePopupHeighttmlString += '</div>';
@@ -169,20 +187,24 @@
 					}
 				}
 				
-				document.getElementById("body").innerHTML =  
+				document.getElementById("canvas").style.width = uiGameWebGlCanvasWidth + "px";
+				document.getElementById("canvas").style.height = uiGameWebGlCanvasHeight + "px";
+				document.getElementById("canvas").style.left = uiGameWebGlCanvasLeft + "px";
+				document.getElementById("canvas").style.top = uiGameWebGlCanvasTop + "px";
+				
+				document.getElementById("uiGame").innerHTML =  
 				'	\
-					<div style = \"font-size:'+uiGameFontSize+'px; position:absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; border: 2px; background-color: #b3daff; width:'+uiGameWidth+'px; height: '+uiGameHeight+'px\"> \
+					<div style = \"font-size:'+uiGameFontSize+'px; border-color: #f5deb3; border-size: \+bordersWidth+\px; border-style: solid; position:absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; width:'+uiGameWidth+'px; height: '+uiGameHeight+'px\"> \
 						<div style = \" background-color: #e6f3ff; width:' + uiGameTopPanelWidth + 'px; height: ' + uiGameTopPanelHeight + 'px \">  \
-							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: ' + uiGameSlotsClubButtonLeft + 'px; top: ' + uiGameSlotsClubButtonTop + 'px \">SlotsClub</button>\
+							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: ' + uiGameSlotsClubButtonLeft + 'px; top: ' + uiGameSlotsClubButtonTop + 'px \">SC</button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px \">1000 $</div>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameBuyButtonWidth + 'px; height: ' + uiGameBuyButtonHeight + 'px; left: ' + uiGameBuyButtonLeft + 'px; top: ' + uiGameBuyButtonTop + 'px \"> Buy </button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \">1000 / 10000</div>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameOptionsButtonWidth + 'px; height: ' + uiGameOptionsButtonHeight + 'px; left: ' + uiGameOptionsButtonLeft + 'px; top: ' + uiGameOptionsButtonTop + 'px \"> Options </button>\
 						</div>  \
-						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + uiGameThemesPanelWidth + 'px; height: ' + uiGameThemesPanelHeight + 'px; left: ' + uiGameThemesPanelLeft + 'px; top: ' + uiGameThemesPanelTop + 'px \">BARABANS</div>\
-						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; position: absolute; width: ' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px; top: ' + uiGameBottomPanelTop + 'px \">   \
+						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; opcaity: 0.0; position: absolute; width: ' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px; top: ' + uiGameBottomPanelTop + 'px \">   \
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePayTableButtonWidth + 'px; height: ' + uiGamePayTableButtonHeight + 'px; left: ' + uiGamePayTableButtonLeft + 'px; top: ' + uiGamePayTableButtonTop + 'px \"> PayTable </button>\
-							<button style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameSpinButtonWidth + 'px; height: ' + uiGameSpinButtonHeight + 'px; left: ' + uiGameSpinButtonLeft + 'px; top: ' + uiGameSpinButtonTop + 'px \"> Spin </button>\
+							<button onclick = \"startSpinning()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameSpinButtonWidth + 'px; height: ' + uiGameSpinButtonHeight + 'px; left: ' + uiGameSpinButtonLeft + 'px; top: ' + uiGameSpinButtonTop + 'px \"> Spin </button>\
 						</div>  \
 					</div> 	\
 					'+uiGamePopupHeighttmlString+'  \
@@ -207,8 +229,24 @@
 			{
 				redrawUI();
 			}
-		</script>	
+		</script>
 	</head>
 	<body id = "body" onload = "onLoad()" onresize = "onResize()">	
+		<div id = "bars">
+			<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" style = "position:absolute; height: 500px; width: 800px"></canvas>
+			<script type='text/javascript'>
+			var Module = {
+				TOTAL_MEMORY: 268435456,
+				errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
+				compatibilitycheck: null,
+				dataUrl: "Release/BUILD.data",
+				codeUrl: "Release/BUILD.js",
+				memUrl: "Release/BUILD.mem",
+			};
+			</script>
+			<script src="Release/UnityLoader.js"></script>
+		</div>
+		
+		<div id = "uiGame"></div>
 	</body>
 </html>
