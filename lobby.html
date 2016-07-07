@@ -251,17 +251,23 @@
 						const uiCasherBuyButtonWidthScale = 0.1;
 						const uiCasherBuyButtonHeightScale = 0.1;
 						const uiCasherRowsIntervalScale = 0.05;
-						const uiCasherPurchaseInfoWidthScale = 0.8;
+						const uiCasherPurchaseInfoWidthScale = 0.5;
+						const uiCasherPurchasePriceWidthScale = 0.3;
 						const uiCasherPurchaseInfoHeightScale = 0.1;
+						const uiCasherPurchasePriceHeightScale = 0.1;
 						const uiCasherFontScale = 2;
 						var uiCasherBuyButtonWidth = uiGamePopupWidth * uiCasherBuyButtonWidthScale;
 						var uiCasherBuyButtonHeight = uiGamePopupWidth * uiCasherPurchaseInfoHeightScale;
-						var uiCasherBuyButtonLeft = uiCasherRowsIntervalScale*uiGamePopupWidth + uiCasherPurchaseInfoWidthScale*uiGamePopupWidth;
+						var uiCasherBuyButtonLeft = uiCasherRowsIntervalScale*uiGamePopupWidth + uiCasherPurchaseInfoWidthScale*uiGamePopupWidth + uiCasherPurchasePriceWidthScale*uiGamePopupWidth;
 						var uiCasherPurchaseInfoWidth = uiGamePopupWidth * uiCasherPurchaseInfoWidthScale;
 						var uiCasherPurchaseInfoHeight = uiGamePopupWidth * uiCasherPurchaseInfoHeightScale;
 						var uiCasherPurchaseInfoLeft = uiCasherRowsIntervalScale*uiGamePopupWidth;
+						var uiCasherPurchasePriceWidth = uiGamePopupWidth * uiCasherPurchasePriceWidthScale;
+						var uiCasherPurchasePriceHeight = uiGamePopupWidth * uiCasherPurchasePriceHeightScale;
+						var uiCasherPurchasePriceLeft = uiCasherRowsIntervalScale*uiGamePopupWidth + uiCasherPurchaseInfoWidthScale*uiGamePopupWidth;
 						var uiCasherBuyButtonsTops = [];
 						var uiCasherPurchaseInfoTops = [];
+						var uiCasherPurchasePriceTops = [];
 						
 						const uiCasherPurchasesCount = 4;
 						
@@ -271,12 +277,14 @@
 						
 						for (var i = 0; i < uiCasherPurchasesCount; i++)
 						{
-							uiCasherPurchaseInfoTops[i] = uiCasherRowsIntervalScale*uiGamePopupHeight*4 + i*(uiGamePopupWidth * uiCasherPurchaseInfoHeightScale + uiCasherRowsIntervalScale*uiGamePopupHeight);
+							uiCasherPurchaseInfoTops[i] = uiCasherRowsIntervalScale*uiGamePopupHeight*3 + i*(uiGamePopupWidth * uiCasherPurchaseInfoHeightScale + uiCasherRowsIntervalScale*uiGamePopupHeight);
+							uiCasherPurchasePriceTops[i] = uiCasherPurchaseInfoTops[i];
 							uiCasherBuyButtonsTops[i] = uiCasherPurchaseInfoTops[i];
 							uiGamePopupHeighttmlString += '<button onclick = \"hidePopups()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiCasherBuyButtonWidth + 'px; height: ' + uiCasherBuyButtonHeight + 'px; left: ' + uiCasherBuyButtonLeft + 'px; top: ' + uiCasherBuyButtonsTops[i] + 'px \"> Buy </button>';
-							uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiCasherFontScale+'px; text-align: center; background-color: #cce6ff; position: absolute; width: ' + uiCasherPurchaseInfoWidth + 'px; height: ' + uiCasherPurchaseInfoHeight + 'px; left: ' + uiCasherPurchaseInfoLeft + 'px; top: ' + uiCasherPurchaseInfoTops[i] + 'px \">GOLD 1000       1.99$ </div>';
+							uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiCasherFontScale+'px; text-align: center; background-color: #cce6ff; position: absolute; width: ' + uiCasherPurchaseInfoWidth + 'px; height: ' + uiCasherPurchaseInfoHeight + 'px; left: ' + uiCasherPurchaseInfoLeft + 'px; top: ' + uiCasherPurchaseInfoTops[i] + 'px \">GOLD 1000</div>';
+							uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiCasherFontScale+'px; text-align: center; background-color: #2ce6ff; position: absolute; width: ' + uiCasherPurchasePriceWidth + 'px; height: ' + uiCasherPurchasePriceHeight + 'px; left: ' + uiCasherPurchasePriceLeft + 'px; top: ' + uiCasherPurchasePriceTops[i] + 'px \">1.99$</div>';
 						}
-						
+						uiGamePopupHeighttmlString += '<button onclick = \"hidePopups()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePopupCloseButtonWidth + 'px; height: ' + uiGamePopupCloseButtonHeight + 'px; left: ' + uiGamePopupCloseButtonLeft + 'px; top: ' + uiGamePopupCloseButtonTop + 'px \"> X </button>';
 						uiGamePopupHeighttmlString += '</div>';
 						break;
 					}
