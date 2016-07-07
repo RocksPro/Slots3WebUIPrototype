@@ -246,6 +246,40 @@
 						uiGamePopupHeighttmlString += '</div>';
 						break;
 					}
+					case 'Casher':
+					{
+						const uiCasherBuyButtonWidthScale = 0.1;
+						const uiCasherBuyButtonHeightScale = 0.1;
+						const uiCasherRowsIntervalScale = 0.05;
+						const uiCasherPurchaseInfoWidthScale = 0.8;
+						const uiCasherPurchaseInfoHeightScale = 0.1;
+						const uiCasherFontScale = 2;
+						var uiCasherBuyButtonWidth = uiGamePopupWidth * uiCasherBuyButtonWidthScale;
+						var uiCasherBuyButtonHeight = uiGamePopupWidth * uiCasherPurchaseInfoHeightScale;
+						var uiCasherBuyButtonLeft = uiCasherRowsIntervalScale*uiGamePopupWidth + uiCasherPurchaseInfoWidthScale*uiGamePopupWidth;
+						var uiCasherPurchaseInfoWidth = uiGamePopupWidth * uiCasherPurchaseInfoWidthScale;
+						var uiCasherPurchaseInfoHeight = uiGamePopupWidth * uiCasherPurchaseInfoHeightScale;
+						var uiCasherPurchaseInfoLeft = uiCasherRowsIntervalScale*uiGamePopupWidth;
+						var uiCasherBuyButtonsTops = [];
+						var uiCasherPurchaseInfoTops = [];
+						
+						const uiCasherPurchasesCount = 4;
+						
+						uiGamePopupHeighttmlString = '<div style = \"position: absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; width: '+uiGameWidth+'px; height: '+uiGameHeight+'px; opacity:0.3; background-color:#000080\"></div>';
+						uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiCasherFontScale+'px; text-align: center; background-color: #e6e6ff; opcaity: 1.0; position: absolute; width: ' + uiGamePopupWidth + 'px; height: ' + uiGamePopupHeight + 'px; left: ' + uiGamePopupLeft + 'px; top: ' + uiGamePopupTop + 'px \">Casher';
+						
+						
+						for (var i = 0; i < uiCasherPurchasesCount; i++)
+						{
+							uiCasherPurchaseInfoTops[i] = uiCasherRowsIntervalScale*uiGamePopupHeight*4 + i*(uiGamePopupWidth * uiCasherPurchaseInfoHeightScale + uiCasherRowsIntervalScale*uiGamePopupHeight);
+							uiCasherBuyButtonsTops[i] = uiCasherPurchaseInfoTops[i];
+							uiGamePopupHeighttmlString += '<button onclick = \"hidePopups()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiCasherBuyButtonWidth + 'px; height: ' + uiCasherBuyButtonHeight + 'px; left: ' + uiCasherBuyButtonLeft + 'px; top: ' + uiCasherBuyButtonsTops[i] + 'px \"> Buy </button>';
+							uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiCasherFontScale+'px; text-align: center; background-color: #cce6ff; position: absolute; width: ' + uiCasherPurchaseInfoWidth + 'px; height: ' + uiCasherPurchaseInfoHeight + 'px; left: ' + uiCasherPurchaseInfoLeft + 'px; top: ' + uiCasherPurchaseInfoTops[i] + 'px \">GOLD 1000       1.99$ </div>';
+						}
+						
+						uiGamePopupHeighttmlString += '</div>';
+						break;
+					}
 					default:
 					{
 						uiGamePopupHeighttmlString = "";
@@ -258,7 +292,7 @@
 						<div style = \" background-color: #e6f3ff; width:' + uiGameTopPanelWidth + 'px; height: ' + uiGameTopPanelHeight + 'px \">  \
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: ' + uiGameSlotsClubButtonLeft + 'px; top: ' + uiGameSlotsClubButtonTop + 'px \">SC</button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px \">1000 $</div>\
-							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameBuyButtonWidth + 'px; height: ' + uiGameBuyButtonHeight + 'px; left: ' + uiGameBuyButtonLeft + 'px; top: ' + uiGameBuyButtonTop + 'px \"> Buy </button>\
+							<button onclick = \"showCasherPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameBuyButtonWidth + 'px; height: ' + uiGameBuyButtonHeight + 'px; left: ' + uiGameBuyButtonLeft + 'px; top: ' + uiGameBuyButtonTop + 'px \"> Buy </button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \">1000 / 10000</div>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameFacebookButtonWidth + 'px; height: ' + uiGameFacebookButtonHeight + 'px; left: ' + uiGameFacebookButtonLeft + 'px; top: ' + uiGameFacebookButtonTop + 'px \"> FbConnect </button>\
 							<button onclick = \"showOptionsPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameOptionsButtonWidth + 'px; height: ' + uiGameOptionsButtonHeight + 'px; left: ' + uiGameOptionsButtonLeft + 'px; top: ' + uiGameOptionsButtonTop + 'px \"> Options </button>\
@@ -283,6 +317,12 @@
 			function showOptionsPopup()
 			{
 				uiGamePopupToShow = "Options";
+				redrawUI();
+			}
+			
+			function showCasherPopup()
+			{
+				uiGamePopupToShow = "Casher";
 				redrawUI();
 			}
 			
