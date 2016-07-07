@@ -180,6 +180,50 @@
 						uiGamePopupHeighttmlString += '</div>';
 						break;
 					}
+					case 'Casher':
+					{
+						const uiCasherBuyButtonWidthScale = 0.1;
+						const uiCasherBuyButtonHeightScale = 0.1;
+						const uiCasherRowsIntervalScale = 0.05;
+						const uiCasherPurchaseInfoWidthScale = 0.5;
+						const uiCasherPurchasePriceWidthScale = 0.3;
+						const uiCasherPurchaseInfoHeightScale = 0.1;
+						const uiCasherPurchasePriceHeightScale = 0.1;
+						const uiCasherTitleFontScale = 2;
+						const uiCasherFontScale = 1.3;
+						var uiCasherBuyButtonWidth = uiGamePopupWidth * uiCasherBuyButtonWidthScale;
+						var uiCasherBuyButtonHeight = uiGamePopupWidth * uiCasherPurchaseInfoHeightScale;
+						var uiCasherBuyButtonLeft = uiCasherRowsIntervalScale*uiGamePopupWidth + uiCasherPurchaseInfoWidthScale*uiGamePopupWidth + uiCasherPurchasePriceWidthScale*uiGamePopupWidth;
+						var uiCasherPurchaseInfoWidth = uiGamePopupWidth * uiCasherPurchaseInfoWidthScale;
+						var uiCasherPurchaseInfoHeight = uiGamePopupWidth * uiCasherPurchaseInfoHeightScale;
+						var uiCasherPurchaseInfoLeft = uiCasherRowsIntervalScale*uiGamePopupWidth;
+						var uiCasherPurchasePriceWidth = uiGamePopupWidth * uiCasherPurchasePriceWidthScale;
+						var uiCasherPurchasePriceHeight = uiGamePopupWidth * uiCasherPurchasePriceHeightScale;
+						var uiCasherPurchasePriceLeft = uiCasherRowsIntervalScale*uiGamePopupWidth + uiCasherPurchaseInfoWidthScale*uiGamePopupWidth;
+						var uiCasherBuyButtonsTops = [];
+						var uiCasherPurchaseInfoTops = [];
+						var uiCasherPurchasePriceTops = [];
+						
+						const uiCasherPurchasesCount = 4;
+						
+						uiGamePopupHeighttmlString = '<div style = \"position: absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; width: '+uiGameWidth+'px; height: '+uiGameHeight+'px; opacity:0.3; background-color:#000080\"></div>';
+						uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiCasherTitleFontScale+'px; text-align: center; background-color: #e6e6ff; opcaity: 1.0; position: absolute; width: ' + uiGamePopupWidth + 'px; height: ' + uiGamePopupHeight + 'px; left: ' + uiGamePopupLeft + 'px; top: ' + uiGamePopupTop + 'px \">Casher';
+						
+						const uiCasherTopInterval = 3;
+						
+						for (var i = 0; i < uiCasherPurchasesCount; i++)
+						{
+							uiCasherPurchaseInfoTops[i] = uiCasherRowsIntervalScale*uiGamePopupHeight*uiCasherTopInterval + i*(uiGamePopupWidth * uiCasherPurchaseInfoHeightScale + uiCasherRowsIntervalScale*uiGamePopupHeight);
+							uiCasherPurchasePriceTops[i] = uiCasherPurchaseInfoTops[i];
+							uiCasherBuyButtonsTops[i] = uiCasherPurchaseInfoTops[i];
+							uiGamePopupHeighttmlString += '<button onclick = \"hidePopups()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiCasherBuyButtonWidth + 'px; height: ' + uiCasherBuyButtonHeight + 'px; left: ' + uiCasherBuyButtonLeft + 'px; top: ' + uiCasherBuyButtonsTops[i] + 'px \"> Buy </button>';
+							uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiCasherFontScale+'px; text-align: center; background-color: #cce6ff; position: absolute; width: ' + uiCasherPurchaseInfoWidth + 'px; height: ' + uiCasherPurchaseInfoHeight + 'px; left: ' + uiCasherPurchaseInfoLeft + 'px; top: ' + uiCasherPurchaseInfoTops[i] + 'px \">GOLD 1000</div>';
+							uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiCasherFontScale+'px; text-align: center; background-color: #2ce6ff; position: absolute; width: ' + uiCasherPurchasePriceWidth + 'px; height: ' + uiCasherPurchasePriceHeight + 'px; left: ' + uiCasherPurchasePriceLeft + 'px; top: ' + uiCasherPurchasePriceTops[i] + 'px \">1.99$</div>';
+						}
+						uiGamePopupHeighttmlString += '<button onclick = \"hidePopups()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePopupCloseButtonWidth + 'px; height: ' + uiGamePopupCloseButtonHeight + 'px; left: ' + uiGamePopupCloseButtonLeft + 'px; top: ' + uiGamePopupCloseButtonTop + 'px \"> X </button>';
+						uiGamePopupHeighttmlString += '</div>';
+						break;
+					}
 					default:
 					{
 						uiGamePopupHeighttmlString = "";
@@ -197,7 +241,7 @@
 						<div style = \" background-color: #e6f3ff; width:' + uiGameTopPanelWidth + 'px; height: ' + uiGameTopPanelHeight + 'px \">  \
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: ' + uiGameSlotsClubButtonLeft + 'px; top: ' + uiGameSlotsClubButtonTop + 'px \">SC</button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px \">1000 $</div>\
-							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameBuyButtonWidth + 'px; height: ' + uiGameBuyButtonHeight + 'px; left: ' + uiGameBuyButtonLeft + 'px; top: ' + uiGameBuyButtonTop + 'px \"> Buy </button>\
+							<button onclick = \"showCasherPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameBuyButtonWidth + 'px; height: ' + uiGameBuyButtonHeight + 'px; left: ' + uiGameBuyButtonLeft + 'px; top: ' + uiGameBuyButtonTop + 'px \"> Buy </button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \">1000 / 10000</div>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameOptionsButtonWidth + 'px; height: ' + uiGameOptionsButtonHeight + 'px; left: ' + uiGameOptionsButtonLeft + 'px; top: ' + uiGameOptionsButtonTop + 'px \"> Options </button>\
 						</div>  \
@@ -212,6 +256,11 @@
 			function showPopup()
 			{
 				uiGamePopupToShow = "Popup";
+				redrawUI();
+			}
+			function showCasherPopup()
+			{
+				uiGamePopupToShow = "Casher";
 				redrawUI();
 			}
 			function hidePopups()
@@ -231,7 +280,6 @@
 		</script>
 	</head>
 	<body id = "body" onload = "onLoad()" onresize = "onResize()">	
-		<div id = "uiGame"></div>
 		<div id = "bars">
 			<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" style = "position:absolute; height: 500px; width: 800px"></canvas>
 			<script type='text/javascript'>
@@ -246,5 +294,6 @@
 			</script>
 			<script src="Release/UnityLoader.js"></script>
 		</div>
+		<div id = "uiGame"></div>
 	</body>
 </html>
