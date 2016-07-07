@@ -20,7 +20,6 @@
 			var uiGameFontSize;
 			
 			const bordersWidth = 4;
-			const bordersInterval = 1.5;
 			
 			function getUiGameSize()
 			{
@@ -44,8 +43,8 @@
 					uiGameTop = 0;
 				}
 				
-				uiGameHeight -= bordersWidth*bordersInterval;
-				uiGameWidth -= bordersWidth*1.5;
+				uiGameHeight -= bordersWidth*2;
+				uiGameWidth -= bordersWidth*2;
 				
 				uiGameFontSize = uiGameHeight * uiGameFontSizeScale;
 			}
@@ -225,7 +224,7 @@
 				
 				document.getElementById("body").innerHTML =  
 				'	\
-					<div style = \"font-size:'+uiGameFontSize+'px; border-color: #f5deb3; border-size: \+bordersWidth+\px; border-style: solid; position:absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; background-color: #b3daff; width:'+uiGameWidth+'px; height: '+uiGameHeight+'px\"> \
+					<div style = \"font-size:'+uiGameFontSize+'px; border-color: #f5deb3; border-width: '+bordersWidth+'px; border-style: solid; position:absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; background-color: #b3daff; width:'+uiGameWidth+'px; height: '+uiGameHeight+'px\"> \
 						<div style = \" background-color: #e6f3ff; width:' + uiGameTopPanelWidth + 'px; height: ' + uiGameTopPanelHeight + 'px \">  \
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: ' + uiGameSlotsClubButtonLeft + 'px; top: ' + uiGameSlotsClubButtonTop + 'px \">SC</button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px \">1000 $</div>\
