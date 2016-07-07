@@ -111,21 +111,51 @@
 				var uiGameThemesPanelTop = uiGameTopPanelHeight;
 				
 				const uiGameThemeIconWidthScale = 0.35;
+				const uiGameThemesIconsInterval = 0.1;
+				
 				var uiGameThemeIconWidth = uiGameThemesPanelHeight * uiGameThemeIconWidthScale;
 				var uiGameThemeIconHeight = uiGameThemeIconWidth;
 				
-				const uiGameThemesIconsInterval = 0.1;
+				var uiGameFeaturedThemeIconWidth = uiGameThemesPanelHeight * uiGameThemeIconWidthScale;
+				var uiGameFeaturedThemeIconHeight = uiGameFeaturedThemeIconWidth*2 + uiGameThemesIconsInterval*uiGameThemesPanelHeight;
+				
 				var uiGameThemesIconsLeftArray = [];
 				var uiGameThemesIconsTopArray = [];
 				
+				var uiGameFeaturedThemesIconsLeftArray = [];
+				var uiGameFeaturedThemesIconsTopArray = [];
+				
 				var themesHtmlString = "";
 				
-				const uiGameThemesIconsCount = 6;
+				const uiGameThemesIconsCount = 4;
+				const uiGameFeaturedIconsCount = 1;
 				
+				const uiGameIconsCols = 3;
+				const uiGameIconsRows = 2;
+				
+				var uiGameFeaturedThemesTableLeft = uiGameThemesPanelWidth/2 - (uiGameFeaturedThemeIconWidth*uiGameFeaturedIconsCount + uiGameThemeIconWidth*(uiGameThemesIconsCount/uiGameIconsRows) + (uiGameThemesIconsInterval*uiGameThemesPanelHeight)*(uiGameIconsCols-1))/2;
+				var uiGameFeaturedThemesTableTop = (uiGameThemesPanelTop + uiGameThemesPanelHeight/2) - (uiGameIconsRows*uiGameThemeIconHeight + ((uiGameThemesIconsInterval*uiGameThemesPanelHeight)*(uiGameIconsRows-1))/2) + uiGameTopPanelHeight;
+				
+				var uiGameThemesTableLeft = uiGameFeaturedThemesTableLeft + (uiGameFeaturedThemeIconWidth*uiGameFeaturedIconsCount + (uiGameThemesIconsInterval*uiGameThemesPanelHeight)*uiGameFeaturedIconsCount);
+				var uiGameThemesTableTop = uiGameFeaturedThemesTableTop;
+				
+				for (var i = 0; i < uiGameFeaturedIconsCount; i++)
+				{
+					uiGameFeaturedThemesIconsLeftArray[i] = uiGameFeaturedThemesTableLeft + i*(uiGameFeaturedThemeIconWidth + uiGameThemesIconsInterval*uiGameThemesPanelHeight);
+					uiGameFeaturedThemesIconsTopArray[i] = uiGameFeaturedThemesTableTop;
+				
+					themesHtmlString += '<button onclick=\"window.location.href=\'themes.html\'\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; left: '+uiGameFeaturedThemesIconsLeftArray[i]+'px; top: '+uiGameFeaturedThemesIconsTopArray[i]+'px; width: '+uiGameFeaturedThemeIconWidth+'px; height: '+uiGameFeaturedThemeIconHeight+'px; \">Theme'+(i+1)+'</button>';
+
+				}
+				
+				var uiGameIconsColsReal = uiGameIconsCols - uiGameFeaturedIconsCount;
 				for (var i = 0; i < uiGameThemesIconsCount; i++)
 				{
-					uiGameThemesIconsLeftArray[i] = ((uiGameThemesPanelWidth - (uiGameThemeIconWidth*(uiGameThemesIconsCount/2) + (uiGameThemesIconsInterval*2)*uiGameThemesPanelHeight))/2) + (i%(uiGameThemesIconsCount/2))*(uiGameThemeIconWidth + uiGameThemesIconsInterval*uiGameThemesPanelHeight);
-					uiGameThemesIconsTopArray[i] = uiGameThemesIconsInterval*uiGameThemesPanelHeight + (Math.floor(i/(uiGameThemesIconsCount/2)))*(uiGameThemeIconHeight + uiGameThemesIconsInterval*uiGameThemesPanelHeight);
+					uiGameThemesIconsLeftArray[i] = uiGameThemesTableLeft + (Math.floor(i%uiGameIconsColsReal))*(uiGameThemeIconWidth + uiGameThemesIconsInterval*uiGameThemesPanelHeight);
+					if (i > 1)
+						uiGameThemesIconsTopArray[i] = uiGameThemesTableTop + (uiGameThemeIconHeight + uiGameThemesIconsInterval*uiGameThemesPanelHeight);
+					else
+						uiGameThemesIconsTopArray[i] = uiGameThemesTableTop;
 					
 					themesHtmlString += '<button onclick=\"window.location.href=\'themes.html\'\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; left: '+uiGameThemesIconsLeftArray[i]+'px; top: '+uiGameThemesIconsTopArray[i]+'px; width: '+uiGameThemeIconWidth+'px; height: '+uiGameThemeIconHeight+'px; \">Theme'+(i+1)+'</button>';
 				}
