@@ -57,6 +57,8 @@
 				uiGameWidth -= bordersWidth*2;
 				
 				uiGameFontSize = uiGameHeight * uiGameFontSizeScale;
+				
+				setTimeout(timerFunc, 1000);
 			}
 			function redrawUI()
 			{
@@ -406,6 +408,12 @@
 				bought = 2000;
 				showBuySuccessPopupFlag = true;
 				redrawUI();
+			}
+			
+			function timerFunc() 
+			{
+				
+				setTimeout(func, 1000);
 			}
 			
 			function onLoad()
