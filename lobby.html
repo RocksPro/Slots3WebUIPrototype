@@ -70,6 +70,8 @@
 			function redrawUI()
 			{
 				getUiGameSize();
+				
+				cash = parseInt(sessionStorage.getItem('cash'));
 								
 				//Top Panel Elements~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
@@ -432,6 +434,7 @@
 			function addGold()
 			{
 				cash += bought;
+				sessionStorage.setItem('cash',cash);
 				showBuySuccessPopupFlag = false;
 				redrawUI();
 			}
@@ -465,11 +468,13 @@
 						if (bonusesCollected == 3)
 						{
 							cash += megaBonusMonets * bonusmultiplier;
+							sessionStorage.setItem('cash',cash);
 							megaBonusTitle = "Mega Bonus"
 						}
 						else
 						{
 							cash += megaBonusMonets;
+							sessionStorage.setItem('cash',cash);
 							megaBonusTitle = "Bonus Coins"
 						}
 						bonusesCollected++;
@@ -484,6 +489,7 @@
 				showMegaBonusPopupFlag = false;
 				megaBonusTitle = "Bonus Coins"
 				cash += megaBonusMonets;
+				sessionStorage.setItem('cash',cash);
 				bonusesCollected = 0;
 				bonusTimer = 10;
 				redrawUI();
@@ -507,6 +513,15 @@
 			
 			function onLoad()
 			{
+				if (sessionStorage.getItem('cash')) 
+				{
+					cash = parseInt(sessionStorage.getItem('cash'));
+				}
+				else
+				{
+					sessionStorage.setItem('cash',1000);
+				}
+				
 				setInterval(timerFunc, 1000);
 				redrawUI();
 			}
