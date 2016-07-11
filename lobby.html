@@ -27,11 +27,14 @@
 			var showBuySuccessPopupFlag;
 			var showOptionsPopupFlag;
 			var showCasherPopupFlag;
+			var showMegaBonusPopupFlag;
 			
 			//Megabonus Vars
 			var megaBonusMonets = 1000;
 			var bonusTimer = 5;
 			var bonusButtonText = "";
+			var bonusesCollected = 0;
+			const totalBonuses = 5;
 			
 			function getUiGameSize()
 			{
@@ -240,6 +243,14 @@
 					uiGamePopupHeighttmlString += '<button onclick = \"hidePopups()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePopupBuySuccessOKButtonWidth + 'px; height: ' + uiGamePopupBuySuccessOKButtonHeight + 'px; left: ' + uiGamePopupBuySuccessOKButtonLeft + 'px; top: ' + uiGamePopupBuySuccessOKButtonTop + 'px \"> OK </button>';
 					uiGamePopupHeighttmlString += '</div>';
 				}
+				if (showMegaBonusPopupFlag)
+				{
+					uiGamePopupHeighttmlString += '<div style = \"position: absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; width: '+uiGameWidth+'px; height: '+uiGameHeight+'px; opacity:0.3; background-color:#000080\"></div>';
+					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize+'px; text-align: center; background-color: #e6e6ff; opcaity: 1.0; position: absolute; width: ' + uiGamePopupBuySuccessWidth + 'px; height: ' + uiGamePopupBuySuccessHeight + 'px; left: ' + uiGamePopupBuySuccessLeft + 'px; top: ' + uiGamePopupBuySuccessTop + 'px \">MEGABONUS';
+					uiGamePopupHeighttmlString += '<br>YOU WON '+megaBonusMonets+' $';
+					uiGamePopupHeighttmlString += '<button onclick = \"collectMegaBonus()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePopupBuySuccessOKButtonWidth + 'px; height: ' + uiGamePopupBuySuccessOKButtonHeight + 'px; left: ' + uiGamePopupBuySuccessOKButtonLeft + 'px; top: ' + uiGamePopupBuySuccessOKButtonTop + 'px \"> OK </button>';
+					uiGamePopupHeighttmlString += '</div>';
+				}
 				if (showOptionsPopupFlag)
 				{
 					const uiOptionsSoundButtonWidthScale = 0.2;
@@ -334,7 +345,14 @@
 				}
 				else
 				{
-					bonusButtonText = "Collect Now";
+					if (bonusesCollected == totalBonuses)
+					{
+						bonusButtonText = "Mega Bonus";
+					}
+					else
+					{
+						bonusButtonText = "Collect Now";
+					}
 				}
 				
 				document.getElementById("body").innerHTML =  
@@ -352,7 +370,7 @@
 						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; position: absolute; width: ' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px; top: ' + uiGameBottomPanelTop + 'px \">   \
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: ' + uiGameGiftsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \"> Gifts </button>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameFriendsButtonWidth + 'px; height: ' + uiGameFriendsButtonHeight + 'px; left: ' + uiGameFriendsButtonLeft + 'px; top: ' + uiGameFriendsButtonTop + 'px \"> Friends </button>\
-							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight + 'px; left: ' + uiGameMegaBonusPanelLeft + 'px; top: ' + uiGameMegaBonusPanelTop + 'px \">MEGA BONUS <br> '+megaBonusMonets+' $</div>\
+							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight + 'px; left: ' + uiGameMegaBonusPanelLeft + 'px; top: ' + uiGameMegaBonusPanelTop + 'px \">MEGA BONUS <br> '+ bonusesCollected + ' / ' + totalBonuses + '<br>' + megaBonusMonets +' $</div>\
 							<button onclick = \"collectBonus()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameMegaBonusButtonWidth + 'px; height: ' + uiGameMegaBonusButtonHeight + 'px; left: ' + uiGameMegaBonusButtonLeft + 'px; top: ' + uiGameMegaBonusButtonTop + 'px \"> '+bonusButtonText+' </button>\
 						</div>  \
 					</div> 	\
@@ -411,10 +429,28 @@
 			{
 				if (bonusTimer == 0)
 				{
-					cash += megaBonusMonets;
-					bonusTimer = 5;
-					redrawUI();
+					if (bonusesCollected == totalBonuses)
+					{
+						showMegaBonusPopupFlag = true;
+						redrawUI();
+					}
+					else
+					{
+						bonusesCollected++;
+						cash += megaBonusMonets;
+						bonusTimer = 5;
+						redrawUI();
+					}
 				}
+			}
+			
+			function collectMegaBonus()
+			{
+				showMegaBonusPopupFlag = false;
+				cash += megaBonusMonets;
+				bonusesCollected = 0;
+				bonusTimer = 5;
+				redrawUI();
 			}
 			
 			function purchase2000()
