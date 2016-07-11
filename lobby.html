@@ -207,7 +207,12 @@
 				var uiGameMegaBonusButtonWidth = uiGameMegaBonusPanelWidth / 2;
 				var uiGameMegaBonusButtonHeight = uiGameBottomPanelHeight / 2;
 				var uiGameMegaBonusButtonLeft = uiGameBottomPanelWidth/2 - uiGameMegaBonusButtonWidth/2;
-				var uiGameMegaBonusButtonTop = uiGameMegaBonusButtonHeight/2;
+				var uiGameMegaBonusButtonTop = uiGameMegaBonusButtonHeight/3;
+				
+				var uiGameMegaBonusCountWidth = uiGameMegaBonusPanelWidth / 2;
+				var uiGameMegaBonusCountHeight = uiGameBottomPanelHeight / 4;
+				var uiGameMegaBonusCountLeft = uiGameBottomPanelWidth/2 - uiGameMegaBonusButtonWidth/2;
+				var uiGameMegaBonusCountTop = uiGameMegaBonusButtonHeight*1.5;
 				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
 				var uiGamePopupHeighttmlString = "";
@@ -344,20 +349,21 @@
 				if (bonusTimer > 0)
 				{
 					bonusButtonFontColor = "color:#000000";
-					megaBonusInfoText = bonusesCollected + ' / ' + totalBonuses;
-					bonusButtonText = bonusTimer;
+					megaBonusInfoText = megaBonusMonets + ' $';
+					if (bonusTimer > 9) bonusButtonText = "In 00:00:"+bonusTimer;
+					else bonusButtonText = "In 00:00:0"+bonusTimer;
 				}
 				else
 				{
 					if (bonusesCollected == totalBonuses)
 					{
 						bonusButtonFontColor = "color:#ff0000";
-						megaBonusInfoText = bonusesCollected + ' / ' + totalBonuses;
+						megaBonusInfoText = "";
 						bonusButtonText = "MEGA BONUS";
 					}
 					else
 					{
-						megaBonusInfoText = bonusesCollected + ' / ' + totalBonuses + '<br>' + megaBonusMonets + ' $';
+						megaBonusInfoText = megaBonusMonets + ' $';
 						bonusButtonFontColor = "color:#000000";
 						bonusButtonText = "Collect Now";
 					}
@@ -378,8 +384,9 @@
 						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; position: absolute; width: ' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px; top: ' + uiGameBottomPanelTop + 'px \">   \
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: ' + uiGameGiftsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \"> Gifts </button>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameFriendsButtonWidth + 'px; height: ' + uiGameFriendsButtonHeight + 'px; left: ' + uiGameFriendsButtonLeft + 'px; top: ' + uiGameFriendsButtonTop + 'px \"> Friends </button>\
-							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight + 'px; left: ' + uiGameMegaBonusPanelLeft + 'px; top: ' + uiGameMegaBonusPanelTop + 'px \">MEGA BONUS <br> '+ megaBonusInfoText +'</div>\
+							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight + 'px; left: ' + uiGameMegaBonusPanelLeft + 'px; top: ' + uiGameMegaBonusPanelTop + 'px \">Bonus Coins <br> '+ megaBonusInfoText +'</div>\
 							<button onclick = \"collectBonus()\" style = \"'+bonusButtonFontColor+';font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameMegaBonusButtonWidth + 'px; height: ' + uiGameMegaBonusButtonHeight + 'px; left: ' + uiGameMegaBonusButtonLeft + 'px; top: ' + uiGameMegaBonusButtonTop + 'px \"> '+bonusButtonText+' </button>\
+							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameMegaBonusCountWidth + 'px; height: ' + uiGameMegaBonusCountHeight + 'px; left: ' + uiGameMegaBonusCountLeft + 'px; top: ' + uiGameMegaBonusCountTop + 'px \">'+bonusesCollected + ' / ' + totalBonuses+'</div>\
 						</div>  \
 					</div> 	\
 					'+uiGamePopupHeighttmlString+'  \
