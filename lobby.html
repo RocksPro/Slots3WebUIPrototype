@@ -31,12 +31,13 @@
 			
 			//Megabonus Vars
 			var megaBonusMonets = 1000;
-			var bonusTimer = 5;
+			var bonusTimer = 10;
 			var bonusButtonText = "";
 			var bonusButtonFontColor = "";
 			var megaBonusInfoText = "";
 			var bonusesCollected = 0;
 			const totalBonuses = 5;
+			const bonusmultiplier = 2;
 			
 			function getUiGameSize()
 			{
@@ -349,7 +350,10 @@
 				if (bonusTimer > 0)
 				{
 					bonusButtonFontColor = "color:#000000";
-					megaBonusInfoText = megaBonusMonets + ' $';
+					if (bonusesCollected == 4)
+						megaBonusInfoText = '<strike><small>' + megaBonusMonets + ' $</small></strike>' + "  " + megaBonusMonets*bonusmultiplier + " $";
+					else
+						megaBonusInfoText = megaBonusMonets + ' $';
 					if (bonusTimer > 9) bonusButtonText = "In 00:00:"+bonusTimer;
 					else bonusButtonText = "In 00:00:0"+bonusTimer;
 				}
@@ -363,7 +367,10 @@
 					}
 					else
 					{
-						megaBonusInfoText = megaBonusMonets + ' $';
+						if (bonusesCollected == 4)
+							megaBonusInfoText = '<strike><small>' + megaBonusMonets + ' $</small></strike>' + "  " + megaBonusMonets*bonusmultiplier + " $";
+						else
+							megaBonusInfoText = megaBonusMonets + ' $';
 						bonusButtonFontColor = "color:#000000";
 						bonusButtonText = "Collect Now";
 					}
@@ -452,8 +459,11 @@
 					else
 					{
 						bonusesCollected++;
-						cash += megaBonusMonets;
-						bonusTimer = 5;
+						if (bonusesCollected == 4)
+							cash += megaBonusMonets * bonusmultiplier;
+						else
+							cash += megaBonusMonets;
+						bonusTimer = 10;
 						redrawUI();
 					}
 				}
