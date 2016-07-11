@@ -35,6 +35,7 @@
 			var bonusButtonText = "";
 			var bonusButtonFontColor = "";
 			var megaBonusInfoText = "";
+			var megaBonusTitle = "Bonus Coins";
 			var bonusesCollected = 0;
 			const totalBonuses = 5;
 			const bonusmultiplier = 2;
@@ -350,8 +351,10 @@
 				if (bonusTimer > 0)
 				{
 					bonusButtonFontColor = "color:#000000";
-					if (bonusesCollected == 4)
+					if (bonusesCollected == 3)
 						megaBonusInfoText = '<strike><small>' + megaBonusMonets + ' $</small></strike>' + "  " + megaBonusMonets*bonusmultiplier + " $";
+					else if (bonusesCollected >= totalBonuses-1)
+						megaBonusInfoText = "";
 					else
 						megaBonusInfoText = megaBonusMonets + ' $';
 					if (bonusTimer > 9) bonusButtonText = "In 00:00:"+bonusTimer;
@@ -359,7 +362,7 @@
 				}
 				else
 				{
-					if (bonusesCollected == totalBonuses)
+					if (bonusesCollected >= totalBonuses-1)
 					{
 						bonusButtonFontColor = "color:#ff0000";
 						megaBonusInfoText = "";
@@ -367,7 +370,7 @@
 					}
 					else
 					{
-						if (bonusesCollected == 4)
+						if (bonusesCollected == 3)
 							megaBonusInfoText = '<strike><small>' + megaBonusMonets + ' $</small></strike>' + "  " + megaBonusMonets*bonusmultiplier + " $";
 						else
 							megaBonusInfoText = megaBonusMonets + ' $';
@@ -391,7 +394,7 @@
 						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; position: absolute; width: ' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px; top: ' + uiGameBottomPanelTop + 'px \">   \
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: ' + uiGameGiftsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \"> Gifts </button>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameFriendsButtonWidth + 'px; height: ' + uiGameFriendsButtonHeight + 'px; left: ' + uiGameFriendsButtonLeft + 'px; top: ' + uiGameFriendsButtonTop + 'px \"> Friends </button>\
-							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight + 'px; left: ' + uiGameMegaBonusPanelLeft + 'px; top: ' + uiGameMegaBonusPanelTop + 'px \">Bonus Coins <br> '+ megaBonusInfoText +'</div>\
+							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight + 'px; left: ' + uiGameMegaBonusPanelLeft + 'px; top: ' + uiGameMegaBonusPanelTop + 'px \">'+megaBonusTitle+' <br> '+ megaBonusInfoText +'</div>\
 							<button onclick = \"collectBonus()\" style = \"'+bonusButtonFontColor+';font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameMegaBonusButtonWidth + 'px; height: ' + uiGameMegaBonusButtonHeight + 'px; left: ' + uiGameMegaBonusButtonLeft + 'px; top: ' + uiGameMegaBonusButtonTop + 'px \"> '+bonusButtonText+' </button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameMegaBonusCountWidth + 'px; height: ' + uiGameMegaBonusCountHeight + 'px; left: ' + uiGameMegaBonusCountLeft + 'px; top: ' + uiGameMegaBonusCountTop + 'px \">'+bonusesCollected + ' / ' + totalBonuses+'</div>\
 						</div>  \
@@ -451,17 +454,24 @@
 			{
 				if (bonusTimer == 0)
 				{
-					if (bonusesCollected == totalBonuses)
+					if (bonusesCollected == totalBonuses-1)
 					{
 						showMegaBonusPopupFlag = true;
+						bonusesCollected++;
 						redrawUI();
 					}
 					else
 					{
-						if (bonusesCollected == 4)
+						if (bonusesCollected == 3)
+						{
 							cash += megaBonusMonets * bonusmultiplier;
+							megaBonusTitle = "Mega Bonus"
+						}
 						else
+						{
 							cash += megaBonusMonets;
+							megaBonusTitle = "Bonus Coins"
+						}
 						bonusesCollected++;
 						bonusTimer = 10;
 						redrawUI();
@@ -474,7 +484,7 @@
 				showMegaBonusPopupFlag = false;
 				cash += megaBonusMonets;
 				bonusesCollected = 0;
-				bonusTimer = 5;
+				bonusTimer = 10;
 				redrawUI();
 			}
 			
