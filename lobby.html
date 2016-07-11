@@ -458,11 +458,11 @@
 					}
 					else
 					{
-						bonusesCollected++;
 						if (bonusesCollected == 4)
 							cash += megaBonusMonets * bonusmultiplier;
 						else
 							cash += megaBonusMonets;
+						bonusesCollected++;
 						bonusTimer = 10;
 						redrawUI();
 					}
