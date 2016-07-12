@@ -29,6 +29,7 @@
 			var showCasherPopupFlag;
 			var showMegaBonusPopupFlag;
 			var showInboxPopupFlag;
+			var showCoinsGIftGetPopupFlag;
 			
 			//Megabonus Vars
 			var megaBonusMonets = 1000;
@@ -373,6 +374,10 @@
 					
 					const uiInboxTopInterval = 3;
 					
+					var coinsgift = true;
+					var spinsgift = true;
+					var specialoffergift = true;
+					
 					for (var i = 0; i < uiInboxPurchasesCount; i++)
 					{
 						uiInboxGiftInfoTops[i] = uiInboxRowsIntervalScale*uiGamePopupHeight*uiInboxTopInterval + i*(uiGamePopupWidth * uiInboxGiftInfoHeightScale + uiInboxRowsIntervalScale*uiGamePopupHeight);
@@ -380,23 +385,32 @@
 						uiInboxGetButtonsTops[i] = uiInboxGiftInfoTops[i];
 					}
 					
-					uiGamePopupHeighttmlString += '<button onclick = \"purchase500()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiInboxGetButtonWidth + 'px; height: ' + uiInboxGetButtonHeight + 'px; left: ' + uiInboxGetButtonLeft + 'px; top: ' + uiInboxGetButtonsTops[0] + 'px \"> Get coins </button>';
-					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #cce6ff; position: absolute; width: ' + uiInboxGiftInfoWidth + 'px; height: ' + uiInboxGiftInfoHeight + 'px; left: ' + uiInboxGiftInfoLeft + 'px; top: ' + uiInboxGiftInfoTops[0] + 'px \">\
-					<img src="fr.jpg" style=\"width:'+uiInboxGiftInfoHeight+'px; height:'+uiInboxGiftInfoHeight+'px\"></img>\
-					Nancy has sent you </div>';
-					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #2ce6ff; position: absolute; width: ' + uiInboxGiftGoldWidth + 'px; height: ' + uiInboxGiftGoldHeight + 'px; left: ' + uiInboxGiftGoldLeft + 'px; top: ' + uiInboxGiftGoldTops[0] + 'px \">1000 $</div>';
+					if (coinsgift)
+					{
+						uiGamePopupHeighttmlString += '<button onclick = \"showCoinsGIftGetPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiInboxGetButtonWidth + 'px; height: ' + uiInboxGetButtonHeight + 'px; left: ' + uiInboxGetButtonLeft + 'px; top: ' + uiInboxGetButtonsTops[0] + 'px \"> Get coins </button>';
+						uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #cce6ff; position: absolute; width: ' + uiInboxGiftInfoWidth + 'px; height: ' + uiInboxGiftInfoHeight + 'px; left: ' + uiInboxGiftInfoLeft + 'px; top: ' + uiInboxGiftInfoTops[0] + 'px \">\
+						<img src="fr.jpg" style=\"width:'+uiInboxGiftInfoHeight+'px; height:'+uiInboxGiftInfoHeight+'px\"></img>\
+						Nancy has sent you </div>';
+						uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #2ce6ff; position: absolute; width: ' + uiInboxGiftGoldWidth + 'px; height: ' + uiInboxGiftGoldHeight + 'px; left: ' + uiInboxGiftGoldLeft + 'px; top: ' + uiInboxGiftGoldTops[0] + 'px \">1000 $</div>';
+					}
 					
-					uiGamePopupHeighttmlString += '<button onclick = \"purchase1000()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiInboxGetButtonWidth + 'px; height: ' + uiInboxGetButtonHeight + 'px; left: ' + uiInboxGetButtonLeft + 'px; top: ' + uiInboxGetButtonsTops[1] + 'px \"> Get spins </button>';
-					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #cce6ff; position: absolute; width: ' + uiInboxGiftInfoWidth + 'px; height: ' + uiInboxGiftInfoHeight + 'px; left: ' + uiInboxGiftInfoLeft + 'px; top: ' + uiInboxGiftInfoTops[1] + 'px \">\
-					<img src="fr.jpg" style=\"width:'+uiInboxGiftInfoHeight+'px; height:'+uiInboxGiftInfoHeight+'px\"></img>\
-					Nancy has sent you</div>';
-					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #2ce6ff; position: absolute; width: ' + uiInboxGiftGoldWidth + 'px; height: ' + uiInboxGiftGoldHeight + 'px; left: ' + uiInboxGiftGoldLeft + 'px; top: ' + uiInboxGiftGoldTops[1] + 'px \">10 spins</div>';
+					if (spinsgift)
+					{
+						uiGamePopupHeighttmlString += '<button onclick = \"showCoinsGIftGetPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiInboxGetButtonWidth + 'px; height: ' + uiInboxGetButtonHeight + 'px; left: ' + uiInboxGetButtonLeft + 'px; top: ' + uiInboxGetButtonsTops[1] + 'px \"> Get spins </button>';
+						uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #cce6ff; position: absolute; width: ' + uiInboxGiftInfoWidth + 'px; height: ' + uiInboxGiftInfoHeight + 'px; left: ' + uiInboxGiftInfoLeft + 'px; top: ' + uiInboxGiftInfoTops[1] + 'px \">\
+						<img src="fr.jpg" style=\"width:'+uiInboxGiftInfoHeight+'px; height:'+uiInboxGiftInfoHeight+'px\"></img>\
+						Nancy has sent you</div>';
+						uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #2ce6ff; position: absolute; width: ' + uiInboxGiftGoldWidth + 'px; height: ' + uiInboxGiftGoldHeight + 'px; left: ' + uiInboxGiftGoldLeft + 'px; top: ' + uiInboxGiftGoldTops[1] + 'px \">10 spins</div>';
+					}
 						
-					uiGamePopupHeighttmlString += '<button onclick = \"purchase2000()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiInboxGetButtonWidth + 'px; height: ' + uiInboxGetButtonHeight + 'px; left: ' + uiInboxGetButtonLeft + 'px; top: ' + uiInboxGetButtonsTops[2] + 'px \"> Get coins</button>';
-					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #cce6ff; position: absolute; width: ' + uiInboxGiftInfoWidth + 'px; height: ' + uiInboxGiftInfoHeight + 'px; left: ' + uiInboxGiftInfoLeft + 'px; top: ' + uiInboxGiftInfoTops[2] + 'px \">\
-					<img src="fr.jpg" style=\"width:'+uiInboxGiftInfoHeight+'px; height:'+uiInboxGiftInfoHeight+'px\"></img>\
-					Nancy has sent you</div>';
-					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #2ce6ff; position: absolute; width: ' + uiInboxGiftGoldWidth + 'px; height: ' + uiInboxGiftGoldHeight + 'px; left: ' + uiInboxGiftGoldLeft + 'px; top: ' + uiInboxGiftGoldTops[2] + 'px \">1000 $</div>';
+					if (specialoffergift)
+					{
+						uiGamePopupHeighttmlString += '<button onclick = \"showCoinsGIftGetPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiInboxGetButtonWidth + 'px; height: ' + uiInboxGetButtonHeight + 'px; left: ' + uiInboxGetButtonLeft + 'px; top: ' + uiInboxGetButtonsTops[2] + 'px \"> Get coins</button>';
+						uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #cce6ff; position: absolute; width: ' + uiInboxGiftInfoWidth + 'px; height: ' + uiInboxGiftInfoHeight + 'px; left: ' + uiInboxGiftInfoLeft + 'px; top: ' + uiInboxGiftInfoTops[2] + 'px \">\
+						<img src="fr.jpg" style=\"width:'+uiInboxGiftInfoHeight+'px; height:'+uiInboxGiftInfoHeight+'px\"></img>\
+						Nancy has sent you</div>';
+						uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #2ce6ff; position: absolute; width: ' + uiInboxGiftGoldWidth + 'px; height: ' + uiInboxGiftGoldHeight + 'px; left: ' + uiInboxGiftGoldLeft + 'px; top: ' + uiInboxGiftGoldTops[2] + 'px \">1000 $</div>';
+					}
 					
 					uiGamePopupHeighttmlString += '<button onclick = \"hidePopups()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePopupCloseButtonWidth + 'px; height: ' + uiGamePopupCloseButtonHeight + 'px; left: ' + uiGamePopupCloseButtonLeft + 'px; top: ' + uiGamePopupCloseButtonTop + 'px \"> X </button>';
 					uiGamePopupHeighttmlString += '</div>';
@@ -407,6 +421,14 @@
 					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize+'px; text-align: center; background-color: #e6e6ff; opcaity: 1.0; position: absolute; width: ' + uiGamePopupBuySuccessWidth + 'px; height: ' + uiGamePopupBuySuccessHeight + 'px; left: ' + uiGamePopupBuySuccessLeft + 'px; top: ' + uiGamePopupBuySuccessTop + 'px \">Success';
 					uiGamePopupHeighttmlString += '<br>You bought ' + bought;
 					uiGamePopupHeighttmlString += '<button onclick = \"addGold()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePopupBuySuccessOKButtonWidth + 'px; height: ' + uiGamePopupBuySuccessOKButtonHeight + 'px; left: ' + uiGamePopupBuySuccessOKButtonLeft + 'px; top: ' + uiGamePopupBuySuccessOKButtonTop + 'px \"> OK </button>';
+					uiGamePopupHeighttmlString += '</div>';
+				}
+				if (showCoinsGIftGetPopupFlag)
+				{
+					uiGamePopupHeighttmlString += '<div style = \"position: absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; width: '+uiGameWidth+'px; height: '+uiGameHeight+'px; opacity:0.3; background-color:#000080\"></div>';
+					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize+'px; text-align: center; background-color: #e6e6ff; opcaity: 1.0; position: absolute; width: ' + uiGamePopupBuySuccessWidth + 'px; height: ' + uiGamePopupBuySuccessHeight + 'px; left: ' + uiGamePopupBuySuccessLeft + 'px; top: ' + uiGamePopupBuySuccessTop + 'px \">Coins gift';
+					uiGamePopupHeighttmlString += '<br>You received $1000 from Nancy';
+					uiGamePopupHeighttmlString += '<button onclick = \"getGift()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePopupBuySuccessOKButtonWidth + 'px; height: ' + uiGamePopupBuySuccessOKButtonHeight + 'px; left: ' + uiGamePopupBuySuccessOKButtonLeft + 'px; top: ' + uiGamePopupBuySuccessOKButtonTop + 'px \"> OK </button>';
 					uiGamePopupHeighttmlString += '</div>';
 				}
 				
@@ -488,6 +510,18 @@
 				redrawUI();
 			}
 			
+			function showCoinsGIftGetPopup()
+			{
+				showCoinsGIftGetPopupFlag = true;
+				redrawUI();
+			}
+			
+			function getGift()
+			{
+				showCoinsGIftGetPopupFlag = false;
+				redrawUI();
+			}
+			
 			function hidePopups()
 			{
 				showBuySuccessPopupFlag = false;
@@ -495,6 +529,7 @@
 				showOptionsPopupFlag = false;
 				showCasherPopupFlag = false;
 				showInboxPopupFlag = false;
+				showCoinsGIftGetPopupFlag = false;
 				redrawUI();
 			}
 			
