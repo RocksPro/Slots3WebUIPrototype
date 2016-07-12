@@ -46,6 +46,7 @@
 			var coinsgift = true;
 			var spinsgift = true;
 			var specialoffergift = true;
+			var specialofferget = false;
 			
 			function getUiGameSize()
 			{
@@ -542,6 +543,7 @@
 			
 			function getSpecialOffer()
 			{
+				specialofferget = true;
 				hidePopups();
 				showCasherPopup();
 				redrawUI();
@@ -578,6 +580,8 @@
 			
 			function addGold()
 			{
+				if (specialofferget)
+					specialoffergift = false;
 				cash += bought;
 				sessionStorage.setItem('cash',cash);
 				showBuySuccessPopupFlag = false;
