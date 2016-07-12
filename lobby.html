@@ -30,6 +30,7 @@
 			var showMegaBonusPopupFlag;
 			var showInboxPopupFlag;
 			var showCoinsGIftGetPopupFlag;
+			var showSelectThemePopupFlag;
 			
 			//Megabonus Vars
 			var megaBonusMonets = 1000;
@@ -398,7 +399,7 @@
 					
 					if (spinsgift)
 					{
-						uiGamePopupHeighttmlString += '<button onclick = \"showCoinsGIftGetPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiInboxGetButtonWidth + 'px; height: ' + uiInboxGetButtonHeight + 'px; left: ' + uiInboxGetButtonLeft + 'px; top: ' + uiInboxGetButtonsTops[posid] + 'px \"> Get spins </button>';
+						uiGamePopupHeighttmlString += '<button onclick = \"showSelectTheme()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiInboxGetButtonWidth + 'px; height: ' + uiInboxGetButtonHeight + 'px; left: ' + uiInboxGetButtonLeft + 'px; top: ' + uiInboxGetButtonsTops[posid] + 'px \"> Get spins </button>';
 						uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #cce6ff; position: absolute; width: ' + uiInboxGiftInfoWidth + 'px; height: ' + uiInboxGiftInfoHeight + 'px; left: ' + uiInboxGiftInfoLeft + 'px; top: ' + uiInboxGiftInfoTops[posid] + 'px \">\
 						<img src="fr.jpg" style=\"width:'+uiInboxGiftInfoHeight+'px; height:'+uiInboxGiftInfoHeight+'px\"></img>\
 						Nancy has sent you</div>';
@@ -434,6 +435,11 @@
 					uiGamePopupHeighttmlString += '<br>You received $1500 from Nancy';
 					uiGamePopupHeighttmlString += '<button onclick = \"getGift()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePopupBuySuccessOKButtonWidth + 'px; height: ' + uiGamePopupBuySuccessOKButtonHeight + 'px; left: ' + uiGamePopupBuySuccessOKButtonLeft + 'px; top: ' + uiGamePopupBuySuccessOKButtonTop + 'px \"> OK </button>';
 					uiGamePopupHeighttmlString += '</div>';
+				}
+				if (showSelectThemePopupFlag)
+				{
+					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize+'px; text-align: center; background-color: #e6e6ff; opcaity: 1.0; position: absolute; width: ' + uiGameWidth + 'px; height: ' + uiGameTopPanelHeight + 'px; left: '+(uiGameLeft + bordersWidth)+'px; top: '+uiGameTop+'px \"></div>';
+					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize+'px; text-align: center; background-color: #e6e6ff; opcaity: 1.0; position: absolute; width: ' + uiGameWidth + 'px; height: ' + uiGameMegaBonusPanelHeight + 'px; left: '+(uiGameLeft + bordersWidth)+'px; top: '+(uiGameHeight-uiGameMegaBonusPanelHeight)+'px \"><big>SELECT THEME</big></div>';
 				}
 				
 				if (bonusTimer > 0)
@@ -525,6 +531,13 @@
 				showCoinsGIftGetPopupFlag = false;
 				cash += 1500;
 				coinsgift = false;
+				redrawUI();
+			}
+			
+			function showSelectTheme()
+			{
+				hidePopups();
+				showSelectThemePopupFlag = true;
 				redrawUI();
 			}
 			
