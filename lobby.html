@@ -28,6 +28,7 @@
 			var showOptionsPopupFlag;
 			var showCasherPopupFlag;
 			var showMegaBonusPopupFlag;
+			var showInboxPopupFlag;
 			
 			//Megabonus Vars
 			var megaBonusMonets = 1000;
@@ -341,6 +342,60 @@
 					uiGamePopupHeighttmlString += '<button onclick = \"hidePopups()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePopupCloseButtonWidth + 'px; height: ' + uiGamePopupCloseButtonHeight + 'px; left: ' + uiGamePopupCloseButtonLeft + 'px; top: ' + uiGamePopupCloseButtonTop + 'px \"> X </button>';
 					uiGamePopupHeighttmlString += '</div>';
 				}
+				if (showInboxPopupFlag)
+				{
+					const uiInboxGetButtonWidthScale = 0.1;
+					const uiInboxGetButtonHeightScale = 0.1;
+					const uiInboxRowsIntervalScale = 0.05;
+					const uiInboxGiftInfoWidthScale = 0.5;
+					const uiInboxGiftGoldWidthScale = 0.3;
+					const uiInboxGiftInfoHeightScale = 0.1;
+					const uiInboxGiftGoldHeightScale = 0.1;
+					const uiInboxTitleFontScale = 2;
+					const uiInboxFontScale = 1.3;
+					var uiInboxGetButtonWidth = uiGamePopupWidth * uiInboxGetButtonWidthScale;
+					var uiInboxGetButtonHeight = uiGamePopupWidth * uiInboxGiftInfoHeightScale;
+					var uiInboxGetButtonLeft = uiInboxRowsIntervalScale*uiGamePopupWidth + uiInboxGiftInfoWidthScale*uiGamePopupWidth + uiInboxGiftGoldWidthScale*uiGamePopupWidth;
+					var uiInboxGiftInfoWidth = uiGamePopupWidth * uiInboxGiftInfoWidthScale;
+					var uiInboxGiftInfoHeight = uiGamePopupWidth * uiInboxGiftInfoHeightScale;
+					var uiInboxGiftInfoLeft = uiInboxRowsIntervalScale*uiGamePopupWidth;
+					var uiInboxGiftGoldWidth = uiGamePopupWidth * uiInboxGiftGoldWidthScale;
+					var uiInboxGiftGoldHeight = uiGamePopupWidth * uiInboxGiftGoldHeightScale;
+					var uiInboxGiftGoldLeft = uiInboxRowsIntervalScale*uiGamePopupWidth + uiInboxGiftInfoWidthScale*uiGamePopupWidth;
+					var uiInboxGetButtonsTops = [];
+					var uiInboxGiftInfoTops = [];
+					var uiInboxGiftGoldTops = [];
+					
+					const uiInboxPurchasesCount = 3;
+					
+					uiGamePopupHeighttmlString += '<div style = \"position: absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; width: '+uiGameWidth+'px; height: '+uiGameHeight+'px; opacity:0.3; background-color:#000080\"></div>';
+					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxTitleFontScale+'px; text-align: center; background-color: #e6e6ff; opcaity: 1.0; position: absolute; width: ' + uiGamePopupWidth + 'px; height: ' + uiGamePopupHeight + 'px; left: ' + uiGamePopupLeft + 'px; top: ' + uiGamePopupTop + 'px \">Inbox';
+					
+					const uiInboxTopInterval = 3;
+					
+					for (var i = 0; i < uiInboxPurchasesCount; i++)
+					{
+						uiInboxGiftInfoTops[i] = uiInboxRowsIntervalScale*uiGamePopupHeight*uiInboxTopInterval + i*(uiGamePopupWidth * uiInboxGiftInfoHeightScale + uiInboxRowsIntervalScale*uiGamePopupHeight);
+						uiInboxGiftGoldTops[i] = uiInboxGiftInfoTops[i];
+						uiInboxGetButtonsTops[i] = uiInboxGiftInfoTops[i];
+						
+					}
+					
+					uiGamePopupHeighttmlString += '<button onclick = \"purchase500()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiInboxGetButtonWidth + 'px; height: ' + uiInboxGetButtonHeight + 'px; left: ' + uiInboxGetButtonLeft + 'px; top: ' + uiInboxGetButtonsTops[0] + 'px \"> Get </button>';
+					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #cce6ff; position: absolute; width: ' + uiInboxGiftInfoWidth + 'px; height: ' + uiInboxGiftInfoHeight + 'px; left: ' + uiInboxGiftInfoLeft + 'px; top: ' + uiInboxGiftInfoTops[0] + 'px \">Nancy</div>';
+					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #2ce6ff; position: absolute; width: ' + uiInboxGiftGoldWidth + 'px; height: ' + uiInboxGiftGoldHeight + 'px; left: ' + uiInboxGiftGoldLeft + 'px; top: ' + uiInboxGiftGoldTops[0] + 'px \">1000 $</div>';
+					
+					uiGamePopupHeighttmlString += '<button onclick = \"purchase1000()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiInboxGetButtonWidth + 'px; height: ' + uiInboxGetButtonHeight + 'px; left: ' + uiInboxGetButtonLeft + 'px; top: ' + uiInboxGetButtonsTops[1] + 'px \"> Get </button>';
+					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #cce6ff; position: absolute; width: ' + uiInboxGiftInfoWidth + 'px; height: ' + uiInboxGiftInfoHeight + 'px; left: ' + uiInboxGiftInfoLeft + 'px; top: ' + uiInboxGiftInfoTops[1] + 'px \">Mike</div>';
+					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #2ce6ff; position: absolute; width: ' + uiInboxGiftGoldWidth + 'px; height: ' + uiInboxGiftGoldHeight + 'px; left: ' + uiInboxGiftGoldLeft + 'px; top: ' + uiInboxGiftGoldTops[1] + 'px \">2000 $</div>';
+						
+					uiGamePopupHeighttmlString += '<button onclick = \"purchase2000()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiInboxGetButtonWidth + 'px; height: ' + uiInboxGetButtonHeight + 'px; left: ' + uiInboxGetButtonLeft + 'px; top: ' + uiInboxGetButtonsTops[2] + 'px \"> Get </button>';
+					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #cce6ff; position: absolute; width: ' + uiInboxGiftInfoWidth + 'px; height: ' + uiInboxGiftInfoHeight + 'px; left: ' + uiInboxGiftInfoLeft + 'px; top: ' + uiInboxGiftInfoTops[2] + 'px \">Nancy</div>';
+					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize*uiInboxFontScale+'px; text-align: center; background-color: #2ce6ff; position: absolute; width: ' + uiInboxGiftGoldWidth + 'px; height: ' + uiInboxGiftGoldHeight + 'px; left: ' + uiInboxGiftGoldLeft + 'px; top: ' + uiInboxGiftGoldTops[2] + 'px \">1000 $</div>';
+					
+					uiGamePopupHeighttmlString += '<button onclick = \"hidePopups()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePopupCloseButtonWidth + 'px; height: ' + uiGamePopupCloseButtonHeight + 'px; left: ' + uiGamePopupCloseButtonLeft + 'px; top: ' + uiGamePopupCloseButtonTop + 'px \"> X </button>';
+					uiGamePopupHeighttmlString += '</div>';
+				}
 				if (showBuySuccessPopupFlag)
 				{
 					uiGamePopupHeighttmlString += '<div style = \"position: absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; width: '+uiGameWidth+'px; height: '+uiGameHeight+'px; opacity:0.3; background-color:#000080\"></div>';
@@ -394,7 +449,7 @@
 						</div>  \
 						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + uiGameThemesPanelWidth + 'px; height: ' + uiGameThemesPanelHeight + 'px; left: ' + uiGameThemesPanelLeft + 'px; top: ' + uiGameThemesPanelTop + 'px \">'+themesHtmlString+'</div>\
 						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; position: absolute; width: ' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px; top: ' + uiGameBottomPanelTop + 'px \">   \
-							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: ' + uiGameGiftsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \"> Gifts </button>\
+							<button onclick = \"showInboxPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: ' + uiGameGiftsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \"> Inbox </button>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameFriendsButtonWidth + 'px; height: ' + uiGameFriendsButtonHeight + 'px; left: ' + uiGameFriendsButtonLeft + 'px; top: ' + uiGameFriendsButtonTop + 'px \"> Friends </button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight + 'px; left: ' + uiGameMegaBonusPanelLeft + 'px; top: ' + uiGameMegaBonusPanelTop + 'px \">'+megaBonusTitle+' <br> '+ megaBonusInfoText +'</div>\
 							<button onclick = \"collectBonus()\" style = \"'+bonusButtonFontColor+';font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameMegaBonusButtonWidth + 'px; height: ' + uiGameMegaBonusButtonHeight + 'px; left: ' + uiGameMegaBonusButtonLeft + 'px; top: ' + uiGameMegaBonusButtonTop + 'px \"> '+bonusButtonText+' </button>\
@@ -416,6 +471,12 @@
 				redrawUI();
 			}
 			
+			function showInboxPopup()
+			{
+				showInboxPopupFlag = true;
+				redrawUI();
+			}
+			
 			function showCasherPopup()
 			{
 				showCasherPopupFlag = true;
@@ -428,6 +489,7 @@
 				showSimplePopupFlag = false;
 				showOptionsPopupFlag = false;
 				showCasherPopupFlag = false;
+				showInboxPopupFlag = false;
 				redrawUI();
 			}
 			
