@@ -440,6 +440,7 @@
 				{
 					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize+'px; text-align: center; background-color: #e6e6ff; opcaity: 1.0; position: absolute; width: ' + uiGameWidth + 'px; height: ' + uiGameTopPanelHeight + 'px; left: '+(uiGameLeft + bordersWidth)+'px; top: '+uiGameTop+'px \"></div>';
 					uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize+'px; text-align: center; background-color: #e6e6ff; opcaity: 1.0; position: absolute; width: ' + uiGameWidth + 'px; height: ' + uiGameMegaBonusPanelHeight + 'px; left: '+(uiGameLeft + bordersWidth)+'px; top: '+(uiGameHeight-uiGameMegaBonusPanelHeight)+'px \"><big>SELECT THEME</big></div>';
+					uiGamePopupHeighttmlString += '<button onclick = \"hidePopups()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePopupCloseButtonWidth + 'px; height: ' + uiGamePopupCloseButtonHeight + 'px; left: ' + (uiGameWidth-uiGamePopupCloseButtonWidth) + 'px; top: ' + uiGameTop + 'px \"> X </button>';
 				}
 				
 				if (bonusTimer > 0)
@@ -549,6 +550,7 @@
 				showCasherPopupFlag = false;
 				showInboxPopupFlag = false;
 				showCoinsGIftGetPopupFlag = false;
+				showSelectThemePopupFlag= false;
 				redrawUI();
 			}
 			
