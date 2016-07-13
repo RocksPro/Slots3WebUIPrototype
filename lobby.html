@@ -564,8 +564,13 @@
 				showBuySuccessPopupFlag = false;
 				showSimplePopupFlag = false;
 				showOptionsPopupFlag = false;
-				showCasherPopupFlag = false;
 				showInboxPopupFlag = false;
+				if (showCasherPopupFlag && specialofferget)
+				{
+					showInboxPopupFlag = true;
+				}
+				
+				showCasherPopupFlag = false;
 				showCoinsGIftGetPopupFlag = false;
 				showSelectThemePopupFlag= false;
 				redrawUI();
