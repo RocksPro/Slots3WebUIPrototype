@@ -681,14 +681,14 @@
 			var step = 0;
 			function animateCash()
 			{
-				animCashStep = (targetCash - cash)/6;
+				animCashStep = (targetCash - cash)/30;
 				step = 0;
 				animCash = true;
 			}
 			
 			function timerCash()
 			{
-				if (step < 6)
+				if (step < 30)
 				{
 					cash += animCashStep;
 					step++;
@@ -710,7 +710,7 @@
 				}
 				
 				setInterval(timerFunc, 1000);
-				setInterval(timerCash, 500);
+				setInterval(timerCash, 20);
 				redrawUI();
 			}
 			function onResize()
