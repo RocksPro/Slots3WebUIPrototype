@@ -81,18 +81,18 @@
 				var uiGameSlotsMoneyPanelLeft = uiGameSlotsClubButtonLeft + uiGameSlotsClubButtonWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale;
 				var uiGameSlotsMoneyPanelTop = (uiGameTopPanelHeight - uiGameSlotsMoneyPanelHeight)/2;
 				
-				const uiGameBuyButtonWidthScale = 0.1;
-				const uiGameBuyButtonHeightScale = 0.8;
-				var uiGameBuyButtonWidth = uiGameTopPanelWidth * uiGameBuyButtonWidthScale;
-				var uiGameBuyButtonHeight = uiGameTopPanelHeight * uiGameBuyButtonHeightScale;
-				var uiGameBuyButtonLeft = uiGameSlotsMoneyPanelLeft + uiGameSlotsMoneyPanelWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale;
-				var uiGameBuyButtonTop = (uiGameTopPanelHeight - uiGameBuyButtonHeight)/2;
+				const uiGameLobbyButtonWidthScale = 0.1;
+				const uiGameLobbyButtonHeightScale = 0.8;
+				var uiGameLobbyButtonWidth = uiGameTopPanelWidth * uiGameLobbyButtonWidthScale;
+				var uiGameLobbyButtonHeight = uiGameTopPanelHeight * uiGameLobbyButtonHeightScale;
+				var uiGameLobbyButtonLeft = uiGameSlotsMoneyPanelLeft + uiGameSlotsMoneyPanelWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale;
+				var uiGameLobbyButtonTop = (uiGameTopPanelHeight - uiGameLobbyButtonHeight)/2;
 				
 				const uiGameExperiencePanelWidthScale = 0.2;
 				const uiGameExperiencePanelHeightScale = 0.8;
 				var uiGameExperiencePanelWidth = uiGameTopPanelWidth * uiGameExperiencePanelWidthScale;
 				var uiGameExperiencePanelHeight = uiGameTopPanelHeight * uiGameExperiencePanelHeightScale;
-				var uiGameExperiencePanelLeft = uiGameBuyButtonLeft + uiGameBuyButtonWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale;
+				var uiGameExperiencePanelLeft = uiGameLobbyButtonLeft + uiGameLobbyButtonWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale;
 				var uiGameExperiencePanelTop = (uiGameTopPanelHeight - uiGameExperiencePanelHeight)/2;
 				
 				const uiGameOptionsButtonWidthScale = 0.1;
@@ -245,6 +245,7 @@
 						<div style = \" background-color: #e6f3ff; width:' + uiGameTopPanelWidth + 'px; height: ' + uiGameTopPanelHeight + 'px \">  \
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: ' + uiGameSlotsClubButtonLeft + 'px; top: ' + uiGameSlotsClubButtonTop + 'px \">SC</button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px \">'+cash+' $</div>\
+							<button onclick=\"window.location.href=\'lobby.html\'\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameLobbyButtonWidth + 'px; height: ' + uiGameLobbyButtonHeight + 'px; left: ' + uiGameLobbyButtonLeft + 'px; top: ' + uiGameLobbyButtonTop + 'px \"> Lobby </button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \">1000 / 10000</div>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameOptionsButtonWidth + 'px; height: ' + uiGameOptionsButtonHeight + 'px; left: ' + uiGameOptionsButtonLeft + 'px; top: ' + uiGameOptionsButtonTop + 'px \"> Options </button>\
 						</div>  \
