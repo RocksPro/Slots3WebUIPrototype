@@ -25,10 +25,13 @@
 			
 			function startSpinning()
 			{
-				SendMessage("BarSpinning","StartSpinning");
-				//cash -= 100;
-				sessionStorage.setItem('cash',cash - 100);
-				redrawUI();
+				if (cash >= 100)
+				{
+					SendMessage("BarSpinning","StartSpinning");
+					//cash -= 100;
+					sessionStorage.setItem('cash',cash - 100);
+					redrawUI();
+				}
 			}
 			
 			function getUiGameSize()
