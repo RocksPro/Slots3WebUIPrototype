@@ -3,6 +3,7 @@
 	<head>	
 		<script>
 			var cash = 1000;
+			var targetCash = 1000;
 			
 			var uiViewportWidth;
 			var uiViewportHeight;
@@ -25,8 +26,8 @@
 			function startSpinning()
 			{
 				SendMessage("BarSpinning","StartSpinning");
-				cash -= 100;
-				sessionStorage.setItem('cash',cash);
+				//cash -= 100;
+				sessionStorage.setItem('cash',cash - 100);
 				redrawUI();
 			}
 			
@@ -59,6 +60,13 @@
 			}
 			function redrawUI()
 			{
+				var newCash = parseInt(sessionStorage.getItem('cash'));
+				if (newCash != targetCash)
+				{
+					targetCash = newCash;
+					animateCash();
+				}
+				
 				getUiGameSize();
 								
 				//Top Panel Elements~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -244,7 +252,7 @@
 					<div style = \"font-size:'+uiGameFontSize+'px; border-color: #f5deb3; border-width: '+bordersWidth+'px; border-style: solid; position:absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; width:'+uiGameWidth+'px; height: '+uiGameHeight+'px\"> \
 						<div style = \" background-color: #e6f3ff; width:' + uiGameTopPanelWidth + 'px; height: ' + uiGameTopPanelHeight + 'px \">  \
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: ' + uiGameSlotsClubButtonLeft + 'px; top: ' + uiGameSlotsClubButtonTop + 'px \">SC</button>\
-							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px \">'+cash+' $</div>\
+							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px \"><div id = \"cash\">'+Math.ceil(cash)+' $</div></div>\
 							<button onclick=\"window.location.href=\'lobby.html\'\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameLobbyButtonWidth + 'px; height: ' + uiGameLobbyButtonHeight + 'px; left: ' + uiGameLobbyButtonLeft + 'px; top: ' + uiGameLobbyButtonTop + 'px \"> Lobby </button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \">1000 / 10000</div>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameOptionsButtonWidth + 'px; height: ' + uiGameOptionsButtonHeight + 'px; left: ' + uiGameOptionsButtonLeft + 'px; top: ' + uiGameOptionsButtonTop + 'px \"> Options </button>\
@@ -273,6 +281,26 @@
 				redrawUI();
 			}
 			
+			var animCashStep = 0;
+			var animCash = false;
+			var step = 0;
+			function animateCash()
+			{
+				animCashStep = (targetCash - cash)/30;
+				step = 0;
+				animCash = true;
+			}
+			
+			function timerCash()
+			{
+				if (step < 30)
+				{
+					cash += animCashStep;
+					step++;
+				}
+				document.getElementById("cash").innerHTML = Math.ceil(cash) + " $";
+			}
+			
 			function onLoad()
 			{
 				if (sessionStorage.getItem('cash')) 
@@ -283,6 +311,8 @@
 				{
 					sessionStorage.setItem('cash',1000);
 				}
+				
+				setInterval(timerCash, 20);
 				
 				redrawUI();
 			}
