@@ -3,6 +3,7 @@
 	<head>	
 		<script>
 			var cash = 1000;
+			var targetCash = 1000;
 			var bought;
 			
 			var uiViewportWidth;
@@ -79,7 +80,12 @@
 			{
 				getUiGameSize();
 				
-				cash = parseInt(sessionStorage.getItem('cash'));
+				var newCash = parseInt(sessionStorage.getItem('cash'));
+				if (newCash != targetCash)
+				{
+					targetCash = newCash;
+					animateCash();
+				}
 								
 				//Top Panel Elements~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
@@ -483,7 +489,7 @@
 					<div style = \"font-size:'+uiGameFontSize+'px; border-color: #f5deb3; border-width: '+bordersWidth+'px; border-style: solid; position:absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; background-color: #b3daff; width:'+uiGameWidth+'px; height: '+uiGameHeight+'px\"> \
 						<div style = \" background-color: #e6f3ff; width:' + uiGameTopPanelWidth + 'px; height: ' + uiGameTopPanelHeight + 'px \">  \
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: ' + uiGameSlotsClubButtonLeft + 'px; top: ' + uiGameSlotsClubButtonTop + 'px \">SC</button>\
-							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px \">'+cash+' $</div>\
+							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px \"><div id = \"cash\">'+(Math.round(cash))+' $</div></div>\
 							<button onclick = \"showCasherPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameBuyButtonWidth + 'px; height: ' + uiGameBuyButtonHeight + 'px; left: ' + uiGameBuyButtonLeft + 'px; top: ' + uiGameBuyButtonTop + 'px \"> Buy </button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \">1000 / 10000</div>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameFacebookButtonWidth + 'px; height: ' + uiGameFacebookButtonHeight + 'px; left: ' + uiGameFacebookButtonLeft + 'px; top: ' + uiGameFacebookButtonTop + 'px \"> FbConnect </button>\
@@ -539,8 +545,8 @@
 			function getGift()
 			{
 				showCoinsGIftGetPopupFlag = false;
-				cash += 1500;
-				sessionStorage.setItem('cash',cash);
+				//cash += 1500;
+				sessionStorage.setItem('cash',cash + 1500);
 				coinsgift = false;
 				redrawUI();
 			}
@@ -591,8 +597,8 @@
 			{
 				if (specialofferget)
 					specialoffergift = false;
-				cash += bought;
-				sessionStorage.setItem('cash',cash);
+				//cash += bought;
+				sessionStorage.setItem('cash',cash + bought);
 				showBuySuccessPopupFlag = false;
 				redrawUI();
 			}
@@ -625,14 +631,14 @@
 					{
 						if (bonusesCollected == 3)
 						{
-							cash += megaBonusMonets * bonusmultiplier;
-							sessionStorage.setItem('cash',cash);
+							//cash += megaBonusMonets * bonusmultiplier;
+							sessionStorage.setItem('cash',cash + megaBonusMonets * bonusmultiplier);
 							megaBonusTitle = "Mega Bonus"
 						}
 						else
 						{
-							cash += megaBonusMonets;
-							sessionStorage.setItem('cash',cash);
+							//cash += megaBonusMonets;
+							sessionStorage.setItem('cash',cash + megaBonusMonets);
 							megaBonusTitle = "Bonus Coins"
 						}
 						bonusesCollected++;
@@ -646,8 +652,8 @@
 			{
 				showMegaBonusPopupFlag = false;
 				megaBonusTitle = "Bonus Coins"
-				cash += megaBonusMonets;
-				sessionStorage.setItem('cash',cash);
+				//cash += megaBonusMonets;
+				sessionStorage.setItem('cash',cash + megaBonusMonets);
 				bonusesCollected = 0;
 				bonusTimer = 10;
 				redrawUI();
@@ -669,11 +675,34 @@
 				}
 			}
 			
+			
+			var animCashStep = 0;
+			var animCash = false;
+			var step = 0;
+			function animateCash()
+			{
+				animCashStep = (targetCash - cash)/6;
+				step = 0;
+				animCash = true;
+			}
+			
+			function timerCash()
+			{
+				if (step < 6)
+				{
+					cash += animCashStep;
+					step++;
+				}
+				document.getElementById("cash").innerHTML = Math.round(cash) + " $";
+			}
+			
+			var p = 0;
 			function onLoad()
 			{
 				if (sessionStorage.getItem('cash')) 
 				{
 					cash = parseInt(sessionStorage.getItem('cash'));
+					targetCash = cash;
 				}
 				else
 				{
@@ -681,6 +710,7 @@
 				}
 				
 				setInterval(timerFunc, 1000);
+				setInterval(timerCash, 500);
 				redrawUI();
 			}
 			function onResize()
