@@ -100,7 +100,7 @@
 				var uiGameSlotsClubButtonLeft = 0;
 				var uiGameSlotsClubButtonTop = (uiGameTopPanelHeight - uiGameSlotsClubButtonHeight)/2;
 				
-				const uiGameSlotsMoneyPanelWidthScale = 0.1;
+				const uiGameSlotsMoneyPanelWidthScale = 0.2;
 				const uiGameSlotsMoneyPanelHeightScale = 0.8;
 				var uiGameSlotsMoneyPanelWidth = uiGameTopPanelWidth * uiGameSlotsMoneyPanelWidthScale;
 				var uiGameSlotsMoneyPanelHeight = uiGameTopPanelHeight * uiGameSlotsMoneyPanelHeightScale;
@@ -109,16 +109,18 @@
 				
 				const uiGameBuyButtonWidthScale = 0.1;
 				const uiGameBuyButtonHeightScale = 0.8;
+				const uiGameBuyButtonRightDist = 0.178;
 				var uiGameBuyButtonWidth = uiGameTopPanelWidth * uiGameBuyButtonWidthScale;
 				var uiGameBuyButtonHeight = uiGameTopPanelHeight * uiGameBuyButtonHeightScale;
-				var uiGameBuyButtonLeft = uiGameSlotsMoneyPanelLeft + uiGameSlotsMoneyPanelWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale;
+				var uiGameBuyButtonLeft = uiGameSlotsMoneyPanelLeft + uiGameSlotsMoneyPanelWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale + uiGameTopPanelWidth*uiGameBuyButtonRightDist;
 				var uiGameBuyButtonTop = (uiGameTopPanelHeight - uiGameBuyButtonHeight)/2;
 				
 				const uiGameExperiencePanelWidthScale = 0.2;
 				const uiGameExperiencePanelHeightScale = 0.8;
+				const uiGameExperiencePanelRightDist = 0.12;
 				var uiGameExperiencePanelWidth = uiGameTopPanelWidth * uiGameExperiencePanelWidthScale;
 				var uiGameExperiencePanelHeight = uiGameTopPanelHeight * uiGameExperiencePanelHeightScale;
-				var uiGameExperiencePanelLeft = uiGameBuyButtonLeft + uiGameBuyButtonWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale;
+				var uiGameExperiencePanelLeft = uiGameBuyButtonLeft + uiGameBuyButtonWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale + + uiGameTopPanelWidth*uiGameExperiencePanelRightDist;
 				var uiGameExperiencePanelTop = (uiGameTopPanelHeight - uiGameExperiencePanelHeight)/2;
 				
 				const uiGameOptionsButtonWidthScale = 0.1;
@@ -492,7 +494,6 @@
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px \"><div id = \"cash\">'+(Math.ceil(cash))+' $</div></div>\
 							<button onclick = \"showCasherPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameBuyButtonWidth + 'px; height: ' + uiGameBuyButtonHeight + 'px; left: ' + uiGameBuyButtonLeft + 'px; top: ' + uiGameBuyButtonTop + 'px \"> Buy </button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \">1000 / 10000</div>\
-							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameFacebookButtonWidth + 'px; height: ' + uiGameFacebookButtonHeight + 'px; left: ' + uiGameFacebookButtonLeft + 'px; top: ' + uiGameFacebookButtonTop + 'px \"> FbConnect </button>\
 							<button onclick = \"showOptionsPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameOptionsButtonWidth + 'px; height: ' + uiGameOptionsButtonHeight + 'px; left: ' + uiGameOptionsButtonLeft + 'px; top: ' + uiGameOptionsButtonTop + 'px \"> Options </button>\
 						</div>  \
 						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + uiGameThemesPanelWidth + 'px; height: ' + uiGameThemesPanelHeight + 'px; left: ' + uiGameThemesPanelLeft + 'px; top: ' + uiGameThemesPanelTop + 'px \">'+themesHtmlString+'</div>\
