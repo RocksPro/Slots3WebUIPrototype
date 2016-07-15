@@ -253,6 +253,17 @@
 						uiGamePopupHeighttmlString += '</div>';
 						break;
 					}
+					case 'SmallOptions':
+					{
+						uiGamePopupHeighttmlString = '<div onclick="hidePopups()" style = \"cursor: pointer; position: absolute; left: '+(uiGameLeft+bordersWidth)+'px; top: '+(uiGameTop+bordersWidth)+'px; width: '+uiGameWidth+'px; height: '+uiGameHeight+'px; opacity:0.3; background-color:#000080\"></div>';
+						uiGamePopupHeighttmlString += '<div style = \"font-size:'+uiGameFontSize+'px; text-align: center; background-color: #e6e6ff; opcaity: 1.0; position: absolute; width: ' + uiGameOptionsButtonWidth + 'px; height: ' + uiGameOptionsButtonHeight*4 + 'px; left: ' + (uiGameLeft + uiGameWidth-uiGameOptionsButtonWidth + bordersWidth) + 'px; top: ' + (uiGameTop + uiGameTopPanelHeight) + 'px \">';
+						uiGamePopupHeighttmlString += '<button onclick = \"hidePopups()\" style = \"font-size:'+uiGameFontSize*0.8+'px; position: absolute; width: ' + uiGameOptionsButtonWidth*0.8 + 'px; height: ' + uiGameOptionsButtonHeight*0.8 + 'px; left: ' + uiGameOptionsButtonWidth*0.1 + 'px; top: ' + uiGameOptionsButtonHeight*0.05 + 'px \"> Sound </button>';
+						uiGamePopupHeighttmlString += '<button onclick = \"hidePopups()\" style = \"font-size:'+uiGameFontSize*0.8+'px; position: absolute; width: ' + uiGameOptionsButtonWidth*0.8 + 'px; height: ' + uiGameOptionsButtonHeight*0.8 + 'px; left: ' + uiGameOptionsButtonWidth*0.1 + 'px; top: ' + ((uiGameOptionsButtonHeight+uiGameOptionsButtonHeight*0.05)) + 'px \"> Animations </button>';
+						uiGamePopupHeighttmlString += '<button onclick = \"hidePopups()\" style = \"font-size:'+uiGameFontSize*0.8+'px; position: absolute; width: ' + uiGameOptionsButtonWidth*0.8 + 'px; height: ' + uiGameOptionsButtonHeight*0.8 + 'px; left: ' + uiGameOptionsButtonWidth*0.1 + 'px; top: ' + ((uiGameOptionsButtonHeight+uiGameOptionsButtonHeight*0.05)*2) +'px \"> Support </button>';
+						uiGamePopupHeighttmlString += '<button onclick = \"showOptionsPopup()\" style = \"font-size:'+uiGameFontSize*0.8+'px; position: absolute; width: ' + uiGameOptionsButtonWidth*0.8 + 'px; height: ' + uiGameOptionsButtonHeight*0.8 + 'px; left: ' + uiGameOptionsButtonWidth*0.1 + 'px; top: ' + ((uiGameOptionsButtonHeight+uiGameOptionsButtonHeight*0.05)*3) +'px \"> Settings </button>';
+						uiGamePopupHeighttmlString += '</div>';
+						break;
+					}
 					default:
 					{
 						uiGamePopupHeighttmlString = "";
@@ -278,7 +289,7 @@
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + (uiGameExperiencePanelHeight/2) + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + (uiGameExperiencePanelTop + (uiGameExperiencePanelHeight/2)) + 'px \"></div>\
 							<div style = \"text-align: center; background-color: #99ff99; position: absolute; width: ' + uiGameExpProgressWidth + 'px; height: ' + (uiGameExperiencePanelHeight/2) + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + (uiGameExperiencePanelTop + (uiGameExperiencePanelHeight/2)) + 'px \"></div>\
 							<div style = \"text-align: center; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + (uiGameExperiencePanelHeight/2) + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + (uiGameExperiencePanelTop + (uiGameExperiencePanelHeight/2)) + 'px \">'+Math.ceil(exp)+'/1000</div>\
-							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameOptionsButtonWidth + 'px; height: ' + uiGameOptionsButtonHeight + 'px; left: ' + uiGameOptionsButtonLeft + 'px; top: ' + uiGameOptionsButtonTop + 'px \"> Options </button>\
+							<button onclick = \"showSmallOptions()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameOptionsButtonWidth + 'px; height: ' + uiGameOptionsButtonHeight + 'px; left: ' + uiGameOptionsButtonLeft + 'px; top: ' + uiGameOptionsButtonTop + 'px \"> Options </button>\
 						</div>  \
 						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; opcaity: 0.0; position: absolute; width: ' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px; top: ' + uiGameBottomPanelTop + 'px \">   \
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePayTableButtonWidth + 'px; height: ' + uiGamePayTableButtonHeight + 'px; left: ' + uiGamePayTableButtonLeft + 'px; top: ' + uiGamePayTableButtonTop + 'px \"> PayTable </button>\
@@ -301,6 +312,18 @@
 			function hidePopups()
 			{
 				uiGamePopupToShow = "";
+				redrawUI();
+			}
+			
+			function showSmallOptions()
+			{
+				uiGamePopupToShow = "SmallOptions";
+				redrawUI();
+			}
+			
+			function showOptionsPopup()
+			{
+				uiGamePopupToShow = "Popup";
 				redrawUI();
 			}
 			
