@@ -50,6 +50,7 @@
 			var specialofferget = false;
 			
 			var pageId = 0;
+			var startId = 0;
 			
 			function getUiGameSize()
 			{
@@ -178,12 +179,14 @@
 					uiGameThemesIconsCount = 4;
 					uiGameFeaturedIconsCount = 1;
 					uiGameIconsCheck = 1;
+					startId = 0;
 				}
 				else
 				{
 					uiGameThemesIconsCount = 6;
 					uiGameFeaturedIconsCount = 0;
 					uiGameIconsCheck = 2;
+					startId = 4 + (pageId-1)*6;
 				}
 				
 				var uiGameFeaturedThemesTableLeft = uiGameThemesPanelWidth/2 - (uiGameFeaturedThemeIconWidth*uiGameFeaturedIconsCount + uiGameThemeIconWidth*(uiGameThemesIconsCount/uiGameIconsRows) + (uiGameThemesIconsInterval*uiGameThemesPanelHeight)*(uiGameIconsCols-1))/2;
@@ -210,7 +213,7 @@
 					else
 						uiGameThemesIconsTopArray[i] = uiGameThemesTableTop;
 					
-					themesHtmlString += '<button onclick=\"window.location.href=\'themes.html\'\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; left: '+uiGameThemesIconsLeftArray[i]+'px; top: '+uiGameThemesIconsTopArray[i]+'px; width: '+uiGameThemeIconWidth+'px; height: '+uiGameThemeIconHeight+'px; \">Theme'+(i+1)+'</button>';
+					themesHtmlString += '<button onclick=\"window.location.href=\'themes.html\'\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; left: '+uiGameThemesIconsLeftArray[i]+'px; top: '+uiGameThemesIconsTopArray[i]+'px; width: '+uiGameThemeIconWidth+'px; height: '+uiGameThemeIconHeight+'px; \">Theme'+(startId+i+1)+'</button>';
 				}
 				
 				var uiGameLeftButtonWidth = uiGameTopPanelHeight;
