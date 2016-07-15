@@ -24,6 +24,8 @@
 			var uiGameFontSizeScale = 0.028;
 			var uiGameFontSize;
 			
+			var giftscount = 3;
+			
 			const bordersWidth = 4;
 			
 			var showSimplePopupFlag;
@@ -543,9 +545,11 @@
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: ' + uiGameSlotsClubButtonLeft + 'px; top: ' + uiGameSlotsClubButtonTop + 'px \">SC</button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px \"><div id = \"cash\">'+(Math.ceil(cash))+' $</div></div>\
 							<button onclick = \"showCasherPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameBuyButtonWidth + 'px; height: ' + uiGameBuyButtonHeight + 'px; left: ' + uiGameBuyButtonLeft + 'px; top: ' + uiGameBuyButtonTop + 'px \"> Buy </button>\
-							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \">'+exp+'/1000</div>\
-							<div style = \"text-align: center; background-color: #99ff99; position: absolute; width: ' + uiGameExpProgressWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \"></div>\
-							<div style = \"text-align: center; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \">'+exp+'/1000</div>\
+							<img src="fr.jpg" style=\"position:absolute; top:'+uiGameExperiencePanelTop+'px;left:'+(uiGameExperiencePanelLeft-uiGameExperiencePanelHeight)+'px; width:'+uiGameExperiencePanelHeight+'px; height:'+uiGameExperiencePanelHeight+'px\"></img>\
+							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + (uiGameExperiencePanelHeight/2) + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \">Nancy</div>\
+							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + (uiGameExperiencePanelHeight/2) + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + (uiGameExperiencePanelTop + (uiGameExperiencePanelHeight/2)) + 'px \">'+exp+'/1000</div>\
+							<div style = \"text-align: center; background-color: #99ff99; position: absolute; width: ' + uiGameExpProgressWidth + 'px; height: ' + (uiGameExperiencePanelHeight/2) + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + (uiGameExperiencePanelTop + (uiGameExperiencePanelHeight/2)) + 'px \"></div>\
+							<div style = \"text-align: center; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + (uiGameExperiencePanelHeight/2) + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + (uiGameExperiencePanelTop + (uiGameExperiencePanelHeight/2)) + 'px \">'+exp+'/1000</div>\
 							<button onclick = \"showOptionsPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameOptionsButtonWidth + 'px; height: ' + uiGameOptionsButtonHeight + 'px; left: ' + uiGameOptionsButtonLeft + 'px; top: ' + uiGameOptionsButtonTop + 'px \"> Options </button>\
 						</div>  \
 						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + uiGameThemesPanelWidth + 'px; height: ' + uiGameThemesPanelHeight + 'px; left: ' + uiGameThemesPanelLeft + 'px; top: ' + uiGameThemesPanelTop + 'px \">'+themesHtmlString+'\
@@ -553,7 +557,7 @@
 						<button onclick = \"goRight()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameRightButtonWidth + 'px; height: ' + uiGameRightButtonHeight + 'px; left: ' + uiGameRightButtonLeft + 'px; top: ' + uiGameRightButtonTop + 'px \"> > </button>' + pageIconsHTML+'\
 						</div>\
 						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; position: absolute; width: ' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px; top: ' + uiGameBottomPanelTop + 'px \">   \
-							<button onclick = \"showInboxPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: ' + uiGameGiftsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \"> Inbox </button>\
+							<button onclick = \"showInboxPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: ' + uiGameGiftsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \"> Inbox '+giftscount+' </button>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameFriendsButtonWidth + 'px; height: ' + uiGameFriendsButtonHeight + 'px; left: ' + uiGameFriendsButtonLeft + 'px; top: ' + uiGameFriendsButtonTop + 'px \"> Friends </button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight + 'px; left: ' + uiGameMegaBonusPanelLeft + 'px; top: ' + uiGameMegaBonusPanelTop + 'px \">'+megaBonusTitle+' <br> '+ megaBonusInfoText +'</div>\
 							<button onclick = \"collectBonus()\" style = \"'+bonusButtonFontColor+';font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameMegaBonusButtonWidth + 'px; height: ' + uiGameMegaBonusButtonHeight + 'px; left: ' + uiGameMegaBonusButtonLeft + 'px; top: ' + uiGameMegaBonusButtonTop + 'px \"> '+bonusButtonText+' </button>\
@@ -604,6 +608,7 @@
 				//cash += 1500;
 				sessionStorage.setItem('cash',cash + 1500);
 				coinsgift = false;
+				giftscount--;
 				redrawUI();
 			}
 			
@@ -621,6 +626,7 @@
 				showSelectThemePopupFlag = true;
 				showInboxPopupFlag = false;
 				spinsgift = false;
+				giftscount--;
 				redrawUI();
 			}
 			
@@ -652,7 +658,10 @@
 			function addGold()
 			{
 				if (specialofferget)
+				{
 					specialoffergift = false;
+					giftscount--;
+				}
 				//cash += bought;
 				sessionStorage.setItem('cash',cash + bought);
 				showBuySuccessPopupFlag = false;
