@@ -611,7 +611,8 @@
 			
 			function showThemeSelector()
 			{
-				showCoinsGIftGetPopupFlag = false
+				showCoinsGIftGetPopupFlag = false;
+				redrawUI();
 			}
 			
 			function getGift()
@@ -645,6 +646,7 @@
 			function showSmallSettings()
 			{
 				showSmallOptionsFlag = true;
+				redrawUI();
 			}
 			
 			function hidePopups()
