@@ -4,6 +4,7 @@
 		<script>
 			var cash = 1000;
 			var targetCash = 1000;
+			var exp = 0;
 			
 			var uiViewportWidth;
 			var uiViewportHeight;
@@ -30,6 +31,9 @@
 					SendMessage("BarSpinning","StartSpinning");
 					//cash -= 100;
 					sessionStorage.setItem('cash',cash - 100);
+					exp += 100;
+					if (exp == 1000) exp = 0;
+					sessionStorage.setItem('exp',exp);
 					redrawUI();
 				}
 			}
@@ -252,6 +256,8 @@
 				document.getElementById("canvas").style.left = uiGameWebGlCanvasLeft + "px";
 				document.getElementById("canvas").style.top = uiGameWebGlCanvasTop + "px";
 				
+				var uiGameExpProgressWidth = uiGameExperiencePanelWidth * (exp/1000);
+				
 				document.getElementById("uiGame").innerHTML =  
 				'	\
 					<div style = \"font-size:'+uiGameFontSize+'px; border-color: #f5deb3; border-width: '+bordersWidth+'px; border-style: solid; position:absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; width:'+uiGameWidth+'px; height: '+uiGameHeight+'px\"> \
@@ -259,7 +265,9 @@
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: ' + uiGameSlotsClubButtonLeft + 'px; top: ' + uiGameSlotsClubButtonTop + 'px \">SC</button>\
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px \"><div id = \"cash\">'+Math.ceil(cash)+' $</div></div>\
 							<button onclick=\"window.location.href=\'lobby.html\'\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameLobbyButtonWidth + 'px; height: ' + uiGameLobbyButtonHeight + 'px; left: ' + uiGameLobbyButtonLeft + 'px; top: ' + uiGameLobbyButtonTop + 'px \"> Lobby </button>\
-							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \">1000 / 10000</div>\
+							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \">'+exp+'/1000</div>\
+							<div style = \"text-align: center; background-color: #99ff99; position: absolute; width: ' + uiGameExpProgressWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \"></div>\
+							<div style = \"text-align: center; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \">'+exp+'/1000</div>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameOptionsButtonWidth + 'px; height: ' + uiGameOptionsButtonHeight + 'px; left: ' + uiGameOptionsButtonLeft + 'px; top: ' + uiGameOptionsButtonTop + 'px \"> Options </button>\
 						</div>  \
 						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; opcaity: 0.0; position: absolute; width: ' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px; top: ' + uiGameBottomPanelTop + 'px \">   \
@@ -308,6 +316,15 @@
 			
 			function onLoad()
 			{
+				if (sessionStorage.getItem('exp')) 
+				{
+					exp = parseInt(sessionStorage.getItem('exp'));
+				}
+				else
+				{
+					sessionStorage.setItem('exp',0);
+				}
+				
 				if (sessionStorage.getItem('cash')) 
 				{
 					cash = parseInt(sessionStorage.getItem('cash'));
