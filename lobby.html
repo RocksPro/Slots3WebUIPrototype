@@ -196,6 +196,16 @@
 					
 					themesHtmlString += '<button onclick=\"window.location.href=\'themes.html\'\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; left: '+uiGameThemesIconsLeftArray[i]+'px; top: '+uiGameThemesIconsTopArray[i]+'px; width: '+uiGameThemeIconWidth+'px; height: '+uiGameThemeIconHeight+'px; \">Theme'+(i+1)+'</button>';
 				}
+				
+				var uiGameLeftButtonWidth = uiGameTopPanelHeight;
+				var uiGameLeftButtonHeight = uiGameLeftButtonWidth*2;
+				var uiGameLeftButtonTop = uiGameHeight/2 - uiGameLeftButtonHeight*1.5;
+				var uiGameLeftButtonLeft = uiGameLeftButtonWidth/2;
+				
+				var uiGameRightButtonWidth = uiGameTopPanelHeight;
+				var uiGameRightButtonHeight = uiGameRightButtonWidth*2;
+				var uiGameRightButtonTop = uiGameHeight/2 - uiGameRightButtonHeight*1.5;
+				var uiGameRightButtonLeft = uiGameTopPanelWidth - uiGameRightButtonWidth*1.5;
 				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
 				//Bottom Panel~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -496,7 +506,10 @@
 							<div style = \"text-align: center; background-color: #e6e6ff; position: absolute; width: ' + uiGameExperiencePanelWidth + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + uiGameExperiencePanelLeft + 'px; top: ' + uiGameExperiencePanelTop + 'px \">1000 / 10000</div>\
 							<button onclick = \"showOptionsPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameOptionsButtonWidth + 'px; height: ' + uiGameOptionsButtonHeight + 'px; left: ' + uiGameOptionsButtonLeft + 'px; top: ' + uiGameOptionsButtonTop + 'px \"> Options </button>\
 						</div>  \
-						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + uiGameThemesPanelWidth + 'px; height: ' + uiGameThemesPanelHeight + 'px; left: ' + uiGameThemesPanelLeft + 'px; top: ' + uiGameThemesPanelTop + 'px \">'+themesHtmlString+'</div>\
+						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + uiGameThemesPanelWidth + 'px; height: ' + uiGameThemesPanelHeight + 'px; left: ' + uiGameThemesPanelLeft + 'px; top: ' + uiGameThemesPanelTop + 'px \">'+themesHtmlString+'\
+						<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameLeftButtonWidth + 'px; height: ' + uiGameLeftButtonHeight + 'px; left: ' + uiGameLeftButtonLeft + 'px; top: ' + uiGameLeftButtonTop + 'px \"> L </button>\
+						<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameRightButtonWidth + 'px; height: ' + uiGameRightButtonHeight + 'px; left: ' + uiGameRightButtonLeft + 'px; top: ' + uiGameRightButtonTop + 'px \"> R </button>\
+						</div>\
 						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; position: absolute; width: ' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px; top: ' + uiGameBottomPanelTop + 'px \">   \
 							<button onclick = \"showInboxPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: ' + uiGameGiftsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \"> Inbox </button>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameFriendsButtonWidth + 'px; height: ' + uiGameFriendsButtonHeight + 'px; left: ' + uiGameFriendsButtonLeft + 'px; top: ' + uiGameFriendsButtonTop + 'px \"> Friends </button>\
