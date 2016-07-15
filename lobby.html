@@ -264,6 +264,13 @@
 				var uiGameMegaBonusCountTop = uiGameMegaBonusButtonHeight*1.5;
 				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
+				const uiGamePageIconTopIntervalScale = 27;
+				var uiGamePageIconWidth = uiGameLeftButtonWidth/4;
+				var uiGamePageIconHeight = uiGamePageIconWidth;
+				var uiGamePageIconTop = uiGameMegaBonusPanelTop+uiGamePageIconHeight*uiGamePageIconTopIntervalScale;
+				var uiGamePageIconLeftStart = uiGameTopPanelWidth/2 - uiGamePageIconWidth*1.5;
+				var uiGamePageIconLeftInterval = uiGamePageIconWidth;
+				
 				var uiGamePopupHeighttmlString = "";
 				
 				var uiGamePopupWidth = uiGameWidth / 2;
@@ -515,6 +522,16 @@
 					}
 				}
 				
+				var pageIconsHTML = "";
+				
+				for (var i = 0; i < 3; i++)
+				{
+					pageIconsHTML += '<button onclick = \"gotoPage'+i+'n()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePageIconWidth + 'px; height: ' + uiGamePageIconHeight + 'px; left: ' + (uiGamePageIconLeftStart + uiGamePageIconLeftInterval*i) + 'px; top: ' + uiGamePageIconTop + 'px \">';
+					if (pageId == i)
+						pageIconsHTML += '*';
+					pageIconsHTML += '</button>';
+				}
+				
 				document.getElementById("body").innerHTML =  
 				'	\
 					<div style = \"font-size:'+uiGameFontSize+'px; border-color: #f5deb3; border-width: '+bordersWidth+'px; border-style: solid; position:absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; background-color: #b3daff; width:'+uiGameWidth+'px; height: '+uiGameHeight+'px\"> \
@@ -527,7 +544,7 @@
 						</div>  \
 						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + uiGameThemesPanelWidth + 'px; height: ' + uiGameThemesPanelHeight + 'px; left: ' + uiGameThemesPanelLeft + 'px; top: ' + uiGameThemesPanelTop + 'px \">'+themesHtmlString+'\
 						<button onclick = \"goLeft()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameLeftButtonWidth + 'px; height: ' + uiGameLeftButtonHeight + 'px; left: ' + uiGameLeftButtonLeft + 'px; top: ' + uiGameLeftButtonTop + 'px \"> L </button>\
-						<button onclick = \"goRight()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameRightButtonWidth + 'px; height: ' + uiGameRightButtonHeight + 'px; left: ' + uiGameRightButtonLeft + 'px; top: ' + uiGameRightButtonTop + 'px \"> R </button>\
+						<button onclick = \"goRight()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameRightButtonWidth + 'px; height: ' + uiGameRightButtonHeight + 'px; left: ' + uiGameRightButtonLeft + 'px; top: ' + uiGameRightButtonTop + 'px \"> R </button>' + pageIconsHTML+'\
 						</div>\
 						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; position: absolute; width: ' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px; top: ' + uiGameBottomPanelTop + 'px \">   \
 							<button onclick = \"showInboxPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: ' + uiGameGiftsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \"> Inbox </button>\
@@ -722,6 +739,21 @@
 				redrawUI();
 			}
 			
+			function gotoPage0n()
+			{
+				pageId = 0;
+				redrawUI();
+			}
+			function gotoPage1n()
+			{
+				pageId = 1;
+				redrawUI();
+			}
+			function gotoPage2n()
+			{
+				pageId = 2;
+				redrawUI();
+			}
 			
 			var animCashStep = 0;
 			var animCash = false;
