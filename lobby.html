@@ -49,6 +49,8 @@
 			var specialoffergift = true;
 			var specialofferget = false;
 			
+			var pageId = 0;
+			
 			function getUiGameSize()
 			{
 				uiViewportWidth = document.documentElement.clientWidth;
@@ -164,11 +166,25 @@
 				
 				var themesHtmlString = "";
 				
-				const uiGameThemesIconsCount = 4;
-				const uiGameFeaturedIconsCount = 1;
+				var uiGameThemesIconsCount = 4;
+				var uiGameFeaturedIconsCount = 1;
 				
-				const uiGameIconsCols = 3;
-				const uiGameIconsRows = 2;
+				var uiGameIconsCols = 3;
+				var uiGameIconsRows = 2;
+				var uiGameIconsCheck = 1;
+				
+				if (pageId == 0)
+				{
+					uiGameThemesIconsCount = 4;
+					uiGameFeaturedIconsCount = 1;
+					uiGameIconsCheck = 1;
+				}
+				else
+				{
+					uiGameThemesIconsCount = 6;
+					uiGameFeaturedIconsCount = 0;
+					uiGameIconsCheck = 2;
+				}
 				
 				var uiGameFeaturedThemesTableLeft = uiGameThemesPanelWidth/2 - (uiGameFeaturedThemeIconWidth*uiGameFeaturedIconsCount + uiGameThemeIconWidth*(uiGameThemesIconsCount/uiGameIconsRows) + (uiGameThemesIconsInterval*uiGameThemesPanelHeight)*(uiGameIconsCols-1))/2;
 				var uiGameFeaturedThemesTableTop = (uiGameThemesPanelTop + uiGameThemesPanelHeight/2) - (uiGameIconsRows*uiGameThemeIconHeight + ((uiGameThemesIconsInterval*uiGameThemesPanelHeight)*(uiGameIconsRows-1))/2) + uiGameTopPanelHeight;
@@ -189,7 +205,7 @@
 				for (var i = 0; i < uiGameThemesIconsCount; i++)
 				{
 					uiGameThemesIconsLeftArray[i] = uiGameThemesTableLeft + (Math.floor(i%uiGameIconsColsReal))*(uiGameThemeIconWidth + uiGameThemesIconsInterval*uiGameThemesPanelHeight);
-					if (i > 1)
+					if (i > uiGameIconsCheck)
 						uiGameThemesIconsTopArray[i] = uiGameThemesTableTop + (uiGameThemeIconHeight + uiGameThemesIconsInterval*uiGameThemesPanelHeight);
 					else
 						uiGameThemesIconsTopArray[i] = uiGameThemesTableTop;
@@ -507,8 +523,8 @@
 							<button onclick = \"showOptionsPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameOptionsButtonWidth + 'px; height: ' + uiGameOptionsButtonHeight + 'px; left: ' + uiGameOptionsButtonLeft + 'px; top: ' + uiGameOptionsButtonTop + 'px \"> Options </button>\
 						</div>  \
 						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + uiGameThemesPanelWidth + 'px; height: ' + uiGameThemesPanelHeight + 'px; left: ' + uiGameThemesPanelLeft + 'px; top: ' + uiGameThemesPanelTop + 'px \">'+themesHtmlString+'\
-						<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameLeftButtonWidth + 'px; height: ' + uiGameLeftButtonHeight + 'px; left: ' + uiGameLeftButtonLeft + 'px; top: ' + uiGameLeftButtonTop + 'px \"> L </button>\
-						<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameRightButtonWidth + 'px; height: ' + uiGameRightButtonHeight + 'px; left: ' + uiGameRightButtonLeft + 'px; top: ' + uiGameRightButtonTop + 'px \"> R </button>\
+						<button onclick = \"goLeft()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameLeftButtonWidth + 'px; height: ' + uiGameLeftButtonHeight + 'px; left: ' + uiGameLeftButtonLeft + 'px; top: ' + uiGameLeftButtonTop + 'px \"> L </button>\
+						<button onclick = \"goRight()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameRightButtonWidth + 'px; height: ' + uiGameRightButtonHeight + 'px; left: ' + uiGameRightButtonLeft + 'px; top: ' + uiGameRightButtonTop + 'px \"> R </button>\
 						</div>\
 						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; position: absolute; width: ' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px; top: ' + uiGameBottomPanelTop + 'px \">   \
 							<button onclick = \"showInboxPopup()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: ' + uiGameGiftsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \"> Inbox </button>\
@@ -687,6 +703,20 @@
 					bonusTimer--;
 					redrawUI();
 				}
+			}
+			
+			function goLeft()
+			{
+				pageId--;
+				if (pageId == -1) pageId = 2;
+				redrawUI();
+			}
+			
+			function goRight()
+			{
+				pageId++;
+				if (pageId == 3) pageId = 0;
+				redrawUI();
 			}
 			
 			
