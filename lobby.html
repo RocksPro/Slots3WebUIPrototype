@@ -777,6 +777,7 @@
 				{
 					cash += animCashStep;
 					step++;
+					if (step == 30) cash = targetCash;
 				}
 				document.getElementById("cash").innerHTML = Math.ceil(cash) + " $";
 			}
