@@ -205,8 +205,9 @@
 					uiGameFeaturedThemesIconsLeftArray[i] = uiGameFeaturedThemesTableLeft + i*(uiGameFeaturedThemeIconWidth + uiGameThemesIconsInterval*uiGameThemesPanelHeight);
 					uiGameFeaturedThemesIconsTopArray[i] = uiGameFeaturedThemesTableTop;
 				
-					themesHtmlString += '<button onclick=\"window.location.href=\'themes.html\'\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; left: '+uiGameFeaturedThemesIconsLeftArray[i]+'px; top: '+uiGameFeaturedThemesIconsTopArray[i]+'px; width: '+uiGameFeaturedThemeIconWidth+'px; height: '+uiGameFeaturedThemeIconHeight+'px; \">Featured'+(i+1)+'</button>';
-
+					themesHtmlString += '<button onclick=\"window.location.href=\'themes.html\'\" style = \"border:none; background-color:Transparent; cursor:pointer; position: absolute; font-size:'+uiGameFontSize+'px; position: absolute; left: '+uiGameFeaturedThemesIconsLeftArray[i]+'px; top: '+uiGameFeaturedThemesIconsTopArray[i]+'px; width: '+uiGameFeaturedThemeIconWidth+'px; height: '+uiGameFeaturedThemeIconHeight+'px; \">Featured'+(i+1);
+					themesHtmlString += '<img src = "imgs/theme.png" style="position:absolute; width:' +  uiGameFeaturedThemeIconWidth + 'px; height: ' + uiGameFeaturedThemeIconHeight + 'px; left: 0px; top: 0px "></img>';	
+					themesHtmlString += '</button>';
 				}
 				
 				var uiGameIconsColsReal = uiGameIconsCols - uiGameFeaturedIconsCount;
@@ -218,7 +219,9 @@
 					else
 						uiGameThemesIconsTopArray[i] = uiGameThemesTableTop;
 					
-					themesHtmlString += '<button onclick=\"window.location.href=\'themes.html\'\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; left: '+uiGameThemesIconsLeftArray[i]+'px; top: '+uiGameThemesIconsTopArray[i]+'px; width: '+uiGameThemeIconWidth+'px; height: '+uiGameThemeIconHeight+'px; \">Theme'+(startId+i+1)+'</button>';
+					themesHtmlString += '<button onclick=\"window.location.href=\'themes.html\'\" style = \"border:none; background-color:Transparent; cursor:pointer; position: absolute; font-size:'+uiGameFontSize+'px; position: absolute; left: '+uiGameThemesIconsLeftArray[i]+'px; top: '+uiGameThemesIconsTopArray[i]+'px; width: '+uiGameThemeIconWidth+'px; height: '+uiGameThemeIconHeight+'px; \">Theme'+(startId+i+1);
+					themesHtmlString += '<img src = "imgs/theme.png" style="position:absolute; width:' +  uiGameThemeIconWidth + 'px; height: ' + uiGameThemeIconHeight + 'px; left: 0px; top: 0px "></img>';	
+					themesHtmlString += '</button>';
 				}
 				
 				var uiGameLeftButtonWidth = uiGameTopPanelHeight;
