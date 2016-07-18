@@ -206,7 +206,9 @@
 					uiGameFeaturedThemesIconsTopArray[i] = uiGameFeaturedThemesTableTop;
 				
 					themesHtmlString += '<button onclick=\"window.location.href=\'themes.html\'\" style = \"border:none; background-color:Transparent; cursor:pointer; position: absolute; font-size:'+uiGameFontSize+'px; position: absolute; left: '+uiGameFeaturedThemesIconsLeftArray[i]+'px; top: '+uiGameFeaturedThemesIconsTopArray[i]+'px; width: '+uiGameFeaturedThemeIconWidth+'px; height: '+uiGameFeaturedThemeIconHeight+'px; \">Featured'+(i+1);
-					themesHtmlString += '<img src = "imgs/theme.png" style="position:absolute; width:' +  uiGameFeaturedThemeIconWidth + 'px; height: ' + uiGameFeaturedThemeIconHeight + 'px; left: 0px; top: 0px "></img>';	
+					themesHtmlString += '<img src = "imgs/button.png" style="position:absolute; width:' +  uiGameFeaturedThemeIconWidth + 'px; height: ' + uiGameFeaturedThemeIconHeight + 'px; left: 0px; top: 0px ">';	
+					themesHtmlString += '<img src = "imgs/theme.png" style="position:absolute; width:' +  uiGameFeaturedThemeIconWidth + 'px; height: ' + uiGameFeaturedThemeIconHeight/2 + 'px; left: 0px; top: '+uiGameFeaturedThemeIconWidth/2+'px "></img>';
+					themesHtmlString += '</img>';
 					themesHtmlString += '</button>';
 				}
 				
