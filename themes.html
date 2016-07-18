@@ -27,7 +27,7 @@
 			
 			function startSpinning()
 			{
-				if (cash >= 100)
+				if (cash >= 100 && step >= 30)
 				{
 					SendMessage("BarSpinning","StartSpinning");
 					//cash -= 100;
