@@ -554,6 +554,11 @@
 				
 				var uiGameExpProgressWidth = uiGameExperiencePanelWidth * (exp/1000);
 				
+				const uiGameLeftButtonHeightLabelScale = 2.7;
+				const uiGameLeftButtonWidthLabelScale = 3;
+				const uiGameInboxFriendsLabelWidthScale = 2.7;
+				const uiGameInboxFriendsLabelHeightScale = 3.8;
+				
 				document.getElementById("body").innerHTML =  
 				'	\
 					<div style = \"font-size:'+uiGameFontSize+'px; border-color: #f5deb3; border-width: '+bordersWidth+'px; border-style: solid; position:absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; background-color: #b3daff; width:'+uiGameWidth+'px; height: '+uiGameHeight+'px\"> \
@@ -588,12 +593,12 @@
 						'+themesHtmlString+'\
 						<button onclick = \"goLeft()\" style = \"font-size:'+uiGameFontSize+'px; background-color: Transparent; border:none; position: absolute; width: ' + uiGameLeftButtonWidth + 'px; height: ' + uiGameLeftButtonHeight + 'px; left: ' + uiGameLeftButtonLeft + 'px; top: ' + uiGameLeftButtonTop + 'px \">\
 							<img src = "imgs/button.png" style="position:absolute; width:' +  uiGameLeftButtonWidth + 'px; height: ' + uiGameLeftButtonHeight + 'px; left: 0px; top: 0px ">\
-								<div style="font-size:'+uiGameFontSize+'px; position:absolute; top:'+uiGameLeftButtonHeight/2.7+'px; left:'+uiGameLeftButtonWidth/3+'px"><</div>\
+								<div style="font-size:'+uiGameFontSize+'px; position:absolute; top:'+uiGameLeftButtonHeight/uiGameLeftButtonHeightLabelScale+'px; left:'+uiGameLeftButtonWidth/uiGameLeftButtonWidthLabelScale+'px"><</div>\
 							</img>\ \
 						</button>\
 						<button onclick = \"goRight()\" style = \"font-size:'+uiGameFontSize+'px; background-color: Transparent; border:none; position: absolute; width: ' + uiGameRightButtonWidth + 'px; height: ' + uiGameRightButtonHeight + 'px; left: ' + uiGameRightButtonLeft + 'px; top: ' + uiGameRightButtonTop + 'px \"> \
 							<img src = "imgs/button.png" style="position:absolute; width:' +  uiGameLeftButtonWidth + 'px; height: ' + uiGameLeftButtonHeight + 'px; left: 0px; top: 0px ">\
-								<div style="font-size:'+uiGameFontSize+'px; position:absolute; top:'+uiGameLeftButtonHeight/2.7+'px; left:'+uiGameLeftButtonWidth/3+'px">></div>\
+								<div style="font-size:'+uiGameFontSize+'px; position:absolute; top:'+uiGameLeftButtonHeight/uiGameLeftButtonHeightLabelScale+'px; left:'+uiGameLeftButtonWidth/uiGameLeftButtonWidthLabelScale+'px">></div>\
 							</img>\ \
 						</button>' + pageIconsHTML+'\
 						</div>\
@@ -601,12 +606,12 @@
 							<img src = "imgs/bottomPanel.png" style="position:absolute; width:' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px;"></img>\
 							<button onclick = \"showInboxPopup()\" style = \"font-size:'+uiGameFontSize+'px; color: #ffffff; border:none; background-color:Transparent; cursor:pointer; position: absolute; width: ' + uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: ' + uiGameGiftsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \">\
 								<img src = "imgs/button2.png" style="position:absolute; width:' +  uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: 0px; top: 0px ">\
-									<div style="font-size:'+uiGameFontSize+'px; position:absolute; top:'+uiGameGiftsButtonHeight/3.8+'px; left:'+uiGameGiftsButtonWidth/2.7+'px">Inbox '+giftscount+' </div>\
+									<div style="font-size:'+uiGameFontSize+'px; position:absolute; top:'+uiGameGiftsButtonHeight/uiGameInboxFriendsLabelHeightScale+'px; left:'+uiGameGiftsButtonWidth/uiGameInboxFriendsLabelWidthScale+'px">Inbox '+giftscount+' </div>\
 								</img>\ \
 							</button>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; color: #ffffff; border:none; background-color:Transparent; cursor:pointer;  position: absolute; width: ' + uiGameFriendsButtonWidth + 'px; height: ' + uiGameFriendsButtonHeight + 'px; left: ' + uiGameFriendsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \"> \
 								<img src = "imgs/button2.png" style="position:absolute; width:' +  uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: 0px; top: 0px ">\
-									<div style="font-size:'+uiGameFontSize+'px; position:absolute; top:'+uiGameGiftsButtonHeight/3.8+'px; left:'+uiGameGiftsButtonWidth/2.7+'px">Friends</div>\
+									<div style="font-size:'+uiGameFontSize+'px; position:absolute; top:'+uiGameGiftsButtonHeight/uiGameInboxFriendsLabelHeightScale+'px; left:'+uiGameGiftsButtonWidth/uiGameInboxFriendsLabelWidthScale+'px">Friends</div>\
 								</img>\ \
 							</button>\
 							<img src = "imgs/cashpanel2.png" style="position:absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight + 'px; left: ' + uiGameMegaBonusPanelLeft + 'px; top: ' + uiGameMegaBonusPanelTop + 'px"></img>\
