@@ -556,8 +556,8 @@
 				
 				const uiGameLeftButtonHeightLabelScale = 2.7;
 				const uiGameLeftButtonWidthLabelScale = 3;
-				const uiGameInboxFriendsLabelWidthScale = 2.7;
-				const uiGameInboxFriendsLabelHeightScale = 3.8;
+				const uiGameInboxFriendsLabelWidthScale = 4;
+				const uiGameInboxFriendsLabelHeightScale = 4;
 				
 				document.getElementById("body").innerHTML =  
 				'	\
@@ -598,7 +598,7 @@
 						</button>' + pageIconsHTML+'\
 						<button onclick = \"showCasherPopup()\" style = \"font-size:'+uiGameFontSize+'px; border:none; background-color:Transparent; cursor:pointer; position: absolute; width: ' + uiGameBuyButtonWidth + 'px; height: ' + uiGameBuyButtonHeight + 'px; left: ' + uiGameBuyButtonLeft + 'px; top: ' + uiGameBuyButtonTop + 'px \"> \
 								<img src = "imgs/button.png" style="position:absolute; width:' +  uiGameBuyButtonWidth + 'px; height: ' + uiGameBuyButtonHeight + 'px; left: 0px; top: 0px ">\
-									<div style="font-size:'+uiGameFontSize+'px; position:absolute; top:'+uiGameBuyButtonHeight/3.8+'px; left:'+uiGameBuyButtonWidth/3+'px">BUY</div>\
+									<div style="font-size:'+uiGameFontSize+'px; position:absolute; top:'+uiGameBuyButtonHeight/3.8+'px; left:'+uiGameBuyButtonWidth/2.3+'px">BUY</div>\
 								</img>\ \
 						</button>\
 						</div>\
@@ -618,7 +618,7 @@
 							<div style = \"text-align: center; color: #ffffff; background-color: Trnsparent; position: absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight + 'px; left: ' + uiGameMegaBonusPanelLeft + 'px; top: ' + uiGameMegaBonusPanelTop + 'px \">'+megaBonusTitle+' <br> '+ megaBonusInfoText +'</div>\
 							<button onclick = \"collectBonus()\" style = \"background-color: Transparent; border: none; cursor:pointer;  position: absolute; position: absolute; width: ' + uiGameMegaBonusButtonWidth + 'px; height: ' + uiGameMegaBonusButtonHeight + 'px; left: ' + uiGameMegaBonusButtonLeft + 'px; top: ' + uiGameMegaBonusButtonTop + 'px \">\
 								<img src = "imgs/button.png" style="position:absolute; width:' +  uiGameMegaBonusButtonWidth + 'px; height: ' + uiGameMegaBonusButtonHeight + 'px; left: 0px; top: 0px ">\
-									<div style="font-size:'+(uiGameFontSize*0.7)+'px; position:absolute; top:'+uiGameOptionsButtonHeight/5+'px; left:'+uiGameOptionsButtonWidth/3.3+'px">'+bonusButtonText+'</div>\
+									<div style="font-size:'+(uiGameFontSize*0.7)+'px; position:absolute; top:'+uiGameOptionsButtonHeight/10+'px; left:'+uiGameOptionsButtonWidth+'px">'+bonusButtonText+'</div>\
 								</img>\ \
 							</button>\
 							<div style = \"text-align: center; color: #ffffff; background-color: Transparent; position: absolute; width: ' + uiGameMegaBonusCountWidth + 'px; height: ' + uiGameMegaBonusCountHeight + 'px; left: ' + uiGameMegaBonusCountLeft + 'px; top: ' + uiGameMegaBonusCountTop + 'px \">'+bonusesCollected + ' / ' + totalBonuses+'</div>\
