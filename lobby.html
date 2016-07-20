@@ -203,7 +203,7 @@
 				for (var i = 0; i < uiGameFeaturedIconsCount; i++)
 				{
 					uiGameFeaturedThemesIconsLeftArray[i] = uiGameFeaturedThemesTableLeft + i*(uiGameFeaturedThemeIconWidth + uiGameThemesIconsInterval*uiGameThemesPanelHeight);
-					uiGameFeaturedThemesIconsTopArray[i] = uiGameFeaturedThemesTableTop + uiGameThemeIconWidth*0.18;
+					uiGameFeaturedThemesIconsTopArray[i] = uiGameFeaturedThemesTableTop + uiGameThemeIconWidth*0.5;
 				
 					themesHtmlString += '<button onclick=\"window.location.href=\'themes.html\'\" style = \"border:none; background-color:Transparent; cursor:pointer; position: absolute; font-size:'+uiGameFontSize+'px; position: absolute; left: '+uiGameFeaturedThemesIconsLeftArray[i]+'px; top: '+uiGameFeaturedThemesIconsTopArray[i]+'px; width: '+uiGameFeaturedThemeIconWidth+'px; height: '+uiGameFeaturedThemeIconHeight+'px; \">Featured'+(i+1);
 					themesHtmlString += '<img src = "imgs/button.png" style="position:absolute; width:' +  uiGameFeaturedThemeIconWidth + 'px; height: ' + uiGameFeaturedThemeIconHeight + 'px; left: 0px; top: 0px ">';	
@@ -217,9 +217,9 @@
 				{
 					uiGameThemesIconsLeftArray[i] = uiGameThemesTableLeft + (Math.floor(i%uiGameIconsColsReal))*(uiGameThemeIconWidth + uiGameThemesIconsInterval*uiGameThemesPanelHeight);
 					if (i > uiGameIconsCheck)
-						uiGameThemesIconsTopArray[i] = uiGameThemesTableTop + (uiGameThemeIconHeight + uiGameThemesIconsInterval*uiGameThemesPanelHeight) + uiGameThemeIconWidth*0.18;
+						uiGameThemesIconsTopArray[i] = uiGameThemesTableTop + (uiGameThemeIconHeight + uiGameThemesIconsInterval*uiGameThemesPanelHeight) + uiGameThemeIconWidth*0.5;
 					else
-						uiGameThemesIconsTopArray[i] = uiGameThemesTableTop + uiGameThemeIconWidth*0.18;
+						uiGameThemesIconsTopArray[i] = uiGameThemesTableTop + uiGameThemeIconWidth*0.5;
 					
 					themesHtmlString += '<button onclick=\"window.location.href=\'themes.html\'\" style = \"border:none; background-color:Transparent; cursor:pointer; position: absolute; font-size:'+uiGameFontSize+'px; position: absolute; left: '+uiGameThemesIconsLeftArray[i]+'px; top: '+uiGameThemesIconsTopArray[i]+'px; width: '+uiGameThemeIconWidth+'px; height: '+uiGameThemeIconHeight+'px; \">Theme'+(startId+i+1);
 					themesHtmlString += '<img src = "imgs/theme.png" style="position:absolute; width:' +  uiGameThemeIconWidth + 'px; height: ' + uiGameThemeIconHeight + 'px; left: 0px; top: 0px "></img>';	
