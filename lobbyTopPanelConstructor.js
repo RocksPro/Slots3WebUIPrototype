@@ -32,8 +32,8 @@ function ConstructTopPanel()
 	uiGameTopPanelWidth = uiGameWidth;
 	uiGameTopPanelHeight = uiGameHeight * uiGameTopPanelHeightScale;
 
-	const uiGameSlotsClubButtonWidthScale = 0.08;
-	const uiGameSlotsClubButtonHeightScale = 0.88;
+	const uiGameSlotsClubButtonWidthScale = 0.12;
+	const uiGameSlotsClubButtonHeightScale = 0.95;
 	const uiGameSlotsClubButtonLeftScale = 0;
 	const uiGameSlotsClubButtonTopScale = 0;
 	uiGameSlotsClubButtonWidth = uiGameTopPanelWidth * uiGameSlotsClubButtonWidthScale;
@@ -68,9 +68,9 @@ function ConstructTopPanel()
 	uiGameExperiencePanelLeft = uiGameTopPanelWidth * uiGameExperiencePanelLeftScale;
 	uiGameExperiencePanelTop = uiGameTopPanelHeight * uiGameExperiencePanelTopScale;
 
-	const uiGameOptionsButtonWidthScale = 0.08;
-	const uiGameOptionsButtonHeightScale = 0.88;
-	const uiGameOptionsButtonLeftScale = 0.92;
+	const uiGameOptionsButtonWidthScale = 0.12;
+	const uiGameOptionsButtonHeightScale = 0.95;
+	const uiGameOptionsButtonLeftScale = 0.88;
 	const uiGameOptionsButtonTopScale = 0;
 	uiGameOptionsButtonWidth = uiGameTopPanelWidth * uiGameOptionsButtonWidthScale;
 	uiGameOptionsButtonHeight = uiGameTopPanelHeight * uiGameOptionsButtonHeightScale;
