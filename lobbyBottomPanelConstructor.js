@@ -111,10 +111,10 @@ function ConstructBittomPanel()
 	uiGameMegaBonusIndicateLeft = uiGameWidth * uiGameMegaBonusIndicateLeftScale;
 	uiGameMegaBonusIndicateTop = uiGameHeight * uiGameMegaBonusIndicateTopScale;
 	
-	const uiGameMegaBonusLabelLeftScale = 0.412;
-	const uiGameMegaBonusLabelTopScale = 0.92;
-	uiGameMegaBonusLabelLeft = uiGameWidth * uiGameMegaBonusLabelLeftScale;
-	uiGameMegaBonusLabelTop = uiGameHeight * uiGameMegaBonusLabelTopScale;
+	const uiGameMegaBonusLabelLeftScale = 0.28;
+	const uiGameMegaBonusLabelTopScale = 0.55;
+	uiGameMegaBonusLabelLeft = uiGameMegaBonusPanelWidth * uiGameMegaBonusLabelLeftScale;
+	uiGameMegaBonusLabelTop = uiGameMegaBonusPanelHeight * uiGameMegaBonusLabelTopScale;
 	
 	var bottomPanelHTML = '<div id = "bottomPanel">\
 								<button id = "inboxButton"; onclick = \"showInboxPopup()\" style = \"font-size:'+uiGameFontSize+'px; color: #ffffff; border:none; background-color:Transparent; cursor:pointer; position: absolute; width: ' + uiGameInboxButtonWidth + 'px; height: ' + uiGameInboxButtonHeight + 'px; left: ' + uiGameInboxButtonLeft + 'px; top: ' + uiGameInboxButtonTop + 'px \">\
@@ -139,9 +139,9 @@ function ConstructBittomPanel()
 								</button>\
 								<button id = "bonusCollectButton"; onclick = \"collectBonus()\" style = \"background-color: Transparent; border: none; cursor:pointer;  position: absolute; position: absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight + 'px; left: ' + uiGameMegaBonusPanelLeft + 'px; top: ' + uiGameMegaBonusPanelTop + 'px">\
 									<img id = "bonusCollectButtonTexture"; src = "imgs/bonus_plate.png" style="position:absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight*1.2 + 'px; left: 0px; top: 0px"></img>\
+									<div id = "bonusCollectInfoLabel"; style = \"font-family:AeroMaticsBold; font-size:'+uiGameFontSize*1.5+'px; text-align: center; color: #ffffff; background-color: Trnsparent; position: absolute; left: ' + uiGameMegaBonusLabelLeft + 'px; top: ' + uiGameMegaBonusLabelTop + 'px;\">'+ megaBonusInfoText + ' ' + bonusButtonText + '</div>\
 								</button>\
 								<img id = "bonusIndicatorTexture"; src = "imgs/indicate.png" style="position:absolute; width: ' + uiGameMegaBonusIndicateWidth + 'px; height: ' + uiGameMegaBonusIndicateHeight + 'px; left: '+uiGameMegaBonusIndicateLeft+'px; top: '+uiGameMegaBonusIndicateTop+'px"></img>\
-								<div id = "bonusCollectInfoLabel"; style = \"font-family:AeroMaticsBold; font-size:'+uiGameFontSize*1.5+'px; text-align: center; color: #ffffff; background-color: Trnsparent; position: absolute; left: ' + uiGameMegaBonusLabelLeft + 'px; top: ' + uiGameMegaBonusLabelTop + 'px;\">'+ megaBonusInfoText + ' ' + bonusButtonText + '</div>\
 							</div>';
 	return bottomPanelHTML;
 }
