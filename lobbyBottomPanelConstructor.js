@@ -19,6 +19,13 @@ var uiGameGiftsButtonTop;
 var uiGameGiftsButtonLabelLocalLeft;
 var uiGameGiftsButtonLabelLocalTop;
 
+var uiGameBuyButtonWidth;
+var uiGameBuyButtonHeight;
+var uiGameBuyButtonLeft;
+var uiGameBuyButtonTop;
+var uiGameBuyButtonLabelLocalLeft;
+var uiGameBuyButtonLabelLocalTop;
+
 var uiGameMegaBonusPanelWidth;
 var uiGameMegaBonusPanelHeight;
 var uiGameMegaBonusPanelLeft;
@@ -59,6 +66,19 @@ function ConstructBittomPanel()
 	uiGameGiftsButtonTop = uiGameHeight * uiGameGiftsButtonTopScale;
 	uiGameGiftsButtonLabelLocalLeft = uiGameGiftsButtonWidth * uiGameGiftsButtonLabelLocalLeftScale;
 	uiGameGiftsButtonLabelLocalTop = uiGameGiftsButtonHeight * uiGameGiftsButtonLabelLocalTopScale;
+	
+	const uiGameBuyButtonWidthScale = 0.2;
+	const uiGameBuyButtonHeightScale = 0.1285;
+	const uiGameBuyButtonLeftScale = 0.655;
+	const uiGameBuyButtonTopScale = 0.8705;
+	const uiGameBuyButtonLabelLocalLeftScale = 0.5;
+	const uiGameBuyButtonLabelLocalTopScale = 0.5;
+	uiGameBuyButtonWidth = uiGameWidth * uiGameBuyButtonWidthScale;
+	uiGameBuyButtonHeight = uiGameHeight * uiGameBuyButtonHeightScale;
+	uiGameBuyButtonLeft = uiGameWidth * uiGameBuyButtonLeftScale;
+	uiGameBuyButtonTop = uiGameHeight * uiGameBuyButtonTopScale;
+	uiGameBuyButtonLabelLocalLeft = uiGameBuyButtonWidth * uiGameBuyButtonLabelLocalLeftScale;
+	uiGameBuyButtonLabelLocalTop = uiGameBuyButtonHeight * uiGameBuyButtonLabelLocalTopScale;
 
 	const uiGameFriendsButtonWidthScale = 0.2;
 	const uiGameFriendsButtonHeightScale = 0.15;
@@ -105,6 +125,11 @@ function ConstructBittomPanel()
 								<button id = "giftsButton"; onclick = \"showInboxPopup()\" style = \"font-size:'+uiGameFontSize+'px; color: #ffffff; border:none; background-color:Transparent; cursor:pointer; position: absolute; width: ' + uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: ' + uiGameGiftsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \">\
 									<img id = "GiftsButtonTexture"; src = "imgs/button_gifts.png" style="position:absolute; width:' +  uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: 0px; top: 0px ">\
 										<div style="font-size:'+uiGameFontSize+'px; position:absolute; left:'+uiGameGiftsButtonLabelLocalLeft+'px; top:'+uiGameGiftsButtonLabelLocalTop+'px">Gifts '+giftscount+' </div>\
+									</img>\ \
+								</button>\
+								<button id = "buyButton"; onclick = \"showInboxPopup()\" style = \"font-size:'+uiGameFontSize+'px; color: #ffffff; border:none; background-color:Transparent; cursor:pointer; position: absolute; width: ' + uiGameBuyButtonWidth + 'px; height: ' + uiGameBuyButtonHeight + 'px; left: ' + uiGameBuyButtonLeft + 'px; top: ' + uiGameBuyButtonTop + 'px \">\
+									<img id = "BuyButtonTexture"; src = "imgs/button_buy.png" style="position:absolute; width:' +  uiGameBuyButtonWidth + 'px; height: ' + uiGameBuyButtonHeight + 'px; left: 0px; top: 0px ">\
+										<div style="font-size:'+uiGameFontSize+'px; position:absolute; left:'+uiGameBuyButtonLabelLocalLeft+'px; top:'+uiGameBuyButtonLabelLocalTop+'px">Buy</div>\
 									</img>\ \
 								</button>\
 								<button id = "friendsButton"; onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; color: #ffffff; border:none; background-color:Transparent; cursor:pointer;  position: absolute; width: ' + uiGameFriendsButtonWidth + 'px; height: ' + uiGameFriendsButtonHeight + 'px; left: ' + uiGameFriendsButtonLeft + 'px; top: ' + uiGameFriendsButtonTop + 'px \"> \
