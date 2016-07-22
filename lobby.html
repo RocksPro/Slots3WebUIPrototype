@@ -102,9 +102,9 @@
 				var uiGameTopPanelWidth = uiGameWidth;
 				var uiGameTopPanelHeight = uiGameHeight * uiGameTopPanelHeightScale;
 				
-				const uiGameSlotsClubButtonWidthScale = 0.8;
+				const uiGameSlotsClubButtonWidthScale = 1.3;
 				var uiGameSlotsClubButtonWidth = uiGameTopPanelHeight * uiGameSlotsClubButtonWidthScale;
-				var uiGameSlotsClubButtonHeight = uiGameSlotsClubButtonWidth;
+				var uiGameSlotsClubButtonHeight = uiGameSlotsClubButtonWidth*0.58;
 				var uiGameSlotsClubButtonLeft = 0;
 				var uiGameSlotsClubButtonTop = (uiGameTopPanelHeight - uiGameSlotsClubButtonHeight)/2;
 				
@@ -115,12 +115,12 @@
 				var uiGameSlotsMoneyPanelLeft = uiGameSlotsClubButtonLeft + uiGameSlotsClubButtonWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale;
 				var uiGameSlotsMoneyPanelTop = (uiGameTopPanelHeight - uiGameSlotsMoneyPanelHeight)/2;
 				
-				const uiGameBuyButtonWidthScale = 0.3;
+				const uiGameBuyButtonWidthScale = 0.28;
 				const uiGameBuyButtonHeightScale = 0.9;
 				const uiGameBuyButtonRightDist = 0.178;
 				var uiGameBuyButtonWidth = uiGameTopPanelWidth * uiGameBuyButtonWidthScale;
 				var uiGameBuyButtonHeight = uiGameTopPanelHeight * uiGameBuyButtonHeightScale;
-				var uiGameBuyButtonLeft = uiGameSlotsMoneyPanelLeft + uiGameSlotsMoneyPanelWidth*0.3 + uiGameTopPanelWidth*uiGameTopPanelIntervalScale + uiGameTopPanelWidth*uiGameBuyButtonRightDist;
+				var uiGameBuyButtonLeft = uiGameSlotsMoneyPanelLeft + uiGameSlotsMoneyPanelWidth*0.23 + uiGameTopPanelWidth*uiGameTopPanelIntervalScale + uiGameTopPanelWidth*uiGameBuyButtonRightDist;
 				var uiGameBuyButtonTop = -uiGameTopPanelHeight;
 				
 				const uiGameExperiencePanelWidthScale = 0.2;
@@ -566,7 +566,7 @@
 						<img src = "imgs/back.png" style="position:absolute; width:' + uiGameThemesPanelWidth + 'px; height: ' + uiGameHeight + 'px; left: ' + uiGameThemesPanelLeft + 'px; "></img>\
 							<img src = "imgs/panel.png" style="position:absolute; width:' + uiGameTopPanelWidth + 'px; height: ' + uiGameTopPanelHeight + 'px"></img>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; border:none; background-color:Transparent; cursor:pointer; position: absolute; width: ' + uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: ' + uiGameSlotsClubButtonLeft + 'px; top: ' + uiGameSlotsClubButtonTop + 'px \">\
-								<img src = "imgs/SCbutton.png" style="position:absolute; width:' +  uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: 0px; top: 0px ">\
+								<img src = "imgs/button_club.png" style="position:absolute; width:' +  uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: 0px; top: 0px ">\
 								</img>\ \
 							</button>\
 							<img src = "imgs/cashpanel.png" style="position:absolute; width:' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px "></img>\
