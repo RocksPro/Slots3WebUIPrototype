@@ -28,8 +28,7 @@ var uiGameOptionsButtonTop;
 
 function ConstructTopPanel()
 {
-	const uiGameTopPanelIntervalScale = 0.01;
-	const uiGameTopPanelHeightScale = 0.1;
+	const uiGameTopPanelHeightScale = 0.12;
 	uiGameTopPanelWidth = uiGameWidth;
 	uiGameTopPanelHeight = uiGameHeight * uiGameTopPanelHeightScale;
 
