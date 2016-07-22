@@ -1,6 +1,12 @@
 <!DOCTYPE HTML>
 <html>
 	<head>	
+		<style>
+			@font-face {
+				font-family: 'AeroMaticsBold';
+				src: url('imgs/AeroMaticsBold.ttf');
+			}
+		</style>
 		<script>
 			var cash = 1000;
 			var targetCash = 1000;
@@ -570,7 +576,7 @@
 								</img>\ \
 							</button>\
 							<img src = "imgs/roundedrect_1.png" style="position:absolute; width:' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px "></img>\
-							<div style = \"text-align: center; background-color: Transparent; color: #ffffff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop*0.9 + 'px \"><div id = \"cash\">'+(Math.ceil(cash))+' $</div></div>\
+							<div style = \"text-align: center; font-size:'+uiGameFontSize*1.7+'px; font-family:AeroMaticsBold; background-color: Transparent; color: #ffffff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop*0.9 + 'px \"><div id = \"cash\">'+(Math.ceil(cash))+' $</div></div>\
 							<img src = "imgs/bottomPanel.png" style="position:absolute; width: ' + uiGameExperiencePanelWidth*1.14 + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + (uiGameExperiencePanelLeft+uiGameExperiencePanelWidth*0.25) + 'px; top: ' + uiGameExperiencePanelTop + 'px"></img>\
 							<div style = \"text-align: center; color: #ffffff; background-color: Transparent; position: absolute; width: ' + uiGameExperiencePanelWidth*1.14 + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + (uiGameExperiencePanelLeft+uiGameExperiencePanelWidth*0.25) + 'px; top: ' + uiGameExperiencePanelTop + 'px \">'+exp+'/1000</div>\
 							<div style = \"text-align: center; background-color: #99ff99; position: absolute; width: ' + uiGameExpProgressWidth*1.14 + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + (uiGameExperiencePanelLeft+uiGameExperiencePanelWidth*0.25) + 'px; top: ' + uiGameExperiencePanelTop + 'px \"></div>\
