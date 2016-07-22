@@ -105,7 +105,7 @@ function ConstructBittomPanel()
 	const uiGameMegaBonusIndicateWidthScale = 0.27;
 	const uiGameMegaBonusIndicateHeightScale = 0.04;
 	const uiGameMegaBonusIndicateLeftScale = 0.365;
-	const uiGameMegaBonusIndicateTopScale = 0.848;
+	const uiGameMegaBonusIndicateTopScale = 0.86;
 	uiGameMegaBonusIndicateWidth = uiGameWidth * uiGameMegaBonusIndicateWidthScale;
 	uiGameMegaBonusIndicateHeight = uiGameHeight * uiGameMegaBonusIndicateHeightScale;
 	uiGameMegaBonusIndicateLeft = uiGameWidth * uiGameMegaBonusIndicateLeftScale;
