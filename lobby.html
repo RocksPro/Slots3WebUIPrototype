@@ -561,8 +561,9 @@
 				
 				document.getElementById("body").innerHTML =  
 				'	\
-					<div style = \"font-size:'+uiGameFontSize+'px; border-color: #f5deb3; border-width: '+bordersWidth+'px; border-style: solid; position:absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; background-color: #b3daff; width:'+uiGameWidth+'px; height: '+uiGameHeight+'px\"> \
-						<div style = \" background-color: #e6f3ff; width:' + uiGameTopPanelWidth + 'px; height: ' + uiGameTopPanelHeight + 'px \">  \
+					<div style = \"font-size:'+uiGameFontSize+'px; border-color: #f5deb3; border-width: '+bordersWidth+'px; border-style: solid; position:absolute; left: '+uiGameLeft+'px; top: '+uiGameTop+'px; background-color: Transparent; width:'+uiGameWidth+'px; height: '+uiGameHeight+'px\"> \
+						<div style = \" background-color: Transparent; width:' + uiGameTopPanelWidth + 'px; height: ' + uiGameTopPanelHeight + 'px \">  \
+						<img src = "imgs/back.png" style="position:absolute; width:' + uiGameThemesPanelWidth + 'px; height: ' + uiGameHeight + 'px; left: ' + uiGameThemesPanelLeft + 'px; "></img>\
 							<img src = "imgs/panel.png" style="position:absolute; width:' + uiGameTopPanelWidth + 'px; height: ' + uiGameTopPanelHeight + 'px"></img>\
 							<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; border:none; background-color:Transparent; cursor:pointer; position: absolute; width: ' + uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: ' + uiGameSlotsClubButtonLeft + 'px; top: ' + uiGameSlotsClubButtonTop + 'px \">\
 								<img src = "imgs/SCbutton.png" style="position:absolute; width:' +  uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: 0px; top: 0px ">\
@@ -583,8 +584,7 @@
 								</img>\ \
 							</button>\
 						</div>  \
-						<div id = "themespage" style = \"text-align: center; background-color: #e6ffff; position: absolute; width: ' + uiGameThemesPanelWidth + 'px; height: ' + uiGameThemesPanelHeight + 'px; left: ' + uiGameThemesPanelLeft + 'px; top: ' + uiGameThemesPanelTop + 'px \">\
-						<img src = "imgs/back.png" style="position:absolute; width:' + uiGameThemesPanelWidth + 'px; height: ' + uiGameThemesPanelHeight + 'px; left: ' + uiGameThemesPanelLeft + 'px; "></img>\
+						<div id = "themespage" style = \"text-align: center; background-color: Transparent; position: absolute; width: ' + uiGameThemesPanelWidth + 'px; height: ' + uiGameThemesPanelHeight + 'px; left: ' + uiGameThemesPanelLeft + 'px; top: ' + uiGameThemesPanelTop + 'px \">\
 						'+themesHtmlString+'\
 						<button onclick = \"goLeft()\" style = \"font-size:'+uiGameFontSize+'px; background-color: Transparent; border:none; position: absolute; width: ' + uiGameLeftButtonWidth + 'px; height: ' + uiGameLeftButtonHeight + 'px; left: ' + uiGameLeftButtonLeft + 'px; top: ' + uiGameLeftButtonTop + 'px \">\
 							<img src = "imgs/button.png" style="position:absolute; width:' +  uiGameLeftButtonWidth + 'px; height: ' + uiGameLeftButtonHeight + 'px; left: 0px; top: 0px ">\
@@ -602,7 +602,7 @@
 								</img>\ \
 						</button>\
 						</div>\
-						<div id = "themespage" style = \"text-align: center; background-color: #e6f3ff; position: absolute; width: ' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px; top: ' + uiGameBottomPanelTop + 'px \">   \
+						<div id = "themespage" style = \"text-align: center; background-color: Transparent; position: absolute; width: ' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px; top: ' + uiGameBottomPanelTop + 'px \">   \
 							<img src = "imgs/bottomPanel.png" style="position:absolute; width:' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px;"></img>\
 							<button onclick = \"showInboxPopup()\" style = \"font-size:'+uiGameFontSize+'px; color: #ffffff; border:none; background-color:Transparent; cursor:pointer; position: absolute; width: ' + uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: ' + uiGameGiftsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \">\
 								<img src = "imgs/button2.png" style="position:absolute; width:' +  uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: 0px; top: 0px ">\
