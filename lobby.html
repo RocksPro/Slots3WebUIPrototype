@@ -108,11 +108,11 @@
 				var uiGameSlotsClubButtonLeft = 0;
 				var uiGameSlotsClubButtonTop = (uiGameTopPanelHeight - uiGameSlotsClubButtonHeight)/2;
 				
-				const uiGameSlotsMoneyPanelWidthScale = 0.35;
-				const uiGameSlotsMoneyPanelHeightScale = 0.8;
+				const uiGameSlotsMoneyPanelWidthScale = 0.24;
+				const uiGameSlotsMoneyPanelHeightScale = 0.58;
 				var uiGameSlotsMoneyPanelWidth = uiGameTopPanelWidth * uiGameSlotsMoneyPanelWidthScale;
 				var uiGameSlotsMoneyPanelHeight = uiGameTopPanelHeight * uiGameSlotsMoneyPanelHeightScale;
-				var uiGameSlotsMoneyPanelLeft = uiGameSlotsClubButtonLeft + uiGameSlotsClubButtonWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale;
+				var uiGameSlotsMoneyPanelLeft = uiGameSlotsClubButtonLeft*0.9 + uiGameSlotsClubButtonWidth + uiGameTopPanelWidth*uiGameTopPanelIntervalScale;
 				var uiGameSlotsMoneyPanelTop = (uiGameTopPanelHeight - uiGameSlotsMoneyPanelHeight)/2;
 				
 				const uiGameBuyButtonWidthScale = 0.28;
@@ -120,7 +120,7 @@
 				const uiGameBuyButtonRightDist = 0.178;
 				var uiGameBuyButtonWidth = uiGameTopPanelWidth * uiGameBuyButtonWidthScale;
 				var uiGameBuyButtonHeight = uiGameTopPanelHeight * uiGameBuyButtonHeightScale;
-				var uiGameBuyButtonLeft = uiGameSlotsMoneyPanelLeft + uiGameSlotsMoneyPanelWidth*0.23 + uiGameTopPanelWidth*uiGameTopPanelIntervalScale + uiGameTopPanelWidth*uiGameBuyButtonRightDist;
+				var uiGameBuyButtonLeft = uiGameSlotsMoneyPanelLeft + uiGameSlotsMoneyPanelWidth*0.33 + uiGameTopPanelWidth*uiGameTopPanelIntervalScale + uiGameTopPanelWidth*uiGameBuyButtonRightDist;
 				var uiGameBuyButtonTop = -uiGameTopPanelHeight;
 				
 				const uiGameExperiencePanelWidthScale = 0.2;
@@ -569,8 +569,8 @@
 								<img src = "imgs/button_club.png" style="position:absolute; width:' +  uiGameSlotsClubButtonWidth + 'px; height: ' + uiGameSlotsClubButtonHeight + 'px; left: 0px; top: 0px ">\
 								</img>\ \
 							</button>\
-							<img src = "imgs/cashpanel.png" style="position:absolute; width:' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px "></img>\
-							<div style = \"text-align: center; background-color: Transparent; color: #ffffff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop*3 + 'px \"><div id = \"cash\">'+(Math.ceil(cash))+' $</div></div>\
+							<img src = "imgs/roundedrect_1.png" style="position:absolute; width:' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop + 'px "></img>\
+							<div style = \"text-align: center; background-color: Transparent; color: #ffffff; position: absolute; width: ' + uiGameSlotsMoneyPanelWidth + 'px; height: ' + uiGameSlotsMoneyPanelHeight + 'px; left: ' + uiGameSlotsMoneyPanelLeft + 'px; top: ' + uiGameSlotsMoneyPanelTop*0.9 + 'px \"><div id = \"cash\">'+(Math.ceil(cash))+' $</div></div>\
 							<img src = "imgs/bottomPanel.png" style="position:absolute; width: ' + uiGameExperiencePanelWidth*1.14 + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + (uiGameExperiencePanelLeft+uiGameExperiencePanelWidth*0.25) + 'px; top: ' + uiGameExperiencePanelTop + 'px"></img>\
 							<div style = \"text-align: center; color: #ffffff; background-color: Transparent; position: absolute; width: ' + uiGameExperiencePanelWidth*1.14 + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + (uiGameExperiencePanelLeft+uiGameExperiencePanelWidth*0.25) + 'px; top: ' + uiGameExperiencePanelTop + 'px \">'+exp+'/1000</div>\
 							<div style = \"text-align: center; background-color: #99ff99; position: absolute; width: ' + uiGameExpProgressWidth*1.14 + 'px; height: ' + uiGameExperiencePanelHeight + 'px; left: ' + (uiGameExperiencePanelLeft+uiGameExperiencePanelWidth*0.25) + 'px; top: ' + uiGameExperiencePanelTop + 'px \"></div>\
