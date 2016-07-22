@@ -1,16 +1,10 @@
-const uiGameBottomPanelHeightScale = 0.18;
-var uiGameBottomPanelWidth;
-var uiGameBottomPanelHeight;
-var uiGameBottomPanelLeft;
-var uiGameBottomPanelTop;
+var uiGameInboxButtonWidth;
+var uiGameInboxButtonHeight;
+var uiGameInboxButtonLeft;
+var uiGameInboxButtonTop;
+var uiGameInboxButtonLabelLocalLeft;
+var uiGameInboxButtonLabelLocalTop;
 
-const uiGameGiftsButtonWidthScale = 1.8;
-var uiGameGiftsButtonWidth;
-var uiGameGiftsButtonHeight;
-var uiGameGiftsButtonLeft;
-var uiGameGiftsButtonTop;
-
-const uiGameFriendsButtonWidthScale = 1.8;
 var uiGameFriendsButtonWidth;
 var uiGameFriendsButtonHeight;
 var uiGameFriendsButtonLeft;
@@ -34,57 +28,63 @@ var uiGameMegaBonusCountTop;
 
 function ConstructBittomPanel()
 {
-	uiGameBottomPanelWidth = uiGameWidth;
-	uiGameBottomPanelHeight = uiGameTopPanelHeight*1.2;
-	uiGameBottomPanelLeft = 0;
-	uiGameBottomPanelTop = uiGameTopPanelHeight*9;
+	const uiGameInboxButtonWidthScale = 0.2;
+	const uiGameInboxButtonHeightScale = 0.15;
+	const uiGameInboxButtonLeftScale = 0;
+	const uiGameInboxButtonTopScale = 0.85;
+	const uiGameInboxButtonLabelLocalLeftScale = 0.5;
+	const uiGameInboxButtonLabelLocalTopScale = 0.5;
+	uiGameInboxButtonWidth = uiGameWidth * uiGameInboxButtonWidthScale;
+	uiGameInboxButtonHeight = uiGameHeight * uiGameInboxButtonHeightScale;
+	uiGameInboxButtonLeft = uiGameWidth * uiGameInboxButtonLeftScale;
+	uiGameInboxButtonTop = uiGameHeight * uiGameInboxButtonTopScale;
+	uiGameInboxButtonLabelLocalLeft = uiGameInboxButtonWidth * uiGameInboxButtonLabelLocalLeftScale;
+	uiGameInboxButtonLabelLocalTop = uiGameInboxButtonHeight * uiGameInboxButtonLabelLocalTopScale;
 
-	uiGameGiftsButtonWidth = uiGameBottomPanelHeight * uiGameGiftsButtonWidthScale;
-	uiGameGiftsButtonHeight = uiGameGiftsButtonWidth*0.3;
-	uiGameGiftsButtonLeft = 0;
-	uiGameGiftsButtonTop = (uiGameBottomPanelHeight - uiGameGiftsButtonHeight)/2;
+	const uiGameFriendsButtonWidthScale = 0.2;
+	const uiGameFriendsButtonHeightScale = 0.15;
+	const uiGameFriendsButtonLeftScale = 0.8;
+	const uiGameFriendsButtonTopScale = 0.85;
+	const uiGameFriendsButtonLabelLocalLeftScale = 0;
+	const uiGameFriendsButtonLabelLocalTopScale = 0;
+	uiGameFriendsButtonWidth = uiGameWidth * uiGameFriendsButtonWidthScale;
+	uiGameFriendsButtonHeight = uiGameHeight * uiGameFriendsButtonHeightScale;
+	uiGameFriendsButtonLeft = uiGameWidth * uiGameFriendsButtonLeftScale;
+	uiGameFriendsButtonTop = uiGameHeight * uiGameFriendsButtonTopScale;
 
-	uiGameFriendsButtonWidth = uiGameBottomPanelHeight * uiGameFriendsButtonWidthScale;
-	uiGameFriendsButtonHeight = uiGameFriendsButtonWidth*0.3;
-	uiGameFriendsButtonLeft = uiGameBottomPanelWidth - uiGameFriendsButtonWidth;
-	uiGameFriendsButtonTop = (uiGameBottomPanelHeight - uiGameFriendsButtonHeight)/2;
-
-	uiGameMegaBonusPanelWidth = uiGameBottomPanelWidth * uiGameMegaBonusPanelWidthScale;
-	uiGameMegaBonusPanelHeight = uiGameBottomPanelHeight;
-	uiGameMegaBonusPanelLeft = uiGameBottomPanelWidth/2 - uiGameMegaBonusPanelWidth/2;
-	uiGameMegaBonusPanelTop = -uiGameBottomPanelHeight * uiGameMegaBonusPanelWidthScale/30;
+	uiGameMegaBonusPanelWidth = uiGameMegaBonusPanelWidthScale;
+	uiGameMegaBonusPanelHeight = 0;
+	uiGameMegaBonusPanelLeft = uiGameMegaBonusPanelWidth/2;
+	uiGameMegaBonusPanelTop = - uiGameMegaBonusPanelWidthScale/30;
 
 	uiGameMegaBonusButtonWidth = uiGameMegaBonusPanelWidth / 2;
-	uiGameMegaBonusButtonHeight = uiGameBottomPanelHeight / 3;
-	uiGameMegaBonusButtonLeft = uiGameBottomPanelWidth/2 - uiGameMegaBonusButtonWidth/2;
+	uiGameMegaBonusButtonHeight = 3;
+	uiGameMegaBonusButtonLeft = uiGameMegaBonusButtonWidth/2;
 	uiGameMegaBonusButtonTop = uiGameMegaBonusButtonHeight;
 
 	uiGameMegaBonusCountWidth = uiGameMegaBonusPanelWidth / 2;
-	uiGameMegaBonusCountHeight = uiGameBottomPanelHeight / 4;
-	uiGameMegaBonusCountLeft = uiGameBottomPanelWidth/2 - uiGameMegaBonusButtonWidth/2;
+	uiGameMegaBonusCountHeight = 4;
+	uiGameMegaBonusCountLeft = uiGameMegaBonusButtonWidth/2;
 	uiGameMegaBonusCountTop = uiGameMegaBonusButtonHeight*2;	
 	
 	const uiGameInboxFriendsLabelWidthScale = 4;
 	const uiGameInboxFriendsLabelHeightScale = 4;
 	
-	var bottomPanelHTML = '<div style = \"text-align: center; background-color: Transparent; position: absolute; width: ' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px; top: ' + uiGameBottomPanelTop + 'px \">   \
-								<img src = "imgs/bottomPanel.png" style="position:absolute; width:' + uiGameBottomPanelWidth + 'px; height: ' + uiGameBottomPanelHeight + 'px; left: ' + uiGameBottomPanelLeft + 'px;"></img>\
-								<button onclick = \"showInboxPopup()\" style = \"font-size:'+uiGameFontSize+'px; color: #ffffff; border:none; background-color:Transparent; cursor:pointer; position: absolute; width: ' + uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: ' + uiGameGiftsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \">\
-									<img src = "imgs/button2.png" style="position:absolute; width:' +  uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: 0px; top: 0px ">\
-										<div style="font-size:'+uiGameFontSize+'px; position:absolute; top:'+uiGameGiftsButtonHeight/uiGameInboxFriendsLabelHeightScale+'px; left:'+uiGameGiftsButtonWidth/uiGameInboxFriendsLabelWidthScale+'px">Inbox '+giftscount+' </div>\
+	var bottomPanelHTML = '<div id = "bottomPanel">\
+								<button id = "inboxButton"; onclick = \"showInboxPopup()\" style = \"font-size:'+uiGameFontSize+'px; color: #ffffff; border:none; background-color:Transparent; cursor:pointer; position: absolute; width: ' + uiGameInboxButtonWidth + 'px; height: ' + uiGameInboxButtonHeight + 'px; left: ' + uiGameInboxButtonLeft + 'px; top: ' + uiGameInboxButtonTop + 'px \">\
+									<img id = "inboxButtonTexture"; src = "imgs/button_inbox.png" style="position:absolute; width:' +  uiGameInboxButtonWidth + 'px; height: ' + uiGameInboxButtonHeight + 'px; left: 0px; top: 0px ">\
+										<div style="font-size:'+uiGameFontSize+'px; position:absolute; left:'+uiGameInboxButtonLabelLocalLeft+'px; top:'+uiGameInboxButtonLabelLocalTop+'px">Inbox '+giftscount+' </div>\
 									</img>\ \
 								</button>\
-								<button onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; color: #ffffff; border:none; background-color:Transparent; cursor:pointer;  position: absolute; width: ' + uiGameFriendsButtonWidth + 'px; height: ' + uiGameFriendsButtonHeight + 'px; left: ' + uiGameFriendsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \"> \
-									<img src = "imgs/button2.png" style="position:absolute; width:' +  uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: 0px; top: 0px ">\
-										<div style="font-size:'+uiGameFontSize+'px; position:absolute; top:'+uiGameGiftsButtonHeight/uiGameInboxFriendsLabelHeightScale+'px; left:'+uiGameGiftsButtonWidth/uiGameInboxFriendsLabelWidthScale+'px">Friends</div>\
+								<button id = "friendsButton"; onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; color: #ffffff; border:none; background-color:Transparent; cursor:pointer;  position: absolute; width: ' + uiGameFriendsButtonWidth + 'px; height: ' + uiGameFriendsButtonHeight + 'px; left: ' + uiGameFriendsButtonLeft + 'px; top: ' + uiGameFriendsButtonTop + 'px \"> \
+									<img id = "friendsButtonTexture"; src = "imgs/button_friends.png" style="position:absolute; width:' +  uiGameFriendsButtonWidth + 'px; height: ' + uiGameFriendsButtonHeight + 'px; left: 0px; top: 0px ">\
+										<div style="font-size:'+uiGameFontSize+'px; position:absolute; top:'+uiGameInboxButtonHeight/uiGameInboxFriendsLabelHeightScale+'px; left:'+uiGameInboxButtonWidth/uiGameInboxFriendsLabelWidthScale+'px">Friends</div>\
 									</img>\ \
 								</button>\
-								\
-								<button onclick = \"collectBonus()\" style = \"background-color: Transparent; border: none; cursor:pointer;  position: absolute; position: absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight*1.2 + 'px; left: ' + uiGameMegaBonusPanelLeft + 'px; top: ' + uiGameMegaBonusPanelTop*20 + 'px">\
-									<img src = "imgs/b'+bonusesCollected+'.png" style="position:absolute; width: ' + uiGameMegaBonusPanelWidth*0.7 + 'px; height: ' + uiGameMegaBonusPanelHeight*0.5 + 'px; left: '+(uiGameMegaBonusPanelWidth*0.5-uiGameMegaBonusPanelWidth*0.35)+'px; top: '+uiGameMegaBonusPanelHeight*(-0.35)+'px"></img>\
-									<img src = "imgs/cashpanel2.png" style="position:absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight*1.2 + 'px; left: 0px; top: 0px"></img>\
-									<div style = \"font-size:'+uiGameFontSize*0.8+'px; text-align: center; color: #ffffff; background-color: Trnsparent; position: absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight + 'px; left: 0px; top: '+uiGameMegaBonusPanelHeight*0.12+'px \">'+megaBonusTitle+' <br> '+ megaBonusInfoText +'</div>\
-									<div style = \"font-size:'+uiGameFontSize*0.8+'px; text-align: center; color: #ffffff; background-color: Transparent; position: absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight*0.4 + 'px; left: 0px; top: '+uiGameMegaBonusPanelHeight*0.7+'px \">'+ bonusButtonText +'</div>\
+								<button id = "bonusCollectButton"; onclick = \"collectBonus()\" style = \"background-color: Transparent; border: none; cursor:pointer;  position: absolute; position: absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight*1.2 + 'px; left: ' + uiGameMegaBonusPanelLeft + 'px; top: ' + uiGameMegaBonusPanelTop*20 + 'px">\
+									<img id = "bonusIndicatorTexture"; src = "imgs/b1.png" style="position:absolute; width: ' + uiGameMegaBonusPanelWidth*0.7 + 'px; height: ' + uiGameMegaBonusPanelHeight*0.5 + 'px; left: '+(uiGameMegaBonusPanelWidth*0.5-uiGameMegaBonusPanelWidth*0.35)+'px; top: '+uiGameMegaBonusPanelHeight*(-0.35)+'px"></img>\
+									<img id = "bonusCollectButtonTexture"; src = "imgs/bonus_plate.png" style="position:absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight*1.2 + 'px; left: 0px; top: 0px"></img>\
+									<div id = "bonusCollectInfoLabel"; style = \"font-size:'+uiGameFontSize*0.8+'px; text-align: center; color: #ffffff; background-color: Trnsparent; position: absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight + 'px; left: 0px; top: '+uiGameMegaBonusPanelHeight*0.12+'px \">'+ megaBonusInfoText + ' ' + bonusButtonText + '</div>\
 								</button>\
 							</div>';
 	return bottomPanelHTML;

@@ -452,13 +452,13 @@
 				{
 					bonusButtonFontColor = "color:#000000";
 					if (bonusesCollected == 3)
-						megaBonusInfoText = '<strike><small>' + megaBonusMonets + ' $</small></strike>' + "  " + megaBonusMonets*bonusmultiplier + " $";
+						megaBonusInfoText = '<strike><small>' + megaBonusMonets + '</small></strike>' + "  " + megaBonusMonets*bonusmultiplier;
 					else if (bonusesCollected >= totalBonuses-1)
 						megaBonusInfoText = "";
 					else
-						megaBonusInfoText = megaBonusMonets + ' $';
-					if (bonusTimer > 9) bonusButtonText = "In 00:00:"+bonusTimer;
-					else bonusButtonText = "In 00:00:0"+bonusTimer;
+						megaBonusInfoText = '$'+megaBonusMonets;
+					if (bonusTimer > 9) bonusButtonText = "in 00:00:"+bonusTimer;
+					else bonusButtonText = "in 00:00:0"+bonusTimer;
 				}
 				else
 				{
