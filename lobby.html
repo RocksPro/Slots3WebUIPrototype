@@ -98,7 +98,7 @@
 				//Top Panel Elements~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
 				const uiGameTopPanelIntervalScale = 0.01;
-				const uiGameTopPanelHeightScale = 0.07;
+				const uiGameTopPanelHeightScale = 0.1;
 				var uiGameTopPanelWidth = uiGameWidth;
 				var uiGameTopPanelHeight = uiGameHeight * uiGameTopPanelHeightScale;
 				
@@ -195,7 +195,7 @@
 				}
 				
 				var uiGameFeaturedThemesTableLeft = uiGameThemesPanelWidth/2 - (uiGameFeaturedThemeIconWidth*uiGameFeaturedIconsCount + uiGameThemeIconWidth*(uiGameThemesIconsCount/uiGameIconsRows) + (uiGameThemesIconsInterval*uiGameThemesPanelHeight)*(uiGameIconsCols-1))/2;
-				var uiGameFeaturedThemesTableTop = (uiGameThemesPanelTop + uiGameThemesPanelHeight/2) - (uiGameIconsRows*uiGameThemeIconHeight + ((uiGameThemesIconsInterval*uiGameThemesPanelHeight)*(uiGameIconsRows-1))/2) + uiGameTopPanelHeight;
+				var uiGameFeaturedThemesTableTop = (uiGameThemesPanelTop*0.1 + uiGameThemesPanelHeight/2) - (uiGameIconsRows*uiGameThemeIconHeight + ((uiGameThemesIconsInterval*uiGameThemesPanelHeight)*(uiGameIconsRows-1))/2) + uiGameTopPanelHeight;
 				
 				var uiGameThemesTableLeft = uiGameFeaturedThemesTableLeft + (uiGameFeaturedThemeIconWidth*uiGameFeaturedIconsCount + (uiGameThemesIconsInterval*uiGameThemesPanelHeight)*uiGameFeaturedIconsCount);
 				var uiGameThemesTableTop = uiGameFeaturedThemesTableTop;
@@ -241,9 +241,9 @@
 				
 				const uiGameBottomPanelHeightScale = 0.18;
 				var uiGameBottomPanelWidth = uiGameWidth;
-				var uiGameBottomPanelHeight = uiGameTopPanelHeight*1.5;
+				var uiGameBottomPanelHeight = uiGameTopPanelHeight*1.2;
 				var uiGameBottomPanelLeft = 0;
-				var uiGameBottomPanelTop = uiGameTopPanelHeight + uiGameThemesPanelHeight;
+				var uiGameBottomPanelTop = uiGameTopPanelHeight*0.54 + uiGameThemesPanelHeight;
 				
 				const uiGameGiftsButtonWidthScale = 1.8;
 				var uiGameGiftsButtonWidth = uiGameBottomPanelHeight * uiGameGiftsButtonWidthScale;
