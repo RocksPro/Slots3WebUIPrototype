@@ -174,7 +174,7 @@
 					uiGameFeaturedThemesIconsTopArray[i] = uiGameFeaturedThemesTableTop + uiGameThemeIconWidth*0.5;
 				
 					themesHtmlString += '<button onclick=\"window.location.href=\'themes.html\'\" style = \"border:none; background-color:Transparent; cursor:pointer; position: absolute; font-size:'+uiGameFontSize+'px; position: absolute; left: '+uiGameFeaturedThemesIconsLeftArray[i]+'px; top: '+uiGameFeaturedThemesIconsTopArray[i]+'px; width: '+uiGameFeaturedThemeIconWidth+'px; height: '+uiGameFeaturedThemeIconHeight+'px; \">Featured'+(i+1);
-					themesHtmlString += '<img src = "imgs/button.png" style="position:absolute; width:' +  uiGameFeaturedThemeIconWidth + 'px; height: ' + uiGameFeaturedThemeIconHeight + 'px; left: 0px; top: 0px ">';	
+					themesHtmlString += '<img src = "imgs/1x2.png" style="position:absolute; width:' +  uiGameFeaturedThemeIconWidth + 'px; height: ' + uiGameFeaturedThemeIconHeight + 'px; left: 0px; top: 0px ">';	
 					themesHtmlString += '<img src = "imgs/theme.png" style="position:absolute; width:' +  uiGameFeaturedThemeIconWidth + 'px; height: ' + uiGameFeaturedThemeIconHeight/2 + 'px; left: 0px; top: '+uiGameFeaturedThemeIconWidth/2+'px "></img>';
 					themesHtmlString += '</img>';
 					themesHtmlString += '</button>';
@@ -190,6 +190,7 @@
 						uiGameThemesIconsTopArray[i] = uiGameThemesTableTop + uiGameThemeIconWidth*0.5;
 					
 					themesHtmlString += '<button onclick=\"window.location.href=\'themes.html\'\" style = \"border:none; background-color:Transparent; cursor:pointer; position: absolute; font-size:'+uiGameFontSize+'px; position: absolute; left: '+uiGameThemesIconsLeftArray[i]+'px; top: '+uiGameThemesIconsTopArray[i]+'px; width: '+uiGameThemeIconWidth+'px; height: '+uiGameThemeIconHeight+'px; \">Theme'+(startId+i+1);
+					themesHtmlString += '<img src = "imgs/1x1.png" style="position:absolute; width:' +  uiGameThemeIconWidth + 'px; height: ' + uiGameThemeIconHeight + 'px; left: 0px; top: 0px ">';	
 					themesHtmlString += '<img src = "imgs/theme.png" style="position:absolute; width:' +  uiGameThemeIconWidth + 'px; height: ' + uiGameThemeIconHeight + 'px; left: 0px; top: 0px "></img>';	
 					themesHtmlString += '</button>';
 				}
@@ -211,7 +212,7 @@
 					
 				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 				
-				const uiGamePageIconTopIntervalScale = 28;
+				const uiGamePageIconTopIntervalScale = -3;
 				var uiGamePageIconWidth = uiGameLeftButtonWidth/2.7;
 				var uiGamePageIconHeight = uiGamePageIconWidth;
 				var uiGamePageIconTop = uiGameMegaBonusPanelTop+uiGamePageIconHeight*uiGamePageIconTopIntervalScale;
@@ -481,6 +482,7 @@
 				
 				var pageIconsHTML = "";
 				
+				/*
 				for (var i = 0; i < 3; i++)
 				{
 					pageIconsHTML += '<button onclick = \"gotoPage'+i+'n()\" style = \"font-size:'+uiGameFontSize+'px; position: absolute; width: ' + uiGamePageIconWidth + 'px; height: ' + uiGamePageIconHeight + 'px; left: ' + (uiGamePageIconLeftStart + uiGamePageIconLeftInterval*i) + 'px; top: ' + uiGamePageIconTop + 'px \">';
@@ -488,6 +490,7 @@
 						pageIconsHTML += '*';
 					pageIconsHTML += '</button>';
 				}
+				*/
 				
 				const uiGameLeftButtonHeightLabelScale = 2.7;
 				const uiGameLeftButtonWidthLabelScale = 3;
@@ -500,13 +503,13 @@
 						<div id = "themespage" style = \"text-align: center; background-color: Transparent; position: absolute; width: ' + uiGameThemesPanelWidth + 'px; height: ' + uiGameThemesPanelHeight + 'px; left: ' + uiGameThemesPanelLeft + 'px; top: ' + uiGameThemesPanelTop + 'px \">\
 						'+themesHtmlString+'\
 						<button onclick = \"goLeft()\" style = \"font-size:'+uiGameFontSize+'px; background-color: Transparent; border:none; position: absolute; width: ' + uiGameLeftButtonWidth + 'px; height: ' + uiGameLeftButtonHeight + 'px; left: ' + uiGameLeftButtonLeft + 'px; top: ' + uiGameLeftButtonTop + 'px \">\
-							<img src = "imgs/button.png" style="position:absolute; width:' +  uiGameLeftButtonWidth + 'px; height: ' + uiGameLeftButtonHeight + 'px; left: 0px; top: 0px ">\
-								<div style="font-size:'+uiGameFontSize+'px; position:absolute; top:'+uiGameLeftButtonHeight/uiGameLeftButtonHeightLabelScale+'px; left:'+uiGameLeftButtonWidth/uiGameLeftButtonWidthLabelScale+'px"><</div>\
+							<img src = "imgs/left_scroll.png" style="position:absolute; width:' +  uiGameLeftButtonWidth/2 + 'px; height: ' + uiGameLeftButtonHeight + 'px; left: 0px; top: 0px ">\
+								<div style="font-size:'+uiGameFontSize+'px; position:absolute; top:'+uiGameLeftButtonHeight/uiGameLeftButtonHeightLabelScale+'px; left:'+uiGameLeftButtonWidth/uiGameLeftButtonWidthLabelScale+'px"></div>\
 							</img>\ \
 						</button>\
-						<button onclick = \"goRight()\" style = \"font-size:'+uiGameFontSize+'px; background-color: Transparent; border:none; position: absolute; width: ' + uiGameRightButtonWidth + 'px; height: ' + uiGameRightButtonHeight + 'px; left: ' + uiGameRightButtonLeft + 'px; top: ' + uiGameRightButtonTop + 'px \"> \
-							<img src = "imgs/button.png" style="position:absolute; width:' +  uiGameLeftButtonWidth + 'px; height: ' + uiGameLeftButtonHeight + 'px; left: 0px; top: 0px ">\
-								<div style="font-size:'+uiGameFontSize+'px; position:absolute; top:'+uiGameLeftButtonHeight/uiGameLeftButtonHeightLabelScale+'px; left:'+uiGameLeftButtonWidth/uiGameLeftButtonWidthLabelScale+'px">></div>\
+						<button onclick = \"goRight()\" style = \"font-size:'+uiGameFontSize+'px; background-color: Transparent; border:none; position: absolute; width: ' + uiGameRightButtonWidth + 'px; height: ' + uiGameRightButtonHeight + 'px; left: ' + uiGameRightButtonLeft*1.03 + 'px; top: ' + uiGameRightButtonTop + 'px \"> \
+							<img src = "imgs/right_scroll.png" style="position:absolute; width:' +  uiGameLeftButtonWidth/2 + 'px; height: ' + uiGameLeftButtonHeight + 'px; left: 0px; top: 0px ">\
+								<div style="font-size:'+uiGameFontSize+'px; position:absolute; top:'+uiGameLeftButtonHeight/uiGameLeftButtonHeightLabelScale+'px; left:'+uiGameLeftButtonWidth/uiGameLeftButtonWidthLabelScale+'px"></div>\
 							</img>\ \
 						</button>' + pageIconsHTML+'\
 						\
