@@ -644,7 +644,7 @@
 			
 			function collectBonus()
 			{
-				if (bonusTimer == 0)
+				if (bonusTimer <= 0)
 				{
 					if (bonusesCollected == totalBonuses-1)
 					{
@@ -693,7 +693,7 @@
 			
 			function timerFunc() 
 			{
-				if (bonusTimer > 0)
+				if (bonusTimer >= 0)
 				{
 					bonusTimer--;
 					redrawUI();
