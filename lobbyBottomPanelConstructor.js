@@ -17,16 +17,6 @@ var uiGameMegaBonusPanelHeight;
 var uiGameMegaBonusPanelLeft;
 var uiGameMegaBonusPanelTop;
 
-var uiGameMegaBonusButtonWidth;
-var uiGameMegaBonusButtonHeight;
-var uiGameMegaBonusButtonLeft;
-var uiGameMegaBonusButtonTop;
-
-var uiGameMegaBonusCountWidth;
-var uiGameMegaBonusCountHeight;
-var uiGameMegaBonusCountLeft;
-var uiGameMegaBonusCountTop;
-
 function ConstructBittomPanel()
 {
 	const uiGameInboxButtonWidthScale = 0.2;
@@ -63,19 +53,6 @@ function ConstructBittomPanel()
 	uiGameMegaBonusPanelHeight = uiGameHeight * uiGameMegaBonusPanelHeightScale;
 	uiGameMegaBonusPanelLeft = uiGameWidth * uiGameMegaBonusPanelLeftScale;
 	uiGameMegaBonusPanelTop = uiGameHeight * uiGameMegaBonusPanelTopScale;
-
-	uiGameMegaBonusButtonWidth = uiGameMegaBonusPanelWidth / 2;
-	uiGameMegaBonusButtonHeight = 3;
-	uiGameMegaBonusButtonLeft = uiGameMegaBonusButtonWidth/2;
-	uiGameMegaBonusButtonTop = uiGameMegaBonusButtonHeight;
-
-	uiGameMegaBonusCountWidth = uiGameMegaBonusPanelWidth / 2;
-	uiGameMegaBonusCountHeight = 4;
-	uiGameMegaBonusCountLeft = uiGameMegaBonusButtonWidth/2;
-	uiGameMegaBonusCountTop = uiGameMegaBonusButtonHeight*2;	
-	
-	const uiGameInboxFriendsLabelWidthScale = 4;
-	const uiGameInboxFriendsLabelHeightScale = 4;
 	
 	var bottomPanelHTML = '<div id = "bottomPanel">\
 								<button id = "inboxButton"; onclick = \"showInboxPopup()\" style = \"font-size:'+uiGameFontSize+'px; color: #ffffff; border:none; background-color:Transparent; cursor:pointer; position: absolute; width: ' + uiGameInboxButtonWidth + 'px; height: ' + uiGameInboxButtonHeight + 'px; left: ' + uiGameInboxButtonLeft + 'px; top: ' + uiGameInboxButtonTop + 'px \">\
