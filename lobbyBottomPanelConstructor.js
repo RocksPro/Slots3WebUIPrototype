@@ -55,10 +55,10 @@ function ConstructBittomPanel()
 	uiGameFriendsButtonLabelLocalLeft = uiGameFriendsButtonWidth * uiGameFriendsButtonLabelLocalLeftScale;
 	uiGameFriendsButtonLabelLocalTop = uiGameFriendsButtonHeight * uiGameFriendsButtonLabelLocalTopScale;
 
-	const uiGameMegaBonusPanelWidthScale = 0.3;
-	const uiGameMegaBonusPanelHeightScale = 0.12;
-	const uiGameMegaBonusPanelLeftScale = 0.35;
-	const uiGameMegaBonusPanelTopScale = 0.857;
+	const uiGameMegaBonusPanelWidthScale = 0.42;
+	const uiGameMegaBonusPanelHeightScale = 0.14;
+	const uiGameMegaBonusPanelLeftScale = 0.29;
+	const uiGameMegaBonusPanelTopScale = 0.832;
 	uiGameMegaBonusPanelWidth = uiGameWidth * uiGameMegaBonusPanelWidthScale;
 	uiGameMegaBonusPanelHeight = uiGameHeight * uiGameMegaBonusPanelHeightScale;
 	uiGameMegaBonusPanelLeft = uiGameWidth * uiGameMegaBonusPanelLeftScale;
