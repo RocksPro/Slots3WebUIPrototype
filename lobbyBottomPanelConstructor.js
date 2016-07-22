@@ -111,7 +111,7 @@ function ConstructBittomPanel()
 	uiGameMegaBonusIndicateLeft = uiGameWidth * uiGameMegaBonusIndicateLeftScale;
 	uiGameMegaBonusIndicateTop = uiGameHeight * uiGameMegaBonusIndicateTopScale;
 	
-	const uiGameMegaBonusLabelLeftScale = 0.435;
+	const uiGameMegaBonusLabelLeftScale = 0.412;
 	const uiGameMegaBonusLabelTopScale = 0.92;
 	uiGameMegaBonusLabelLeft = uiGameWidth * uiGameMegaBonusLabelLeftScale;
 	uiGameMegaBonusLabelTop = uiGameHeight * uiGameMegaBonusLabelTopScale;
@@ -119,29 +119,29 @@ function ConstructBittomPanel()
 	var bottomPanelHTML = '<div id = "bottomPanel">\
 								<button id = "inboxButton"; onclick = \"showInboxPopup()\" style = \"font-size:'+uiGameFontSize+'px; color: #ffffff; border:none; background-color:Transparent; cursor:pointer; position: absolute; width: ' + uiGameInboxButtonWidth + 'px; height: ' + uiGameInboxButtonHeight + 'px; left: ' + uiGameInboxButtonLeft + 'px; top: ' + uiGameInboxButtonTop + 'px \">\
 									<img id = "inboxButtonTexture"; src = "imgs/button_inbox.png" style="position:absolute; width:' +  uiGameInboxButtonWidth + 'px; height: ' + uiGameInboxButtonHeight + 'px; left: 0px; top: 0px ">\
-										<div style="font-family:AeroMaticsBold; font-size:'+uiGameFontSize+'px; position:absolute; left:'+uiGameInboxButtonLabelLocalLeft+'px; top:'+uiGameInboxButtonLabelLocalTop+'px">Inbox '+giftscount+' </div>\
+										<div style="font-family:AeroMaticsBold; font-size:'+uiGameFontSize+'px; position:absolute; left:'+uiGameInboxButtonLabelLocalLeft+'px; top:'+uiGameInboxButtonLabelLocalTop+'px"></div>\
 									</img>\ \
 								</button>\
 								<button id = "giftsButton"; onclick = \"showInboxPopup()\" style = \"font-size:'+uiGameFontSize+'px; color: #ffffff; border:none; background-color:Transparent; cursor:pointer; position: absolute; width: ' + uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: ' + uiGameGiftsButtonLeft + 'px; top: ' + uiGameGiftsButtonTop + 'px \">\
 									<img id = "GiftsButtonTexture"; src = "imgs/button_gifts.png" style="position:absolute; width:' +  uiGameGiftsButtonWidth + 'px; height: ' + uiGameGiftsButtonHeight + 'px; left: 0px; top: 0px ">\
-										<div style="font-family:AeroMaticsBold; font-size:'+uiGameFontSize+'px; position:absolute; left:'+uiGameGiftsButtonLabelLocalLeft+'px; top:'+uiGameGiftsButtonLabelLocalTop+'px">Gifts '+giftscount+' </div>\
+										<div style="font-family:AeroMaticsBold; font-size:'+uiGameFontSize+'px; position:absolute; left:'+uiGameGiftsButtonLabelLocalLeft+'px; top:'+uiGameGiftsButtonLabelLocalTop+'px"></div>\
 									</img>\ \
 								</button>\
 								<button id = "buyButton"; onclick = \"showInboxPopup()\" style = \"font-size:'+uiGameFontSize+'px; color: #ffffff; border:none; background-color:Transparent; cursor:pointer; position: absolute; width: ' + uiGameBuyButtonWidth + 'px; height: ' + uiGameBuyButtonHeight + 'px; left: ' + uiGameBuyButtonLeft + 'px; top: ' + uiGameBuyButtonTop + 'px \">\
 									<img id = "BuyButtonTexture"; src = "imgs/button_buy.png" style="position:absolute; width:' +  uiGameBuyButtonWidth + 'px; height: ' + uiGameBuyButtonHeight + 'px; left: 0px; top: 0px ">\
-										<div style="font-family:AeroMaticsBold; font-size:'+uiGameFontSize+'px; position:absolute; left:'+uiGameBuyButtonLabelLocalLeft+'px; top:'+uiGameBuyButtonLabelLocalTop+'px">Buy</div>\
+										<div style="font-family:AeroMaticsBold; font-size:'+uiGameFontSize+'px; position:absolute; left:'+uiGameBuyButtonLabelLocalLeft+'px; top:'+uiGameBuyButtonLabelLocalTop+'px"></div>\
 									</img>\ \
 								</button>\
 								<button id = "friendsButton"; onclick = \"showPopup()\" style = \"font-size:'+uiGameFontSize+'px; color: #ffffff; border:none; background-color:Transparent; cursor:pointer;  position: absolute; width: ' + uiGameFriendsButtonWidth + 'px; height: ' + uiGameFriendsButtonHeight + 'px; left: ' + uiGameFriendsButtonLeft + 'px; top: ' + uiGameFriendsButtonTop + 'px \"> \
 									<img id = "friendsButtonTexture"; src = "imgs/button_friends.png" style="position:absolute; width:' +  uiGameFriendsButtonWidth + 'px; height: ' + uiGameFriendsButtonHeight + 'px; left: 0px; top: 0px ">\
-										<div style="font-family:AeroMaticsBold; font-size:'+uiGameFontSize+'px; position:absolute; left:'+uiGameFriendsButtonLabelLocalLeft+'px; top:'+uiGameFriendsButtonLabelLocalTop+'px">Friends</div>\
+										<div style="font-family:AeroMaticsBold; font-size:'+uiGameFontSize+'px; position:absolute; left:'+uiGameFriendsButtonLabelLocalLeft+'px; top:'+uiGameFriendsButtonLabelLocalTop+'px"></div>\
 									</img>\ \
 								</button>\
 								<button id = "bonusCollectButton"; onclick = \"collectBonus()\" style = \"background-color: Transparent; border: none; cursor:pointer;  position: absolute; position: absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight + 'px; left: ' + uiGameMegaBonusPanelLeft + 'px; top: ' + uiGameMegaBonusPanelTop + 'px">\
 									<img id = "bonusCollectButtonTexture"; src = "imgs/bonus_plate.png" style="position:absolute; width: ' + uiGameMegaBonusPanelWidth + 'px; height: ' + uiGameMegaBonusPanelHeight*1.2 + 'px; left: 0px; top: 0px"></img>\
 								</button>\
 								<img id = "bonusIndicatorTexture"; src = "imgs/indicate.png" style="position:absolute; width: ' + uiGameMegaBonusIndicateWidth + 'px; height: ' + uiGameMegaBonusIndicateHeight + 'px; left: '+uiGameMegaBonusIndicateLeft+'px; top: '+uiGameMegaBonusIndicateTop+'px"></img>\
-								<div id = "bonusCollectInfoLabel"; style = \"font-size:'+uiGameFontSize+'px; text-align: center; color: #ffffff; background-color: Trnsparent; position: absolute; left: ' + uiGameMegaBonusLabelLeft + 'px; top: ' + uiGameMegaBonusLabelTop + 'px;\">'+ megaBonusInfoText + ' ' + bonusButtonText + '</div>\
+								<div id = "bonusCollectInfoLabel"; style = \"font-family:AeroMaticsBold; font-size:'+uiGameFontSize*1.5+'px; text-align: center; color: #ffffff; background-color: Trnsparent; position: absolute; left: ' + uiGameMegaBonusLabelLeft + 'px; top: ' + uiGameMegaBonusLabelTop + 'px;\">'+ megaBonusInfoText + ' ' + bonusButtonText + '</div>\
 							</div>';
 	return bottomPanelHTML;
 }
