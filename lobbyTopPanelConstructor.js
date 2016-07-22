@@ -41,9 +41,9 @@ function ConstructTopPanel()
 	uiGameSlotsClubButtonLeft = uiGameTopPanelWidth * uiGameSlotsClubButtonLeftScale;
 	uiGameSlotsClubButtonTop = uiGameTopPanelHeight * uiGameSlotsClubButtonTopScale;
 
-	const uiGameSlotsMoneyPanelWidthScale = 0.24;
-	const uiGameSlotsMoneyPanelHeightScale = 0.58;
-	const uiGameSlotsMoneyPanelLeftScale = 0.11;
+	const uiGameSlotsMoneyPanelWidthScale = 0.23;
+	const uiGameSlotsMoneyPanelHeightScale = 0.52;
+	const uiGameSlotsMoneyPanelLeftScale = 0.12;
 	const uiGameSlotsMoneyPanelTopScale = 0.2;
 	uiGameSlotsMoneyPanelWidth = uiGameTopPanelWidth * uiGameSlotsMoneyPanelWidthScale;
 	uiGameSlotsMoneyPanelHeight = uiGameTopPanelHeight * uiGameSlotsMoneyPanelHeightScale;
@@ -59,9 +59,9 @@ function ConstructTopPanel()
 	uiGameBuyButtonLeft = uiGameTopPanelWidth * uiGameBuyButtonLeftScale;
 	uiGameBuyButtonTop = uiGameTopPanelHeight * uiGameBuyButtonTopScale;
 
-	const uiGameExperiencePanelWidthScale = 0.24;
-	const uiGameExperiencePanelHeightScale = 0.58;
-	const uiGameExperiencePanelLeftScale = 0.65;
+	const uiGameExperiencePanelWidthScale = 0.22;
+	const uiGameExperiencePanelHeightScale = 0.52;
+	const uiGameExperiencePanelLeftScale = 0.66;
 	const uiGameExperiencePanelTopScale = 0.2;
 	uiGameExperiencePanelWidth = uiGameTopPanelWidth * uiGameExperiencePanelWidthScale;
 	uiGameExperiencePanelHeight = uiGameTopPanelHeight * uiGameExperiencePanelHeightScale;
