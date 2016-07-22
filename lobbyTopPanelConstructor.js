@@ -43,7 +43,7 @@ function ConstructTopPanel()
 
 	const uiGameSlotsMoneyPanelWidthScale = 0.24;
 	const uiGameSlotsMoneyPanelHeightScale = 0.58;
-	const uiGameSlotsMoneyPanelLeftScale = 0.08;
+	const uiGameSlotsMoneyPanelLeftScale = 0.11;
 	const uiGameSlotsMoneyPanelTopScale = 0.2;
 	uiGameSlotsMoneyPanelWidth = uiGameTopPanelWidth * uiGameSlotsMoneyPanelWidthScale;
 	uiGameSlotsMoneyPanelHeight = uiGameTopPanelHeight * uiGameSlotsMoneyPanelHeightScale;
@@ -61,7 +61,7 @@ function ConstructTopPanel()
 
 	const uiGameExperiencePanelWidthScale = 0.24;
 	const uiGameExperiencePanelHeightScale = 0.58;
-	const uiGameExperiencePanelLeftScale = 0.68;
+	const uiGameExperiencePanelLeftScale = 0.65;
 	const uiGameExperiencePanelTopScale = 0.2;
 	uiGameExperiencePanelWidth = uiGameTopPanelWidth * uiGameExperiencePanelWidthScale;
 	uiGameExperiencePanelHeight = uiGameTopPanelHeight * uiGameExperiencePanelHeightScale;
